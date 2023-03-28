@@ -16,7 +16,7 @@ struct HomeScreenView: View {
     
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
-        
+        viewModel.apiService.getQuotes()
     }
     
     var body: some View {
