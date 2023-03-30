@@ -17,6 +17,7 @@ struct HomeScreenView: View {
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
         viewModel.apiService.getQuotes()
+        viewModel.requestAuthorization()
     }
     
     var body: some View {
@@ -99,9 +100,6 @@ fileprivate extension HomeScreenView {
         
     }
     
-    
-    
-    
     var quotesContainer: some View {
         VStack(alignment: .center, spacing: 30) {
             
@@ -123,7 +121,7 @@ fileprivate extension HomeScreenView {
     }
     
     private func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 7, repeats: true) { _ in
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
             currentIndex += 1
             if currentIndex >= viewModel.apiService.quotes.count {
                 currentIndex = 0

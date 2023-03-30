@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct MotiQApp: App {
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     var body: some Scene {
         WindowGroup {
             HomeScreenView(viewModel: MotivationalViewModel())
+                .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }

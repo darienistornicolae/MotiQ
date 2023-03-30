@@ -18,7 +18,7 @@
 		014B560129D38BC700B14F40 /* QuotesContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 014B55FF29D38BC700B14F40 /* QuotesContainer.xcdatamodeld */; };
 		014B560329D38BDC00B14F40 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 014B560229D38BDC00B14F40 /* Launch Screen.storyboard */; };
 		014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B560429D38C1000B14F40 /* ColorsExtension.swift */; };
-		014B560729D38E3E00B14F40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 014B560629D38E3E00B14F40 /* Assets.xcassets */; };
+		015E522329D5C2910098DBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015E522229D5C2910098DBB6 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +34,7 @@
 		014B560029D38BC700B14F40 /* QuotesContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuotesContainer.xcdatamodel; sourceTree = "<group>"; };
 		014B560229D38BDC00B14F40 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		014B560429D38C1000B14F40 /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
-		014B560629D38E3E00B14F40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Downloads/AppIcons/Assets.xcassets; sourceTree = "<group>"; };
+		015E522229D5C2910098DBB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 				014B55EF29D38ACE00B14F40 /* ViewModels */,
 				014B55EE29D38ABC00B14F40 /* Views */,
 				014B55E029D38AAF00B14F40 /* MotiQApp.swift */,
-				014B560629D38E3E00B14F40 /* Assets.xcassets */,
+				015E522229D5C2910098DBB6 /* Assets.xcassets */,
 				014B55E629D38AAF00B14F40 /* Preview Content */,
 			);
 			path = MotiQ;
@@ -191,7 +191,7 @@
 			files = (
 				014B560329D38BDC00B14F40 /* Launch Screen.storyboard in Resources */,
 				014B55E829D38AAF00B14F40 /* Preview Assets.xcassets in Resources */,
-				014B560729D38E3E00B14F40 /* Assets.xcassets in Resources */,
+				015E522329D5C2910098DBB6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

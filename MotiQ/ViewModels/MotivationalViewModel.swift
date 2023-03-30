@@ -7,56 +7,37 @@
 
 import Foundation
 import Combine
+import UserNotifications
+
+
 
 class MotivationalViewModel: ObservableObject {
     let apiService = MotivationalAPI(quotes: QuotesModel(q: "", a: ""))
     var cancellables = Set<AnyCancellable>()
-    var quotesList: [QuotesModel] = []
-    var currentIndex: Int = 0
     
-    init() {
-        startTimer()
-    }
-    
-     func refreshTimer() {
-            currentIndex += 1
-            if currentIndex >= apiService.quotes.count {
-               return currentIndex = 0
+    func requestAuthorization() {
+        let options: UNAuthorizationOptions = [.alert, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
+            if let error = error {
+                print("There is an error: \(error)")
+            } else {
+                print("Succesfully set up notifications!")
             }
-        
+        }
     }
     
-     func startTimer() {
-         Timer
-             .publish(every: 1, on: .main, in: .common)
-             .autoconnect()
-             .sink { [weak self] _ in
-                 guard let self = self else {return}
-                 self.currentIndex += 1
-                 
-                 if self.currentIndex >= self.apiService.quotes.count {
-                     return self.currentIndex = 0
-                 }
-             }
-             .store(in: &cancellables)
-//        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
-//            self.currentIndex += 1
-//            if self.currentIndex >= self.apiService.quotes.count {
-//                return self.currentIndex = 0
-//            }
-//        }
+    func scheduleUserNotification(at date: Date) {
+        let content = UNMutableNotificationContent()
+        content.title = "MotiQ"
+        content.subtitle = "Your daily quote is waiting for you"
+        content.sound = .default
+
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
     }
-    
-//    func setupQuotesSubscriber() {
-//
-//        /* TODO: appen the results from the API into an array
-//           TODO: The possibilities to do this can differ. You may need a dictionary/Core Data/UserDefaults
-//         */
-//        apiService.$quotes
-//                .sink { [weak self] quotes in
-//                    guard let self = self else { return }
-//                    self.quotesList.append(contentsOf: quotes)
-//                }
-//                .store(in: &cancellables)
-//    }
+
 }

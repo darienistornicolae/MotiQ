@@ -9,11 +9,59 @@ import SwiftUI
 
 struct SettingsSheet: View {
     @Environment(\.presentationMode) var presentationMode
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    @State var selectedDate: Date = Date()
+    @ObservedObject var viewModel = MotivationalViewModel()
+    
+    var startingDate: Date = Date()
+    var endingDate: Date = Calendar.current.date(from: DateComponents (year: 2026)) ?? Date ()
+    
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter ()
+        formatter.dateStyle = .medium
+        return formatter
+    }
+    //  UIApplication.shared.windows.first?.rootViewController?.view.overrideUserInterfaceStyle = self.isDarkModel ? .dark : .light
     
     var body: some View {
-        Text("Thank you for using our App!")
-            .font(.title)
-            .foregroundColor(.blue)
+        NavigationView {
+            VStack() {
+                Form {
+                    Section(header: Text("Display"), footer: Text("Here you can modify the display mode")) {
+                        Toggle(isOn: $isDarkMode) {
+                            Text("Dark mode")
+                        }
+                    }
+                    Section(header: Text("Quotes"), footer: Text("Modify your saved quotes")) {
+                        
+                    }
+                    
+                    Section(header: Text("Push Notifications"), footer: Text("Here you can modify how often you want to recive a quote through a notification")) {
+                        
+                        DatePicker("Select a date", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date])
+                            .datePickerStyle(CompactDatePickerStyle())
+                            .onChange(of: selectedDate) { date in
+                                viewModel.scheduleUserNotification(at: date)
+                            }
+
+                        DatePicker("Select a hour", selection: $selectedDate, displayedComponents: [.hourAndMinute])
+                            .datePickerStyle(CompactDatePickerStyle())
+                            .onChange(of: selectedDate) { date in
+                                viewModel.scheduleUserNotification(at: date)
+                            }
+
+                        
+                    }
+                    
+                }
+                .navigationBarTitle("MotiQ", displayMode: .inline)
+                Spacer()
+                
+            }
+            
+            
+        }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 
