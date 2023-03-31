@@ -11,7 +11,7 @@ struct SettingsSheet: View {
     @Environment(\.presentationMode) var presentationMode
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State var selectedDate: Date = Date()
-    @ObservedObject var viewModel = MotivationalViewModel()
+    @ObservedObject var viewModel = NotificationCenter()
     
     var startingDate: Date = Date()
     var endingDate: Date = Calendar.current.date(from: DateComponents (year: 2026)) ?? Date ()
@@ -55,7 +55,6 @@ struct SettingsSheet: View {
                     
                 }
                 .navigationBarTitle("MotiQ", displayMode: .inline)
-                Spacer()
                 
             }
             

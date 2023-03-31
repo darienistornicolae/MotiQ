@@ -19,6 +19,9 @@
 		014B560329D38BDC00B14F40 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 014B560229D38BDC00B14F40 /* Launch Screen.storyboard */; };
 		014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B560429D38C1000B14F40 /* ColorsExtension.swift */; };
 		015E522329D5C2910098DBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015E522229D5C2910098DBB6 /* Assets.xcassets */; };
+		015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */; };
+		015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522829D5F9C00098DBB6 /* NotificationCenter.swift */; };
+		015E522B29D5FAC10098DBB6 /* AddUserQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522A29D5FAC10098DBB6 /* AddUserQuoteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,9 @@
 		014B560229D38BDC00B14F40 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		014B560429D38C1000B14F40 /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
 		015E522229D5C2910098DBB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
+		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		015E522A29D5FAC10098DBB6 /* AddUserQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,7 @@
 				014B55F929D38B7A00B14F40 /* SettingsSheet.swift */,
 				014B560229D38BDC00B14F40 /* Launch Screen.storyboard */,
 				014B55F329D38B5700B14F40 /* HomeScreenView.swift */,
+				015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +109,8 @@
 			children = (
 				014B55F629D38B6900B14F40 /* CoreDataViewModel.swift */,
 				014B55F529D38B6900B14F40 /* MotivationalViewModel.swift */,
+				015E522829D5F9C00098DBB6 /* NotificationCenter.swift */,
+				015E522A29D5FAC10098DBB6 /* AddUserQuoteViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -202,12 +211,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */,
 				014B55FA29D38B7A00B14F40 /* SettingsSheet.swift in Sources */,
+				015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */,
 				014B55FC29D38B8800B14F40 /* MotivationalAPI.swift in Sources */,
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
 				014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */,
+				015E522B29D5FAC10098DBB6 /* AddUserQuoteViewModel.swift in Sources */,
 				014B55FE29D38BAA00B14F40 /* QuotesModel.swift in Sources */,
 				014B55E129D38AAF00B14F40 /* MotiQApp.swift in Sources */,
 				014B560129D38BC700B14F40 /* QuotesContainer.xcdatamodeld in Sources */,

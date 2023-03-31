@@ -12,32 +12,75 @@ import UserNotifications
 
 
 class MotivationalViewModel: ObservableObject {
+    // MARK: Properties
     let apiService = MotivationalAPI(quotes: QuotesModel(q: "", a: ""))
     var cancellables = Set<AnyCancellable>()
+    @Published var q: String = ""
+    @Published var a: String = ""
+    @Published var index: Int = 0
     
-    func requestAuthorization() {
-        let options: UNAuthorizationOptions = [.alert, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
-            if let error = error {
-                print("There is an error: \(error)")
-            } else {
-                print("Succesfully set up notifications!")
+    init() {
+        getData()
+        apiService.getQuotes()
+        startUpdatingData()
+
+    }
+    
+    func getData() {
+        apiService.$quotes
+            .map { quote in
+                let stringQuote = quote.first?.q ?? "Unkwon"
+                return stringQuote
             }
+            .sink { [weak self] newString in
+                self?.q = newString
+            }
+            .store(in: &cancellables)
+        
+        apiService.$quotes
+            .map { author in
+                let stringAuthor = author.first?.a ?? "Unknown"
+                return stringAuthor
+            }
+            .sink { [weak self] newString in
+                self?.a = newString
+            }
+            .store(in: &cancellables)
+        startTimer()
+    }
+    
+    func startTimer() {
+        Timer.publish(every: 5, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                let endIndex = min(index + 1, self.apiService.quotes.count)
+                let slice = Array(self.apiService.quotes[index..<endIndex])
+                if let quote = slice.first?.q {
+                    self.q = quote
+                }
+                if let author = slice.first?.a {
+                    self.a = author
+                }
+                index = (index + 1) % self.apiService.quotes.count
+            }
+            .store(in: &cancellables)
+    }
+    
+    func startUpdatingData() {
+        Timer.publish(every: 250, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                self?.getData()
+            }
+            .store(in: &cancellables)
+    }
+
+    
+    func nextQuote() {
+        index += 1
+        if index >= apiService.quotes.count {
+            index = 0
         }
     }
-    
-    func scheduleUserNotification(at date: Date) {
-        let content = UNMutableNotificationContent()
-        content.title = "MotiQ"
-        content.subtitle = "Your daily quote is waiting for you"
-        content.sound = .default
-
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
-
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request)
-    }
-
 }

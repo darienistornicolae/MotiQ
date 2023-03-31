@@ -11,7 +11,6 @@ import Combine
 class MotivationalAPI {
     
     @Published var quotes: [QuotesModel]
-    
     var cancellables = Set<AnyCancellable>()
     
     init(cancellables: Set<AnyCancellable> = Set<AnyCancellable>(), quotes: QuotesModel) {
@@ -19,6 +18,7 @@ class MotivationalAPI {
         self.cancellables = cancellables
         //getQuotes()
     }
+    
     
     func getQuotes() {
         let url: String = "https://zenquotes.io/api/quotes/"
@@ -33,12 +33,12 @@ class MotivationalAPI {
                 case .finished:
                     print("Succesfull connection")
                     print(completion)
+                    
                 case .failure(let error):
                     print("\(error)")
                 }
-            } receiveValue: { [weak self] returnedRecipes in
-                self?.quotes = returnedRecipes
-                print(returnedRecipes)
+            } receiveValue: { [weak self] returnedQuotes in
+                self?.quotes = returnedQuotes
             }
             .store(in: &cancellables)
     }
