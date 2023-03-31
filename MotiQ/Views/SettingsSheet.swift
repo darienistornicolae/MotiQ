@@ -21,7 +21,6 @@ struct SettingsSheet: View {
         formatter.dateStyle = .medium
         return formatter
     }
-    //  UIApplication.shared.windows.first?.rootViewController?.view.overrideUserInterfaceStyle = self.isDarkModel ? .dark : .light
     
     var body: some View {
         NavigationView {
@@ -38,18 +37,12 @@ struct SettingsSheet: View {
                     
                     Section(header: Text("Push Notifications"), footer: Text("Here you can modify how often you want to recive a quote through a notification")) {
                         
-                        DatePicker("Select a date", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date])
+                        DatePicker("Select a time", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
                             .datePickerStyle(CompactDatePickerStyle())
                             .onChange(of: selectedDate) { date in
                                 viewModel.scheduleUserNotification(at: date)
                             }
-
-                        DatePicker("Select a hour", selection: $selectedDate, displayedComponents: [.hourAndMinute])
-                            .datePickerStyle(CompactDatePickerStyle())
-                            .onChange(of: selectedDate) { date in
-                                viewModel.scheduleUserNotification(at: date)
-                            }
-
+                        
                         
                     }
                     

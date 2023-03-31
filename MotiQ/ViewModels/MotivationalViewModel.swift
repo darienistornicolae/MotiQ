@@ -23,7 +23,6 @@ class MotivationalViewModel: ObservableObject {
         getData()
         apiService.getQuotes()
         startUpdatingData()
-
     }
     
     func getData() {
@@ -75,7 +74,7 @@ class MotivationalViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-
+    
     
     func nextQuote() {
         index += 1

@@ -32,7 +32,7 @@ struct AddUserQuoteView: View {
                                 .background(Color.buttonColor)
                                 .cornerRadius(10)
                         }
-
+                        
                         
                     }
                 }
