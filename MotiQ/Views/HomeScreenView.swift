@@ -51,7 +51,7 @@ fileprivate extension HomeScreenView {
             Spacer()
             Circle()
                 .foregroundColor(.buttonColor)
-                .frame(width: 50, height: 50)
+                .frame(width: 60, height: 60)
                 .overlay(
                     Button(action: {
                         print("Sheet")
@@ -59,6 +59,7 @@ fileprivate extension HomeScreenView {
                     }, label: {
                         Image(systemName: "line.3.horizontal")
                             .foregroundColor(.iconColor)
+                            .font(.title)
                     })
                     .sheet(isPresented: $settingsSheet, content: {
                         SettingsSheet()
@@ -74,13 +75,14 @@ fileprivate extension HomeScreenView {
             Spacer()
             Circle()
                 .foregroundColor(.buttonColor)
-                .frame(width: 50, height: 50)
+                .frame(width: 60, height: 60)
                 .overlay(
                     Button(action: {
                         addUserQuoteSheet.toggle()
                     }, label: {
                         Image(systemName: "plus")
                             .foregroundColor(.iconColor)
+                            .font(.title)
                     })
                     .sheet(isPresented: $addUserQuoteSheet, content: {
                         AddUserQuoteView()
