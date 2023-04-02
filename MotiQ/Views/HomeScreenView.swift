@@ -28,8 +28,8 @@ struct HomeScreenView: View {
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: 350)
                         .animation(.linear)
-                    
                 }
+                
             }
             menuButton
             addText
@@ -102,6 +102,9 @@ fileprivate extension HomeScreenView {
             
             Text("\"\(viewModel.q)\"")
             Text(viewModel.a)
+        }
+        .onTapGesture {
+            viewModel.nextQuote()
         }
     }
 }

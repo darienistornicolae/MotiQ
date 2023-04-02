@@ -22,6 +22,9 @@
 		015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */; };
 		015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522829D5F9C00098DBB6 /* NotificationCenter.swift */; };
 		015E522B29D5FAC10098DBB6 /* AddUserQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522A29D5FAC10098DBB6 /* AddUserQuoteViewModel.swift */; };
+		0196EE9029DA263400D34583 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0196EE8F29DA263400D34583 /* GoogleService-Info.plist */; };
+		0196EE9329DA271D00D34583 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0196EE9229DA271D00D34583 /* FirebaseAnalytics */; };
+		0196EE9729DA271D00D34583 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0196EE9629DA271D00D34583 /* FirebaseAnalyticsSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,7 @@
 		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		015E522A29D5FAC10098DBB6 /* AddUserQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteViewModel.swift; sourceTree = "<group>"; };
+		0196EE8F29DA263400D34583 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0196EE9729DA271D00D34583 /* FirebaseAnalyticsSwift in Frameworks */,
+				0196EE9329DA271D00D34583 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +86,7 @@
 				014B55EE29D38ABC00B14F40 /* Views */,
 				014B55E029D38AAF00B14F40 /* MotiQApp.swift */,
 				015E522229D5C2910098DBB6 /* Assets.xcassets */,
+				0196EE8F29DA263400D34583 /* GoogleService-Info.plist */,
 				014B55E629D38AAF00B14F40 /* Preview Content */,
 			);
 			path = MotiQ;
@@ -156,6 +163,10 @@
 			dependencies = (
 			);
 			name = MotiQ;
+			packageProductDependencies = (
+				0196EE9229DA271D00D34583 /* FirebaseAnalytics */,
+				0196EE9629DA271D00D34583 /* FirebaseAnalyticsSwift */,
+			);
 			productName = Motiq;
 			productReference = 014B55DD29D38AAF00B14F40 /* MotiQ.app */;
 			productType = "com.apple.product-type.application";
@@ -184,6 +195,9 @@
 				Base,
 			);
 			mainGroup = 014B55D429D38AAE00B14F40;
+			packageReferences = (
+				0196EE9129DA271D00D34583 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 014B55DE29D38AAF00B14F40 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -200,6 +214,7 @@
 			files = (
 				014B560329D38BDC00B14F40 /* Launch Screen.storyboard in Resources */,
 				014B55E829D38AAF00B14F40 /* Preview Assets.xcassets in Resources */,
+				0196EE9029DA263400D34583 /* GoogleService-Info.plist in Resources */,
 				015E522329D5C2910098DBB6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +369,7 @@
 				DEVELOPMENT_TEAM = V975Z3G3HV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MotiQ;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -389,6 +405,7 @@
 				DEVELOPMENT_TEAM = V975Z3G3HV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MotiQ;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -435,6 +452,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0196EE9129DA271D00D34583 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0196EE9229DA271D00D34583 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0196EE9129DA271D00D34583 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		0196EE9629DA271D00D34583 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0196EE9129DA271D00D34583 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		014B55FF29D38BC700B14F40 /* QuotesContainer.xcdatamodeld */ = {

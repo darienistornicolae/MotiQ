@@ -17,7 +17,7 @@ class MotivationalViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     @Published var q: String = ""
     @Published var a: String = ""
-    @Published var index: Int = 0
+    var index: Int = 0
     
     init() {
         getData()
@@ -77,9 +77,13 @@ class MotivationalViewModel: ObservableObject {
     
     
     func nextQuote() {
-        index += 1
-        if index >= apiService.quotes.count {
-            index = 0
+        index = (index + 1) % apiService.quotes.count
+        let slice = Array(apiService.quotes[index..<min(index + 1, apiService.quotes.count)])
+        if let quote = slice.first?.q {
+            q = quote
+        }
+        if let author = slice.first?.a {
+            a = author
         }
     }
 }
