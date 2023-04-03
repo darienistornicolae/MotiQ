@@ -9,11 +9,13 @@ import SwiftUI
 
 struct AddUserQuoteView: View {
     
-    @ObservedObject var viewModel = AddUserQuotesViewModel()
-    @Environment(\.presentationMode) var presentationMode
-    @State var alertTitle: String = ""
-    @State var showAlert: Bool = false
+    @StateObject var viewModel = CoreDataViewModel()
     @State var userQuote: String = ""
+    
+    init(viewModel: CoreDataViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        
+    }
     
     var body: some View {
         NavigationView {
@@ -22,7 +24,9 @@ struct AddUserQuoteView: View {
                     Section(header: Text("Add Quote"), footer: Text("Here you can add your quote")) {
                         FirstResponderTextField(input: $userQuote, placeholder: "Write your quote...")
                         Button {
-                            save()
+                            guard !userQuote.isEmpty else { return }
+                            viewModel.addQuote(quote: userQuote)
+                            userQuote = ""
                         } label: {
                             Text("Save")
                                 .foregroundColor(.iconColor)
@@ -38,31 +42,13 @@ struct AddUserQuoteView: View {
                 }
             }
             .navigationBarTitle("MotiQ", displayMode: .inline)
-            .alert(isPresented: $showAlert) {
-                getAlert()
-            }
         }
     }
-    
-    func save() {
-        if checkText() {
-            
-            viewModel.addItem(q: userQuote)
-            presentationMode.wrappedValue.dismiss()
-        }
-    }
-    
-    func checkText() -> Bool {
-        if userQuote.count < 3 {
-            alertTitle = "Introduce at least 3 charts🖋"
-            showAlert.toggle()
-            return false
-        }
-        return true
-    }
-    
-    func getAlert() -> Alert {
-        return Alert(title: Text(alertTitle))
+}
+
+struct AddUserQuoteView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddUserQuoteView(viewModel: CoreDataViewModel())
     }
 }
 
@@ -101,11 +87,5 @@ struct FirstResponderTextField: UIViewRepresentable {
             uiView.becomeFirstResponder()
             context.coordinator.becameFirstResponder = true
         }
-    }
-}
-
-struct AddUserQuoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddUserQuoteView()
     }
 }

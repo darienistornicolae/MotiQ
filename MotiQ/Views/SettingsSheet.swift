@@ -32,18 +32,18 @@ struct SettingsSheet: View {
                         }
                     }
                     Section(header: Text("Quotes"), footer: Text("Modify your saved quotes")) {
-                        
+                        NavigationLink("Your Quotes") {
+                            QuotesList()
+                        }
                     }
                     
                     Section(header: Text("Push Notifications"), footer: Text("Here you can modify how often you want to recive a quote through a notification")) {
                         
-                        DatePicker("Select a time", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
+                        DatePicker("Remind Me", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
                             .datePickerStyle(CompactDatePickerStyle())
                             .onChange(of: selectedDate) { date in
                                 viewModel.scheduleUserNotification(at: date)
                             }
-                        
-                        
                     }
                     
                 }

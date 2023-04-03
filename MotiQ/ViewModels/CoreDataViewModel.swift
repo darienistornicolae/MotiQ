@@ -9,9 +9,9 @@ import Foundation
 import CoreData
 
 class CoreDataViewModel: ObservableObject {
+    //MARK: Properties
     let container: NSPersistentContainer
     @Published var savedEntities: [QuotesEntity] = []
-    let service = MotivationalAPI(quotes: QuotesModel(q: "", a: ""))
     
     
     init() {
@@ -37,20 +37,28 @@ class CoreDataViewModel: ObservableObject {
         }
     }
     
-    func addQuote(quote: String, author: String) {
+    func addQuote(quote: String) {
         let newQuote = QuotesEntity(context: container.viewContext)
-        let newAuthor = QuotesEntity(context: container.viewContext)
         newQuote.quotes = quote
-        newAuthor.author = author
         saveData()
     }
     
     func saveData() {
-        do {
-            try container.viewContext.save()
-            fetchQuotes()
-        } catch let error {
-            print("Problem with saving the data: \(error.localizedDescription)")
-        }
+        try? container.viewContext.save()
+          fetchQuotes()
     }
+    
+    func deleteQuote(indexSet: IndexSet) {
+        guard let index = indexSet.first else {return}
+        let item = savedEntities[index]
+        container.viewContext.delete(item)
+        saveData()
+    }
+    
+    func modifyQuote(at index: Int, newQuote: String) {
+        savedEntities[index].quotes = newQuote
+        saveData()
+    }
+
+    
 }
