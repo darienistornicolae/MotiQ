@@ -106,6 +106,9 @@ fileprivate extension HomeScreenView {
         .onTapGesture {
             viewModel.nextQuote()
         }
+        .onLongPressGesture {
+            viewModel.saveQuote()
+        }
     }
 }
 

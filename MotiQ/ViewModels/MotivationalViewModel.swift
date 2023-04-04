@@ -14,6 +14,7 @@ import UserNotifications
 class MotivationalViewModel: ObservableObject {
     // MARK: Properties
     let apiService = MotivationalAPI(quotes: QuotesModel(q: "", a: ""))
+    let coreData = CoreDataViewModel()
     var cancellables = Set<AnyCancellable>()
     @Published var q: String = ""
     @Published var a: String = ""
@@ -75,7 +76,6 @@ class MotivationalViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    
     func nextQuote() {
         index = (index + 1) % apiService.quotes.count
         let slice = Array(apiService.quotes[index..<min(index + 1, apiService.quotes.count)])
@@ -85,5 +85,9 @@ class MotivationalViewModel: ObservableObject {
         if let author = slice.first?.a {
             a = author
         }
+    }
+    
+    func saveQuote() {
+        coreData.addQuote(quote: q, author: a)
     }
 }

@@ -17,7 +17,7 @@ struct SettingsSheet: View {
     var endingDate: Date = Calendar.current.date(from: DateComponents (year: 2026)) ?? Date ()
     
     var dateFormatter: DateFormatter {
-        let formatter = DateFormatter ()
+        let formatter = DateFormatter()
         formatter.dateStyle = .medium
         return formatter
     }
@@ -37,7 +37,7 @@ struct SettingsSheet: View {
                         }
                     }
                     
-                    Section(header: Text("Push Notifications"), footer: Text("Here you can modify how often you want to recive a quote through a notification")) {
+                    Section(header: Text("Push Notifications"), footer: Text("Here you can modify how often you want to recive a quote through a notification. When you set up the date and time, it'll automatically update")) {
                         
                         DatePicker("Remind Me", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
                             .datePickerStyle(CompactDatePickerStyle())

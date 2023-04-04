@@ -25,7 +25,6 @@
 		0196EE9329DA271D00D34583 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0196EE9229DA271D00D34583 /* FirebaseAnalytics */; };
 		0196EE9729DA271D00D34583 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0196EE9629DA271D00D34583 /* FirebaseAnalyticsSwift */; };
 		01B8942129DACD480052EF7E /* QuotesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesList.swift */; };
-		01B8942329DB32950052EF7E /* UserQuoteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942229DB32950052EF7E /* UserQuoteContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +45,6 @@
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		0196EE8F29DA263400D34583 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01B8942029DACD480052EF7E /* QuotesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesList.swift; sourceTree = "<group>"; };
-		01B8942229DB32950052EF7E /* UserQuoteContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuoteContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +108,6 @@
 				014B55F329D38B5700B14F40 /* HomeScreenView.swift */,
 				015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */,
 				01B8942029DACD480052EF7E /* QuotesList.swift */,
-				01B8942229DB32950052EF7E /* UserQuoteContainer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,7 +227,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */,
-				01B8942329DB32950052EF7E /* UserQuoteContainer.swift in Sources */,
 				014B55FA29D38B7A00B14F40 /* SettingsSheet.swift in Sources */,
 				015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */,
 				014B55FC29D38B8800B14F40 /* MotivationalAPI.swift in Sources */,

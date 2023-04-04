@@ -37,9 +37,10 @@ class CoreDataViewModel: ObservableObject {
         }
     }
     
-    func addQuote(quote: String) {
+    func addQuote(quote: String, author: String) {
         let newQuote = QuotesEntity(context: container.viewContext)
         newQuote.quotes = quote
+        newQuote.author = author
         saveData()
     }
     
