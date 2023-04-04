@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class CoreDataViewModel: ObservableObject {
+    
     //MARK: Properties
     let container: NSPersistentContainer
     @Published var savedEntities: [QuotesEntity] = []

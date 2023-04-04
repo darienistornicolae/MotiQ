@@ -29,7 +29,6 @@ struct HomeScreenView: View {
                         .frame(maxWidth: 350)
                         .animation(.linear)
                 }
-                
             }
             menuButton
             addText

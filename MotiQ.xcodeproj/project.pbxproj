@@ -24,7 +24,7 @@
 		0196EE9029DA263400D34583 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0196EE8F29DA263400D34583 /* GoogleService-Info.plist */; };
 		0196EE9329DA271D00D34583 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0196EE9229DA271D00D34583 /* FirebaseAnalytics */; };
 		0196EE9729DA271D00D34583 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0196EE9629DA271D00D34583 /* FirebaseAnalyticsSwift */; };
-		01B8942129DACD480052EF7E /* QuotesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesList.swift */; };
+		01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +44,7 @@
 		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		0196EE8F29DA263400D34583 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		01B8942029DACD480052EF7E /* QuotesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesList.swift; sourceTree = "<group>"; };
+		01B8942029DACD480052EF7E /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 				014B560229D38BDC00B14F40 /* Launch Screen.storyboard */,
 				014B55F329D38B5700B14F40 /* HomeScreenView.swift */,
 				015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */,
-				01B8942029DACD480052EF7E /* QuotesList.swift */,
+				01B8942029DACD480052EF7E /* QuotesListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,7 +117,6 @@
 			children = (
 				014B55F629D38B6900B14F40 /* CoreDataViewModel.swift */,
 				014B55F529D38B6900B14F40 /* MotivationalViewModel.swift */,
-				015E522829D5F9C00098DBB6 /* NotificationCenter.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -142,6 +141,7 @@
 		014B55F229D38AE800B14F40 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				015E522829D5F9C00098DBB6 /* NotificationCenter.swift */,
 				014B55FB29D38B8800B14F40 /* MotivationalAPI.swift */,
 			);
 			path = Services;
@@ -233,7 +233,7 @@
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
-				01B8942129DACD480052EF7E /* QuotesList.swift in Sources */,
+				01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */,
 				014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */,
 				014B55FE29D38BAA00B14F40 /* QuotesModel.swift in Sources */,
 				014B55E129D38AAF00B14F40 /* MotiQApp.swift in Sources */,

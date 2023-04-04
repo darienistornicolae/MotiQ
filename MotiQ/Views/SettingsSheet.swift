@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SettingsSheet: View {
-    @Environment(\.presentationMode) var presentationMode
+    
+    //MARK: Properties
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State var selectedDate: Date = Date()
     @ObservedObject var viewModel = NotificationCenter()
@@ -33,7 +34,7 @@ struct SettingsSheet: View {
                     }
                     Section(header: Text("Quotes"), footer: Text("Modify your saved quotes")) {
                         NavigationLink("Your Quotes") {
-                            QuotesList()
+                            QuotesListtView(viewModel: CoreDataViewModel())
                         }
                     }
                     

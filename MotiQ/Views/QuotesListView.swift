@@ -7,21 +7,27 @@
 
 import SwiftUI
 
-struct QuotesList: View {
+struct QuotesListtView: View {
+    
+    //MARK: PROPERTIES
     @StateObject var viewModel = CoreDataViewModel()
+    
+    init(viewModel: CoreDataViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
     var body: some View {
              userQuotes
-        
     }
 }
     
     struct QuotesList_Previews: PreviewProvider {
         static var previews: some View {
-            QuotesList()
+            QuotesListtView(viewModel: CoreDataViewModel())
         }
     }
 
-fileprivate extension QuotesList {
+fileprivate extension QuotesListtView {
     var userQuotes: some View {
         List {
             ForEach(viewModel.savedEntities, id: \.self) { item in

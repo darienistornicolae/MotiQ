@@ -9,12 +9,12 @@ import SwiftUI
 
 struct AddUserQuoteView: View {
     
+    //MARK: PROPERTIES
     @StateObject var viewModel = CoreDataViewModel()
     @State var userQuote: String = ""
     
     init(viewModel: CoreDataViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
-        
+        self._viewModel = StateObject(wrappedValue: viewModel) 
     }
     
     var body: some View {
@@ -25,7 +25,7 @@ struct AddUserQuoteView: View {
                         FirstResponderTextField(input: $userQuote, placeholder: "Write your quote...")
                         Button {
                             guard !userQuote.isEmpty else { return }
-                            viewModel.addQuote(quote: userQuote, author: "")
+                            viewModel.addQuote(quote: userQuote, author: "Your Quote")
                             userQuote = ""
                         } label: {
                             Text("Save")
@@ -35,7 +35,6 @@ struct AddUserQuoteView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(Color.buttonColor)
                                 .cornerRadius(10)
-                                .animation(.easeIn)
                         }
                         
                         

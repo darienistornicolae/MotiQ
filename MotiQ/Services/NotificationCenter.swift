@@ -9,10 +9,6 @@ import Foundation
 import UserNotifications
 
 class NotificationCenter: ObservableObject {
-    
-    enum Weekday: String, CaseIterable {
-        case Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-    }
 
     func requestAuthorization() {
         let options: UNAuthorizationOptions = [.alert, .sound]
