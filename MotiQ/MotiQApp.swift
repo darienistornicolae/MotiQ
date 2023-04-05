@@ -13,7 +13,6 @@ struct MotiQApp: App {
     
     var body: some Scene {
         WindowGroup {
-            
             HomeScreenView(viewModel: MotivationalViewModel())
                 .preferredColorScheme(isDarkMode ? .dark : .light)
         }
