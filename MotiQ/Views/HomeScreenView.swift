@@ -56,7 +56,7 @@ fileprivate extension HomeScreenView {
                         print("Sheet")
                         settingsSheet.toggle()
                     }, label: {
-                        Image(systemName: "line.3.horizontal")
+                        Image(systemName: "gearshape")
                             .foregroundColor(.iconColor)
                             .font(.title)
                     })

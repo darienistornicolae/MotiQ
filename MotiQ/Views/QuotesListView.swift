@@ -41,3 +41,5 @@ fileprivate extension QuotesListtView {
         .navigationTitle("Quotes")
     }
 }
+
+//link: https://36838a2b.sibforms.com/serve/MUIEAP8EsQYfhQqCSEeXd4D4uTtVWkZIcAFcpuDHlGS9lUjGadRBqSzboOXWiVP39-jp3pba4uDigdp2ZqX1wW_-PKuIf9l7uAudGzrlQMf3Bb1aPcROMuKaD3fHkKTRSgCnsMktASQEI2ElbUpTbt99O9bSile2SAe1FRVo8g3GwRQ5QYktSa8YHlNlcJIc3PaNvT_NU5myRDWz

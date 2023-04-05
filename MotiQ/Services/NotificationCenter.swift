@@ -9,7 +9,7 @@ import Foundation
 import UserNotifications
 
 class NotificationCenter: ObservableObject {
-
+    
     func requestAuthorization() {
         let options: UNAuthorizationOptions = [.alert, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
@@ -20,6 +20,7 @@ class NotificationCenter: ObservableObject {
             }
         }
     }
+    
     
     func scheduleUserNotification(at date: Date) {
         let content = UNMutableNotificationContent()

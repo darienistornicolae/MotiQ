@@ -12,7 +12,8 @@ struct AddUserQuoteView: View {
     //MARK: PROPERTIES
     @StateObject var viewModel = CoreDataViewModel()
     @State var userQuote: String = ""
-    
+    @State private var isPressed: Bool = false
+    @Environment(\.presentationMode) var presentationMode
     init(viewModel: CoreDataViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel) 
     }
@@ -27,13 +28,14 @@ struct AddUserQuoteView: View {
                             guard !userQuote.isEmpty else { return }
                             viewModel.addQuote(quote: userQuote, author: "Your Quote")
                             userQuote = ""
+                            presentationMode.wrappedValue.dismiss()
                         } label: {
                             Text("Save")
                                 .foregroundColor(.iconColor)
                                 .font(.headline)
                                 .frame(height:55)
                                 .frame(maxWidth: .infinity)
-                                .background(Color.buttonColor)
+                                .background(isPressed ? Color.red : Color.buttonColor)
                                 .cornerRadius(10)
                         }
                         
