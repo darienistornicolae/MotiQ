@@ -13,6 +13,7 @@ struct HomeScreenView: View {
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
     @StateObject var viewModel: MotivationalViewModel
+    @ObservedObject var networkManager = NetworkManager()
     
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
@@ -21,15 +22,19 @@ struct HomeScreenView: View {
     
     var body: some View {
         ZStack {
-            NavigationView {
                 HStack(alignment: .center) {
-                    quotesContainer
-                        .font(.custom("Avenir Next", size: 20))
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: 350)
-                        .animation(.linear)
+                    if networkManager.isConnected {
+                        quotesContainer
+                            .font(.custom("Avenir Next", size: 20))
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: 350)
+                            .animation(.linear)
+                    } else {
+                        Text("No Internet Connection")
+                    }
+                    
                 }
-            }
+            
             menuButton
             addText
         }
@@ -98,9 +103,8 @@ fileprivate extension HomeScreenView {
     
     var quotesContainer: some View {
         VStack(alignment: .center, spacing: 30) {
-            
-            Text("\"\(viewModel.q)\"")
-            Text(viewModel.a)
+                Text("\"\(viewModel.q)\"")
+                Text(viewModel.a)
         }
         .onTapGesture {
             viewModel.nextQuote()

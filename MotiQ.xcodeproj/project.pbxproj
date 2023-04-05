@@ -21,6 +21,7 @@
 		015E522329D5C2910098DBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015E522229D5C2910098DBB6 /* Assets.xcassets */; };
 		015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */; };
 		015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522829D5F9C00098DBB6 /* NotificationCenter.swift */; };
+		018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E963829DDE0AB004D5A41 /* NetworkManager.swift */; };
 		01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		015E522229D5C2910098DBB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		018E963829DDE0AB004D5A41 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		01B8942029DACD480052EF7E /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 			children = (
 				015E522829D5F9C00098DBB6 /* NotificationCenter.swift */,
 				014B55FB29D38B8800B14F40 /* MotivationalAPI.swift */,
+				018E963829DDE0AB004D5A41 /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */,
 				014B55FA29D38B7A00B14F40 /* SettingsSheet.swift in Sources */,
 				015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */,
+				018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */,
 				014B55FC29D38B8800B14F40 /* MotivationalAPI.swift in Sources */,
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
@@ -358,6 +362,7 @@
 				DEVELOPMENT_TEAM = V975Z3G3HV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MotiQ/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MotiQ;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -394,6 +399,7 @@
 				DEVELOPMENT_TEAM = V975Z3G3HV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MotiQ/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MotiQ;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

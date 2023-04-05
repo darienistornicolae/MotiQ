@@ -61,6 +61,4 @@ class CoreDataViewModel: ObservableObject {
         savedEntities[index].quotes = newQuote
         saveData()
     }
-    
-    
 }
