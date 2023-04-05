@@ -17,15 +17,15 @@ struct QuotesListtView: View {
     }
     
     var body: some View {
-             userQuotes
+        userQuotes
     }
 }
-    
-    struct QuotesList_Previews: PreviewProvider {
-        static var previews: some View {
-            QuotesListtView(viewModel: CoreDataViewModel())
-        }
+
+struct QuotesList_Previews: PreviewProvider {
+    static var previews: some View {
+        QuotesListtView(viewModel: CoreDataViewModel())
     }
+}
 
 fileprivate extension QuotesListtView {
     var userQuotes: some View {

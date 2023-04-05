@@ -27,11 +27,11 @@ class NotificationCenter: ObservableObject {
         content.title = "MotiQ"
         content.subtitle = "Your daily quote is waiting for you"
         content.sound = .default
-
+        
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
-
+        
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }

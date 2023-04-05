@@ -32,7 +32,7 @@ class CoreDataViewModel: ObservableObject {
         let request = NSFetchRequest<QuotesEntity>(entityName: "QuotesEntity")
         
         do {
-          savedEntities = try container.viewContext.fetch(request)
+            savedEntities = try container.viewContext.fetch(request)
         } catch let error {
             print("Problems with fetching:\(error.localizedDescription )")
         }
@@ -47,7 +47,7 @@ class CoreDataViewModel: ObservableObject {
     
     func saveData() {
         try? container.viewContext.save()
-          fetchQuotes()
+        fetchQuotes()
     }
     
     func deleteQuote(indexSet: IndexSet) {
@@ -61,6 +61,6 @@ class CoreDataViewModel: ObservableObject {
         savedEntities[index].quotes = newQuote
         saveData()
     }
-
+    
     
 }
