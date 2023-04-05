@@ -32,8 +32,8 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Motiq" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaN-zN-lG2">
-                                <rect key="frame" x="67" y="205" width="240" height="70"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="MotiQ" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaN-zN-lG2">
+                                <rect key="frame" x="67" y="205" width="240" height="77.666666666666686"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
