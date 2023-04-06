@@ -15,7 +15,7 @@ struct AddUserQuoteView: View {
     @State private var isPressed: Bool = false
     @Environment(\.presentationMode) var presentationMode
     init(viewModel: CoreDataViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel) 
+        self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
@@ -29,14 +29,22 @@ struct AddUserQuoteView: View {
                             viewModel.addQuote(quote: userQuote, author: "Your Quote")
                             userQuote = ""
                             presentationMode.wrappedValue.dismiss()
+                            withAnimation {
+                                isPressed = true
+                            }
                         } label: {
                             Text("Save")
                                 .foregroundColor(.iconColor)
                                 .font(.headline)
                                 .frame(height:55)
                                 .frame(maxWidth: .infinity)
-                                .background(isPressed ? Color.red : Color.buttonColor)
+                                .background(Color.buttonColor)
                                 .cornerRadius(10)
+                                .alert(isPresented: $isPressed) {
+                                    Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
+                                    
+                                }
+                            
                         }
                         
                         

@@ -16,7 +16,6 @@ class MotivationalAPI {
     init(cancellables: Set<AnyCancellable> = Set<AnyCancellable>(), quotes: QuotesModel) {
         self.quotes = [quotes]
         self.cancellables = cancellables
-        //getQuotes()
     }
     
     

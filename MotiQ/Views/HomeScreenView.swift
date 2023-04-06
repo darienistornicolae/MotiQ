@@ -37,7 +37,7 @@ struct HomeScreenView: View {
                                 }
                             }
                             .alert(isPresented: $showAlert, content: {
-                                Alert(title: Text("Quote Saved!"), message: nil, dismissButton: .default(Text("OK")))
+                                Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
                             })
                     } else {
                         Text("No Internet Connection")
