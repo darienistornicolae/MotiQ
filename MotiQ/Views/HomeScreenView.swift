@@ -14,6 +14,7 @@ struct HomeScreenView: View {
     @State private var addUserQuoteSheet: Bool = false
     @StateObject var viewModel: MotivationalViewModel
     @ObservedObject var networkManager = NetworkManager()
+    @State var showAlert: Bool = false
     
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
@@ -25,10 +26,19 @@ struct HomeScreenView: View {
                 HStack(alignment: .center) {
                     if networkManager.isConnected {
                         quotesContainer
-                            .font(.custom("Avenir Next", size: 20))
+                            .font(.custom("Avenir", size: 24))
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: 350)
                             .animation(.linear)
+                            .onLongPressGesture {
+                                viewModel.saveQuote()
+                                withAnimation {
+                                    showAlert = true
+                                }
+                            }
+                            .alert(isPresented: $showAlert, content: {
+                                Alert(title: Text("Quote Saved!"), message: nil, dismissButton: .default(Text("OK")))
+                            })
                     } else {
                         Text("No Internet Connection")
                     }
@@ -108,9 +118,6 @@ fileprivate extension HomeScreenView {
         }
         .onTapGesture {
             viewModel.nextQuote()
-        }
-        .onLongPressGesture {
-            viewModel.saveQuote()
         }
     }
 }
