@@ -49,7 +49,7 @@ class MotivationalViewModel: ObservableObject {
     }
     
     func startTimer() {
-        Timer.publish(every: 5, on: .main, in: .common)
+        Timer.publish(every: 7, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 guard let self = self else { return }
