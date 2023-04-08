@@ -28,25 +28,25 @@ struct HomeScreenView: View {
             add
             HStack(alignment: .center) {
                 
-                        if networkManager.isConnected {
-                            quotesContainer
-                                .font(.custom("Avenir", size: 24))
-                                .multilineTextAlignment(.center)
-                                .frame(maxWidth: 350)
-                                .animation(.linear)
-                                .onLongPressGesture {
-                                    viewModel.saveQuote()
-                                    withAnimation {
-                                        showAlert = true
-                                    }
-                                }
-                                .alert(isPresented: $showAlert, content: {
-                                    Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
-                                })
-                        } else {
-                            Text("No Internet Connection")
+                if networkManager.isConnected {
+                    quotesContainer
+                        .font(.custom("Avenir", size: 24))
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: 350)
+                        .animation(.linear)
+                        .onLongPressGesture {
+                            viewModel.saveQuote()
+                            withAnimation {
+                                showAlert = true
+                            }
                         }
+                        .alert(isPresented: $showAlert, content: {
+                            Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
+                        })
+                } else {
+                    Text("No Internet Connection")
                 }
+            }
             menuButton
             addText
         }
@@ -123,8 +123,8 @@ fileprivate extension HomeScreenView {
     
     var quotesContainer: some View {
         VStack(alignment: .center, spacing: 30) {
-                Text("\"\(viewModel.q)\"")
-                Text(viewModel.a)
+            Text("\"\(viewModel.q)\"")
+            Text(viewModel.a)
         }
         .onTapGesture {
             viewModel.nextQuote()

@@ -22,8 +22,8 @@
 		015E522329D5C2910098DBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015E522229D5C2910098DBB6 /* Assets.xcassets */; };
 		015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */; };
 		015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522829D5F9C00098DBB6 /* NotificationCenter.swift */; };
-		0164C2AD29E1ABD00024A646 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0164C2AC29E1ABD00024A646 /* PayWallView.swift */; };
 		018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E963829DDE0AB004D5A41 /* NetworkManager.swift */; };
+		01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B85BC429E1CC780009C388 /* PayWallView.swift */; };
 		01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesListView.swift */; };
 		8B3B608735639625427AC7D6 /* Pods_MotiQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B38A03047278096D2E2A999 /* Pods_MotiQ.framework */; };
 /* End PBXBuildFile section */
@@ -45,8 +45,8 @@
 		015E522229D5C2910098DBB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
-		0164C2AC29E1ABD00024A646 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
 		018E963829DDE0AB004D5A41 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		01B85BC429E1CC780009C388 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
 		01B8942029DACD480052EF7E /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
 		58080F6F0D510468E5D00910 /* Pods-MotiQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotiQ.release.xcconfig"; path = "Target Support Files/Pods-MotiQ/Pods-MotiQ.release.xcconfig"; sourceTree = "<group>"; };
 		5F167E03E711167C5319E5E7 /* Pods-MotiQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotiQ.debug.xcconfig"; path = "Target Support Files/Pods-MotiQ/Pods-MotiQ.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 				015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */,
 				01B8942029DACD480052EF7E /* QuotesListView.swift */,
 				013F207A29E06E5E000C8E22 /* BannerAd.swift */,
-				0164C2AC29E1ABD00024A646 /* PayWallView.swift */,
+				01B85BC429E1CC780009C388 /* PayWallView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -294,7 +294,7 @@
 			files = (
 				015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */,
 				014B55FA29D38B7A00B14F40 /* SettingsSheet.swift in Sources */,
-				0164C2AD29E1ABD00024A646 /* PayWallView.swift in Sources */,
+				01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */,
 				015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */,
 				018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */,
 				014B55FC29D38B8800B14F40 /* MotivationalAPI.swift in Sources */,

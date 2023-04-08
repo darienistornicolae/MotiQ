@@ -9,7 +9,7 @@ import SwiftUI
 import GoogleMobileAds
 
 struct BannerAd: UIViewRepresentable {
-
+    
     var unitID: String
     
     func makeCoordinator() -> Coordinator {
@@ -26,7 +26,7 @@ struct BannerAd: UIViewRepresentable {
         adView.rootViewController = UIApplication.shared.getRootViewController()
         adView.delegate = context.coordinator
         adView.load(request)
-
+        
         return adView
     }
     
@@ -34,32 +34,32 @@ struct BannerAd: UIViewRepresentable {
         
     }
     
-    class Coordinator: NSObject, GADBannerViewDelegate { 
+    class Coordinator: NSObject, GADBannerViewDelegate {
         func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-          bannerView.alpha = 0
-          UIView.animate(withDuration: 1, animations: {
-            bannerView.alpha = 1
-          })
+            bannerView.alpha = 0
+            UIView.animate(withDuration: 1, animations: {
+                bannerView.alpha = 1
+            })
         }
-
+        
         func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-          print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+            print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
         }
-
+        
         func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-          print("bannerViewDidRecordImpression")
+            print("bannerViewDidRecordImpression")
         }
-
+        
         func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-          print("bannerViewWillPresentScreen")
+            print("bannerViewWillPresentScreen")
         }
-
+        
         func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-          print("bannerViewWillDIsmissScreen")
+            print("bannerViewWillDIsmissScreen")
         }
-
+        
         func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-          print("bannerViewDidDismissScreen")
+            print("bannerViewDidDismissScreen")
         }
     }
 }
@@ -75,5 +75,5 @@ extension UIApplication {
         }
         return root
     }
-
+    
 }

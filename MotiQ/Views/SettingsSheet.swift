@@ -11,11 +11,10 @@ import WebKit
 struct SettingsSheet: View {
     
     //MARK: Properties
-    @AppStorage("isDarkMode") private var isDarkMode: Bool = true
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State var selectedDate: Date = Date()
     @ObservedObject var viewModel = NotificationCenter()
-    @State private var isPremium: Bool = true
-    @State private var isActive: Bool = false
+    @State private var payWall: Bool = false
     
     
     var startingDate: Date = Date()
@@ -31,39 +30,15 @@ struct SettingsSheet: View {
         NavigationView {
             VStack() {
                 Form {
-                    Section(header: Text("Display"), footer: Text("Here you can modify the display mode")) {
-                        Toggle(isOn: $isDarkMode) {
-                            Text("Dark mode")
-                        }
-                    }
-                    Section(header: Text("Quotes"), footer: Text("Modify your saved quotes")) {
-                        NavigationLink("Your Quotes") {
-                            QuotesListView(viewModel: CoreDataViewModel())
-                        }
-                    }
-                    Section(header: Text("Push Notifications"), footer: Text("Here you can modify how often you want to recive a quote through a notification. When you set up the date and time, it'll automatically update")) {
-                        
-                        DatePicker("Remind Me", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
-                            .datePickerStyle(CompactDatePickerStyle())
-                            .onChange(of: selectedDate) { date in
-                                viewModel.scheduleUserNotification(at: date)
-                                
-                            }
-                    }
                     
+                    premiumContent
+                    restorePurchase
+                    darkMode
+                    savedQuotes
+                    notifications
+                    newsLetter
+                    bannerAds
                     
-                    if !isPremium {
-                        Section(header: Text("Newsletter Form"), footer: Text("Here you'll insert the email you want to recive the Newsletter")) {
-                            NavigationLink("Form") {
-                                WebView()
-                            }
-                        }
-                    } else {
-                        EmptyView()
-                    }
-                    
-                    BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
-                        .frame(width: 300, height: 400)
                 }
                 .navigationBarTitle("MotiQ", displayMode: .inline)
                 
@@ -97,4 +72,66 @@ struct WebView: UIViewRepresentable {
         uiView.load(request)
     }
     
+}
+
+fileprivate extension SettingsSheet {
+    
+    var premiumContent: some View {
+        Section(header: Text("Premium access")) {
+            NavigationLink("Buy Me") {
+                PayWallView()
+            }
+        }
+    }
+    
+    var restorePurchase: some View {
+        Section() {
+            Button {
+                print("D")
+            } label: {
+                Text("Restore purchase")
+                    .font(.headline)
+            }
+        }
+    }
+    
+    var darkMode: some View {
+        Section(header: Text("Display"), footer: Text("Here you can modify the display mode")) {
+            Toggle(isOn: $isDarkMode) {
+                Text("Dark mode")
+            }
+        }
+    }
+    
+    var savedQuotes: some View {
+        Section(header: Text("Quotes"), footer: Text("Modify your saved quotes")) {
+            NavigationLink("Your Quotes") {
+                QuotesListView(viewModel: CoreDataViewModel())
+            }
+        }
+    }
+    
+    var notifications: some View {
+        Section(header: Text("Push Notifications"), footer: Text("Daily reminder to check the app for quotes 😊. When you set up the date and time, it'll automatically update")) {
+            
+            DatePicker("Remind Me", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
+                .datePickerStyle(CompactDatePickerStyle())
+                .onChange(of: selectedDate) { date in
+                    viewModel.scheduleUserNotification(at: date)
+                }
+        }
+    }
+    
+    var newsLetter: some View {
+        Section(header: Text("Newsletter Form"), footer: Text("Here you'll insert the email you want to recive the Newsletter")) {
+            NavigationLink("Premium") {
+                WebView()
+            }
+        }
+    }
+    
+    var bannerAds: some View {
+        BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
+            .frame(width: 500, height: 250)
+    }
 }
