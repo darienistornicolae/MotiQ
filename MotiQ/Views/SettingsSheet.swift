@@ -11,12 +11,11 @@ import WebKit
 struct SettingsSheet: View {
     
     //MARK: Properties
-    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = true
     @State var selectedDate: Date = Date()
     @ObservedObject var viewModel = NotificationCenter()
     @State private var isPremium: Bool = true
     @State private var isActive: Bool = false
-    let frequencies = ["Every day", "Every other day", "Every week"]
     
     
     var startingDate: Date = Date()
@@ -39,7 +38,7 @@ struct SettingsSheet: View {
                     }
                     Section(header: Text("Quotes"), footer: Text("Modify your saved quotes")) {
                         NavigationLink("Your Quotes") {
-                            QuotesListtView(viewModel: CoreDataViewModel())
+                            QuotesListView(viewModel: CoreDataViewModel())
                         }
                     }
                     Section(header: Text("Push Notifications"), footer: Text("Here you can modify how often you want to recive a quote through a notification. When you set up the date and time, it'll automatically update")) {
@@ -53,7 +52,7 @@ struct SettingsSheet: View {
                     }
                     
                     
-                    if isPremium {
+                    if !isPremium {
                         Section(header: Text("Newsletter Form"), footer: Text("Here you'll insert the email you want to recive the Newsletter")) {
                             NavigationLink("Form") {
                                 WebView()
@@ -62,12 +61,16 @@ struct SettingsSheet: View {
                     } else {
                         EmptyView()
                     }
+                    
+                    BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
+                        .frame(width: 300, height: 400)
                 }
                 .navigationBarTitle("MotiQ", displayMode: .inline)
                 
             }
             .onAppear {
                 viewModel.requestAuthorization()
+                viewModel.requestPermission()
             }
             
             

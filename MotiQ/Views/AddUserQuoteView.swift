@@ -49,6 +49,8 @@ struct AddUserQuoteView: View {
                         
                         
                     }
+                    BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
+                        .frame(width: 400, height: 300)
                 }
             }
             .navigationBarTitle("MotiQ", displayMode: .inline)

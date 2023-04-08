@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 
 @main
@@ -13,11 +14,19 @@ import SwiftUI
 
 struct MotiQApp: App {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
-    
+    init() {
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+    }
     var body: some Scene {
         WindowGroup {
             HomeScreenView(viewModel: MotivationalViewModel())
                 .preferredColorScheme(isDarkMode ? .dark : .light)
+                
+                       
         }
     }
 }
+
+
+

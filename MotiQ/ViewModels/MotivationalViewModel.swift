@@ -89,4 +89,6 @@ class MotivationalViewModel: ObservableObject {
     func saveQuote() {
         coreData.addQuote(quote: q, author: a)
     }
+    
+    
 }
