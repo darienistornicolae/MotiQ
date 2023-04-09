@@ -14,7 +14,7 @@ struct SettingsSheet: View {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State var selectedDate: Date = Date()
     @ObservedObject var viewModel = NotificationCenter()
-    @State private var payWall: Bool = false
+    @State private var payWall: Bool = false //Revenue Cat
     
     
     var startingDate: Date = Date()
@@ -87,7 +87,7 @@ fileprivate extension SettingsSheet {
     var restorePurchase: some View {
         Section() {
             Button {
-                print("D")
+                //TODO: Revenue Cat
             } label: {
                 Text("Restore purchase")
                     .font(.headline)

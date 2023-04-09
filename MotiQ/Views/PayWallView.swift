@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PayWallView: View {
+    
+    //TODO: Revenue Cat
+    
     @Environment(\.presentationMode) private var presentationMode
     @State var animate: Bool = false
     var body: some View {
@@ -92,7 +95,7 @@ fileprivate extension PayWallView {
             Button {
                 print("Confirmed")
             } label: {
-                Text("Add Something! 🥳")
+                Text("Subscribe for 2.99$/month🥳")
                     .foregroundColor(.white)
                     .font(.headline)
                     .frame(height: 55)
@@ -128,8 +131,6 @@ fileprivate extension PayWallView {
                         UIApplication.shared.open(url)
                     }
                 }
-            
-            
         }
     }
 }
