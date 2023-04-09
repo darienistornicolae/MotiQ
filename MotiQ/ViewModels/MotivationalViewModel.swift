@@ -23,10 +23,10 @@ class MotivationalViewModel: ObservableObject {
     init() {
         getData()
         apiService.getQuotes()
-        refreshDataInBackground()
+        refreshData()
     }
     
-    func refreshDataInBackground() {
+    func refreshData() {
         DispatchQueue.global(qos: .background).async {
             Timer.publish(every: 250, on: .main, in: .common)
                 .autoconnect()

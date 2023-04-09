@@ -8,6 +8,8 @@
 import SwiftUI
 import GoogleMobileAds
 
+
+// TODO: Optimise for iPad
 struct BannerAd: UIViewRepresentable {
     
     var unitID: String
