@@ -10,6 +10,7 @@ import Combine
 
 
 
+
 class MotivationalViewModel: ObservableObject {
     // MARK: Properties
     let apiService = MotivationalAPI(quotes: QuotesModel(q: "", a: ""))
@@ -22,7 +23,18 @@ class MotivationalViewModel: ObservableObject {
     init() {
         getData()
         apiService.getQuotes()
-        startUpdatingData()
+        refreshDataInBackground()
+    }
+    
+    func refreshDataInBackground() {
+        DispatchQueue.global(qos: .background).async {
+            Timer.publish(every: 250, on: .main, in: .common)
+                .autoconnect()
+                .sink { [weak self] _ in
+                    self?.apiService.getQuotes()
+                }
+                .store(in: &self.cancellables)
+        }
     }
     
     func getData() {
@@ -49,7 +61,7 @@ class MotivationalViewModel: ObservableObject {
     }
     
     func startTimer() {
-        Timer.publish(every: 7, on: .main, in: .common)
+        Timer.publish(every: 5, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 guard let self = self else { return }
@@ -62,15 +74,6 @@ class MotivationalViewModel: ObservableObject {
                     self.a = author
                 }
                 index = (index + 1) % self.apiService.quotes.count
-            }
-            .store(in: &cancellables)
-    }
-    
-    func startUpdatingData() {
-        Timer.publish(every: 250, on: .main, in: .common)
-            .autoconnect()
-            .sink { [weak self] _ in
-                self?.getData()
             }
             .store(in: &cancellables)
     }

@@ -14,6 +14,7 @@ import GoogleMobileAds
 
 struct MotiQApp: App {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+   
     init() {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
@@ -23,9 +24,9 @@ struct MotiQApp: App {
             HomeScreenView(viewModel: MotivationalViewModel())
                 .preferredColorScheme(isDarkMode ? .dark : .light)
                 
-                       
         }
     }
+    
 }
 
 

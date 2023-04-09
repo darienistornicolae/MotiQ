@@ -12,11 +12,13 @@ import SwiftUI
 struct HomeScreenView: View {
     
     //MARK: Properties
+    @State var showAlert: Bool = false
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
+    
     @StateObject var viewModel: MotivationalViewModel
     @ObservedObject var networkManager = NetworkManager()
-    @State var showAlert: Bool = false
+    
     
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
