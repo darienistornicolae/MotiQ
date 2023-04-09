@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F207A29E06E5E000C8E22 /* BannerAd.swift */; };
 		014B55E129D38AAF00B14F40 /* MotiQApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55E029D38AAF00B14F40 /* MotiQApp.swift */; };
 		014B55E829D38AAF00B14F40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 014B55E729D38AAF00B14F40 /* Preview Assets.xcassets */; };
 		014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55F329D38B5700B14F40 /* HomeScreenView.swift */; };
@@ -22,10 +23,26 @@
 		015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */; };
 		015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522829D5F9C00098DBB6 /* NotificationCenter.swift */; };
 		018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E963829DDE0AB004D5A41 /* NetworkManager.swift */; };
+		01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B85BC429E1CC780009C388 /* PayWallView.swift */; };
 		01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesListView.swift */; };
+		138DFC0F546BEEF1018E7541 /* Pods_MotiQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E416F886CB6EAD4CA10CABB /* Pods_MotiQ.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		01A4241829E2D30D00053D1A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		013F207A29E06E5E000C8E22 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		014B55DD29D38AAF00B14F40 /* MotiQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotiQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		014B55E029D38AAF00B14F40 /* MotiQApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiQApp.swift; sourceTree = "<group>"; };
 		014B55E729D38AAF00B14F40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -42,7 +59,12 @@
 		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		018E963829DDE0AB004D5A41 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		01A4240629E2D30C00053D1A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		01B85BC429E1CC780009C388 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
 		01B8942029DACD480052EF7E /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
+		4D5073B6BEB1A81E49FDC276 /* Pods-MotiQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotiQ.debug.xcconfig"; path = "Target Support Files/Pods-MotiQ/Pods-MotiQ.debug.xcconfig"; sourceTree = "<group>"; };
+		7E416F886CB6EAD4CA10CABB /* Pods_MotiQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotiQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A89D0B68D45A167D0C4FF2CB /* Pods-MotiQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotiQ.release.xcconfig"; path = "Target Support Files/Pods-MotiQ/Pods-MotiQ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				138DFC0F546BEEF1018E7541 /* Pods_MotiQ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +84,8 @@
 			children = (
 				014B55DF29D38AAF00B14F40 /* MotiQ */,
 				014B55DE29D38AAF00B14F40 /* Products */,
+				A3FD9F3AE1FAE7E82EF5E40C /* Frameworks */,
+				05AC2A5FB4E365E8B2FFECBE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +128,8 @@
 				014B55F329D38B5700B14F40 /* HomeScreenView.swift */,
 				015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */,
 				01B8942029DACD480052EF7E /* QuotesListView.swift */,
+				013F207A29E06E5E000C8E22 /* BannerAd.swift */,
+				01B85BC429E1CC780009C388 /* PayWallView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +170,25 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		05AC2A5FB4E365E8B2FFECBE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D5073B6BEB1A81E49FDC276 /* Pods-MotiQ.debug.xcconfig */,
+				A89D0B68D45A167D0C4FF2CB /* Pods-MotiQ.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A3FD9F3AE1FAE7E82EF5E40C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01A4240629E2D30C00053D1A /* SwiftUI.framework */,
+				7E416F886CB6EAD4CA10CABB /* Pods_MotiQ.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +196,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 014B55EB29D38AAF00B14F40 /* Build configuration list for PBXNativeTarget "MotiQ" */;
 			buildPhases = (
+				7FFB1719E2C0BAE7A5805722 /* [CP] Check Pods Manifest.lock */,
 				014B55D929D38AAF00B14F40 /* Sources */,
 				014B55DA29D38AAF00B14F40 /* Frameworks */,
 				014B55DB29D38AAF00B14F40 /* Resources */,
+				01A4241829E2D30D00053D1A /* Embed Foundation Extensions */,
+				33BA2B26A34D136F81371A79 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,6 +258,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		33BA2B26A34D136F81371A79 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MotiQ/Pods-MotiQ-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MotiQ/Pods-MotiQ-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MotiQ/Pods-MotiQ-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FFB1719E2C0BAE7A5805722 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MotiQ-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		014B55D929D38AAF00B14F40 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -216,12 +307,14 @@
 			files = (
 				015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */,
 				014B55FA29D38B7A00B14F40 /* SettingsSheet.swift in Sources */,
+				01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */,
 				015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */,
 				018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */,
 				014B55FC29D38B8800B14F40 /* MotivationalAPI.swift in Sources */,
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
+				013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */,
 				01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */,
 				014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */,
 				014B55FE29D38BAA00B14F40 /* QuotesModel.swift in Sources */,
@@ -349,7 +442,9 @@
 		};
 		014B55EC29D38AAF00B14F40 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D5073B6BEB1A81E49FDC276 /* Pods-MotiQ.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -361,6 +456,7 @@
 				INFOPLIST_FILE = MotiQ/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MotiQ;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -374,20 +470,22 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq;
+				PRODUCT_BUNDLE_IDENTIFIER = org.Motiq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		014B55ED29D38AAF00B14F40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A89D0B68D45A167D0C4FF2CB /* Pods-MotiQ.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -399,6 +497,7 @@
 				INFOPLIST_FILE = MotiQ/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MotiQ;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -412,14 +511,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq;
+				PRODUCT_BUNDLE_IDENTIFIER = org.Motiq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

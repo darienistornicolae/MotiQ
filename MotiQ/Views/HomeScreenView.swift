@@ -7,14 +7,18 @@
 
 import SwiftUI
 
+
+
 struct HomeScreenView: View {
     
     //MARK: Properties
+    @State var showAlert: Bool = false
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
+    
     @StateObject var viewModel: MotivationalViewModel
     @ObservedObject var networkManager = NetworkManager()
-    @State var showAlert: Bool = false
+    
     
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
@@ -23,28 +27,28 @@ struct HomeScreenView: View {
     
     var body: some View {
         ZStack {
-                HStack(alignment: .center) {
-                    if networkManager.isConnected {
-                        quotesContainer
-                            .font(.custom("Avenir", size: 24))
-                            .multilineTextAlignment(.center)
-                            .frame(maxWidth: 350)
-                            .animation(.linear)
-                            .onLongPressGesture {
-                                viewModel.saveQuote()
-                                withAnimation {
-                                    showAlert = true
-                                }
+            add
+            HStack(alignment: .center) {
+                
+                if networkManager.isConnected {
+                    quotesContainer
+                        .font(.custom("Avenir", size: 24))
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: 350)
+                        .animation(.linear)
+                        .onLongPressGesture {
+                            viewModel.saveQuote()
+                            withAnimation {
+                                showAlert = true
                             }
-                            .alert(isPresented: $showAlert, content: {
-                                Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
-                            })
-                    } else {
-                        Text("No Internet Connection")
-                    }
-                    
+                        }
+                        .alert(isPresented: $showAlert, content: {
+                            Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
+                        })
+                } else {
+                    Text("No Internet Connection")
                 }
-            
+            }
             menuButton
             addText
         }
@@ -59,6 +63,14 @@ struct HomeScreenView_Previews: PreviewProvider {
 
 
 fileprivate extension HomeScreenView {
+    
+    var add: some View {
+        VStack(){
+            BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
+                .frame(width: 300, height: 100)
+            Spacer()
+        }
+    }
     
     var menuButton: some View {
         VStack() {
@@ -113,13 +125,14 @@ fileprivate extension HomeScreenView {
     
     var quotesContainer: some View {
         VStack(alignment: .center, spacing: 30) {
-                Text("\"\(viewModel.q)\"")
-                Text(viewModel.a)
+            Text("\"\(viewModel.q)\"")
+            Text(viewModel.a)
         }
         .onTapGesture {
             viewModel.nextQuote()
         }
     }
 }
+
 
 

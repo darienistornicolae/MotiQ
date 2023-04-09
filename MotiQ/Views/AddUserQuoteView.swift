@@ -19,6 +19,18 @@ struct AddUserQuoteView: View {
     }
     
     var body: some View {
+        addUserQuoteContainer
+    }
+}
+
+struct AddUserQuoteView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddUserQuoteView(viewModel: CoreDataViewModel())
+    }
+}
+
+fileprivate extension AddUserQuoteView {
+    var addUserQuoteContainer: some View {
         NavigationView {
             VStack() {
                 Form {
@@ -44,21 +56,18 @@ struct AddUserQuoteView: View {
                                     Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
                                     
                                 }
-                            
                         }
-                        
-                        
                     }
+                    bannerAdd
                 }
             }
             .navigationBarTitle("MotiQ", displayMode: .inline)
         }
     }
-}
-
-struct AddUserQuoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddUserQuoteView(viewModel: CoreDataViewModel())
+    
+    var bannerAdd: some View {
+        BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
+            .frame(width: 400, height: 300)
     }
 }
 
