@@ -30,10 +30,9 @@ struct SettingsSheet: View {
         NavigationView {
             VStack() {
                 Form {
-                    
+                    darkMode
                     premiumContent
                     restorePurchase
-                    darkMode
                     savedQuotes
                     notifications
                     newsLetter
@@ -112,7 +111,7 @@ fileprivate extension SettingsSheet {
     }
     
     var notifications: some View {
-        Section(header: Text("Push Notifications"), footer: Text("Daily reminder to check the app for quotes 😊. When you set up the date and time, it'll automatically update")) {
+        Section(header: Text("Push Notifications"), footer: Text("Reminder to check the app for quotes 😊. When you set up the date and time, it'll automatically update")) {
             
             DatePicker("Remind Me", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
                 .datePickerStyle(CompactDatePickerStyle())

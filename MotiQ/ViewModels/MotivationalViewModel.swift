@@ -28,7 +28,7 @@ class MotivationalViewModel: ObservableObject {
     
     func refreshData() {
         DispatchQueue.global(qos: .background).async {
-            Timer.publish(every: 250, on: .main, in: .common)
+            Timer.publish(every: 150, on: .main, in: .common)
                 .autoconnect()
                 .sink { [weak self] _ in
                     self?.apiService.getQuotes()

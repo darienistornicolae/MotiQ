@@ -38,7 +38,7 @@ class MotivationalAPI {
                 }
             } receiveValue: { [weak self] returnedQuotes in
                 self?.quotes = returnedQuotes
-               // print(returnedQuotes)
+                print(returnedQuotes)
             }
             .store(in: &cancellables)
     }

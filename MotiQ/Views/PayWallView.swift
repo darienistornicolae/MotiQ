@@ -11,24 +11,22 @@ struct PayWallView: View {
     
     //TODO: Revenue Cat
     
-    @Environment(\.presentationMode) private var presentationMode
     @State var animate: Bool = false
     var body: some View {
         ScrollView {
             
             VStack() {
+                Spacer()
                 newsletterWhy
                 features
-                purchaseButton
+                purchaseMonthlyButton
+                purchaseAnnuallyButton
                 legalActs
                     .padding()
             }
-            
             .navigationTitle("Premium MotiQ")
             .navigationBarTitleDisplayMode(.large)
-            .onAppear {
-                addAnimation()
-            }
+      
         }
     }
     
@@ -56,13 +54,16 @@ fileprivate extension PayWallView {
         }
     }
     
+    
     var features: some View {
         VStack(alignment:.leading , spacing: 25) {
-            Text(" No Ads 😇")
-            Text(" Support the developer ❤️")
-            Text(" Widgets (future) 👀")
-            Text(" Offline mode (future)")
-            Text(" Sync Saved Quotes 🛜")
+            
+            Text("\(Image(systemName: "checkmark.seal")) No Ads 😇")
+            Text("\(Image(systemName: "checkmark.seal")) Support the developer ❤️")
+            Text("\(Image(systemName: "checkmark.seal")) Custom Widgets (Soon) 👀")
+            Text("\(Image(systemName: "checkmark.seal")) Offline mode (Soon)")
+            Text("\(Image(systemName: "checkmark.seal")) Sync Saved Quotes 🛜 (Soon)")
+            Text("\(Image(systemName: "checkmark.seal")) iPad&WatchOS app⌚️ (Soon)")
             
         }
         .padding(.top)
@@ -90,17 +91,44 @@ fileprivate extension PayWallView {
         }
     }
     
-    var purchaseButton: some View {
+    var purchaseMonthlyButton: some View {
+        
+      
+            HStack{
+                let price: Text = Text("4.99$").strikethrough(true)
+                Button {
+                    print("Confirmed")
+                } label: {
+                    Text("Purchase for \(price) 2.99$/month")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.accentColor)
+                        .cornerRadius(15)
+                        .padding(.top, 40)
+                }
+                .padding(.horizontal, animate ? 30 : 50)
+                
+                .scaleEffect(animate ? 1.0 : 1.1)
+                .offset(y: animate ? -7 : 0)
+                
+            }
+        
+    }
+    var purchaseAnnuallyButton: some View {
+        
         HStack{
+            let price: Text = Text("49.99$").strikethrough(true)
             Button {
                 print("Confirmed")
             } label: {
-                Text("Subscribe for 2.99$/month🥳")
+                Text("Purchase for \(price) 15.99$/annually")
                     .foregroundColor(.white)
                     .font(.headline)
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
-                    .background(animate ? .accentColor : Color.accentColor)
+                    .background(Color.accentColor)
                     .cornerRadius(15)
                     .padding(.top, 40)
             }
