@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct PayWallView: View {
-    
     //TODO: Revenue Cat
-    
     @State var animate: Bool = false
     var body: some View {
         ScrollView {
@@ -19,14 +17,13 @@ struct PayWallView: View {
                 Spacer()
                 newsletterWhy
                 features
-                purchaseMonthlyButton
-                purchaseAnnuallyButton
+                purchases
+                    .padding(.top)
                 legalActs
-                    .padding()
             }
             .navigationTitle("Premium MotiQ")
             .navigationBarTitleDisplayMode(.large)
-      
+            
         }
     }
     
@@ -40,6 +37,50 @@ struct PayWallView_Previews: PreviewProvider {
 
 
 fileprivate extension PayWallView {
+    
+    var purchases: some View {
+        HStack() {
+            Button {
+                print("Dsd")
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(Color.blue)
+                        .frame(width: 125, height: 125)
+                    Text("Annually")
+                        .padding(.bottom, 80)
+                    Text("14.99$")
+                        .font(.title)
+                    Text("59.99$")
+                        .strikethrough(true)
+                        .padding(.top,70)
+                }
+                .padding(.trailing)
+                .foregroundColor(.white)
+            }
+ 
+            HStack() {
+                Button {
+                    print("ds")
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(Color.blue)
+                            .frame(width: 125, height: 125)
+                        Text("Monthly")
+                            .padding(.bottom, 80)
+                        Text("2.99$")
+                            .font(.title)
+                        Text("4.99$")
+                            .strikethrough(true)
+                            .padding(.top,70)
+                    }
+                    .padding(.leading)
+                    .foregroundColor(.white)
+                }
+            }
+        }
+    }
     
     func addAnimation() {
         guard !animate else { return }
@@ -73,7 +114,7 @@ fileprivate extension PayWallView {
     var newsletterWhy: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(Color.blue.opacity(0.2))
+                .foregroundColor(Color.blue)
                 .padding()
             
             VStack(alignment: .center) {
@@ -81,61 +122,14 @@ fileprivate extension PayWallView {
                     .fontWeight(.bold)
                     .font(.title)
                     .padding()
+                    .foregroundColor(.white)
                 Text("Subscribe to our newsletter and take the first step towards a happier, healthier mind. Get expert insights and resources on mental health and psychology. Sign up today to start your journey towards greater self-awareness, emotional well-being, and personal growth.")
                     .multilineTextAlignment(.leading)
                     .font(.headline)
+                    .foregroundColor(.white)
                 Spacer()
             }
             .padding(30)
-            
-        }
-    }
-    
-    var purchaseMonthlyButton: some View {
-        
-      
-            HStack{
-                let price: Text = Text("4.99$").strikethrough(true)
-                Button {
-                    print("Confirmed")
-                } label: {
-                    Text("Purchase for \(price) 2.99$/month")
-                        .foregroundColor(.white)
-                        .font(.headline)
-                        .frame(height: 55)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.accentColor)
-                        .cornerRadius(15)
-                        .padding(.top, 40)
-                }
-                .padding(.horizontal, animate ? 30 : 50)
-                
-                .scaleEffect(animate ? 1.0 : 1.1)
-                .offset(y: animate ? -7 : 0)
-                
-            }
-        
-    }
-    var purchaseAnnuallyButton: some View {
-        
-        HStack{
-            let price: Text = Text("49.99$").strikethrough(true)
-            Button {
-                print("Confirmed")
-            } label: {
-                Text("Purchase for \(price) 15.99$/annually")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.accentColor)
-                    .cornerRadius(15)
-                    .padding(.top, 40)
-            }
-            .padding(.horizontal, animate ? 30 : 50)
-            
-            .scaleEffect(animate ? 1.0 : 1.1)
-            .offset(y: animate ? -7 : 0)
             
         }
     }

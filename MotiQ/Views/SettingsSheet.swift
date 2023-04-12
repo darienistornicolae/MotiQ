@@ -130,7 +130,7 @@ fileprivate extension SettingsSheet {
     }
     
     var bannerAds: some View {
-        BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
-            .frame(width: 500, height: 250)
+        BannerAd(unitID: "ca-app-pub-8739348674271989/8823793414")
+            .frame(width: 400, height: 300)
     }
 }

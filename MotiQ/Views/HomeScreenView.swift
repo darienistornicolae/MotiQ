@@ -49,6 +49,7 @@ struct HomeScreenView: View {
                     Text("No Internet Connection")
                 }
             }
+            
             menuButton
             addText
         }
@@ -66,7 +67,7 @@ fileprivate extension HomeScreenView {
     
     var add: some View {
         VStack(){
-            BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
+            BannerAd(unitID: "ca-app-pub-8739348674271989/8823793414")
                 .frame(width: 300, height: 100)
             Spacer()
         }
