@@ -19,13 +19,15 @@
 		014B560129D38BC700B14F40 /* QuotesContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 014B55FF29D38BC700B14F40 /* QuotesContainer.xcdatamodeld */; };
 		014B560329D38BDC00B14F40 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 014B560229D38BDC00B14F40 /* Launch Screen.storyboard */; };
 		014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B560429D38C1000B14F40 /* ColorsExtension.swift */; };
+		015B1DAA29E56EE6004AD9C7 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 015B1DA929E56EE6004AD9C7 /* ReceiptParser */; };
+		015B1DAC29E56EE6004AD9C7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 015B1DAB29E56EE6004AD9C7 /* RevenueCat */; };
+		015B1DAF29E56F5E004AD9C7 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 015B1DAE29E56F5E004AD9C7 /* GoogleMobileAds */; };
 		015E522329D5C2910098DBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015E522229D5C2910098DBB6 /* Assets.xcassets */; };
 		015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */; };
 		015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522829D5F9C00098DBB6 /* NotificationCenter.swift */; };
 		018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E963829DDE0AB004D5A41 /* NetworkManager.swift */; };
 		01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B85BC429E1CC780009C388 /* PayWallView.swift */; };
 		01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesListView.swift */; };
-		2C6DF89B96F40CCE8920CEB1 /* Pods_MotiQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99AD413990F9C572D28A0CE /* Pods_MotiQ.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,9 +64,6 @@
 		01A4240629E2D30C00053D1A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		01B85BC429E1CC780009C388 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
 		01B8942029DACD480052EF7E /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
-		76AFBF9681B2B6E2E751B75E /* Pods-MotiQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotiQ.release.xcconfig"; path = "Target Support Files/Pods-MotiQ/Pods-MotiQ.release.xcconfig"; sourceTree = "<group>"; };
-		BC15DD125468EF9F19625A9F /* Pods-MotiQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotiQ.debug.xcconfig"; path = "Target Support Files/Pods-MotiQ/Pods-MotiQ.debug.xcconfig"; sourceTree = "<group>"; };
-		F99AD413990F9C572D28A0CE /* Pods_MotiQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotiQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C6DF89B96F40CCE8920CEB1 /* Pods_MotiQ.framework in Frameworks */,
+				015B1DAF29E56F5E004AD9C7 /* GoogleMobileAds in Frameworks */,
+				015B1DAC29E56EE6004AD9C7 /* RevenueCat in Frameworks */,
+				015B1DAA29E56EE6004AD9C7 /* ReceiptParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +86,6 @@
 				014B55DF29D38AAF00B14F40 /* MotiQ */,
 				014B55DE29D38AAF00B14F40 /* Products */,
 				A3FD9F3AE1FAE7E82EF5E40C /* Frameworks */,
-				B460C4A80448C31F3E644CFD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,19 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				01A4240629E2D30C00053D1A /* SwiftUI.framework */,
-				F99AD413990F9C572D28A0CE /* Pods_MotiQ.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B460C4A80448C31F3E644CFD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BC15DD125468EF9F19625A9F /* Pods-MotiQ.debug.xcconfig */,
-				76AFBF9681B2B6E2E751B75E /* Pods-MotiQ.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,18 +185,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 014B55EB29D38AAF00B14F40 /* Build configuration list for PBXNativeTarget "MotiQ" */;
 			buildPhases = (
-				F6F13A43573CA03FE17A0849 /* [CP] Check Pods Manifest.lock */,
 				014B55D929D38AAF00B14F40 /* Sources */,
 				014B55DA29D38AAF00B14F40 /* Frameworks */,
 				014B55DB29D38AAF00B14F40 /* Resources */,
 				01A4241829E2D30D00053D1A /* Embed Foundation Extensions */,
-				BD031853A418B7AB09B5C9E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MotiQ;
+			packageProductDependencies = (
+				015B1DA929E56EE6004AD9C7 /* ReceiptParser */,
+				015B1DAB29E56EE6004AD9C7 /* RevenueCat */,
+				015B1DAE29E56F5E004AD9C7 /* GoogleMobileAds */,
+			);
 			productName = Motiq;
 			productReference = 014B55DD29D38AAF00B14F40 /* MotiQ.app */;
 			productType = "com.apple.product-type.application";
@@ -236,6 +228,10 @@
 				Base,
 			);
 			mainGroup = 014B55D429D38AAE00B14F40;
+			packageReferences = (
+				015B1DA829E56EE6004AD9C7 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				015B1DAD29E56F5E004AD9C7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = 014B55DE29D38AAF00B14F40 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,48 +253,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		BD031853A418B7AB09B5C9E9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MotiQ/Pods-MotiQ-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MotiQ/Pods-MotiQ-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MotiQ/Pods-MotiQ-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6F13A43573CA03FE17A0849 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MotiQ-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		014B55D929D38AAF00B14F40 /* Sources */ = {
@@ -442,7 +396,6 @@
 		};
 		014B55EC29D38AAF00B14F40 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC15DD125468EF9F19625A9F /* Pods-MotiQ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -469,6 +422,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -482,7 +436,6 @@
 		};
 		014B55ED29D38AAF00B14F40 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76AFBF9681B2B6E2E751B75E /* Pods-MotiQ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -509,6 +462,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -542,6 +496,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		015B1DA829E56EE6004AD9C7 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		015B1DAD29E56F5E004AD9C7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		015B1DA929E56EE6004AD9C7 /* ReceiptParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 015B1DA829E56EE6004AD9C7 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = ReceiptParser;
+		};
+		015B1DAB29E56EE6004AD9C7 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 015B1DA829E56EE6004AD9C7 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		015B1DAE29E56F5E004AD9C7 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 015B1DAD29E56F5E004AD9C7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		014B55FF29D38BC700B14F40 /* QuotesContainer.xcdatamodeld */ = {

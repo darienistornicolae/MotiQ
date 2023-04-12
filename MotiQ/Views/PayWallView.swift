@@ -58,11 +58,11 @@ fileprivate extension PayWallView {
     
     var features: some View {
         VStack(alignment:.leading , spacing: 25) {
-            Text("✅ No Ads 😇")
-            Text("✅ Support the developer ❤️")
-            Text("✅ Widgets (future) 👀")
-            Text("✅ Offline mode (future)")
-            Text("✅ Sync Saved Quotes 🛜")
+            Text(" No Ads 😇")
+            Text(" Support the developer ❤️")
+            Text(" Widgets (future) 👀")
+            Text(" Offline mode (future)")
+            Text(" Sync Saved Quotes 🛜")
             
         }
         .padding(.top)
@@ -100,7 +100,7 @@ fileprivate extension PayWallView {
                     .font(.headline)
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
-                    .background(animate ? .red : Color.accentColor)
+                    .background(animate ? .accentColor : Color.accentColor)
                     .cornerRadius(15)
                     .padding(.top, 40)
             }
