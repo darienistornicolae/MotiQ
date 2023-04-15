@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F207A29E06E5E000C8E22 /* BannerAd.swift */; };
+		014AABEE29E9FB3900F39B18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014AABED29E9FB3900F39B18 /* StoreKit.framework */; };
 		014B55E129D38AAF00B14F40 /* MotiQApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55E029D38AAF00B14F40 /* MotiQApp.swift */; };
 		014B55E829D38AAF00B14F40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 014B55E729D38AAF00B14F40 /* Preview Assets.xcassets */; };
 		014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55F329D38B5700B14F40 /* HomeScreenView.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		013F207A29E06E5E000C8E22 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
+		014AABED29E9FB3900F39B18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		014B55DD29D38AAF00B14F40 /* MotiQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotiQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		014B55E029D38AAF00B14F40 /* MotiQApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiQApp.swift; sourceTree = "<group>"; };
 		014B55E729D38AAF00B14F40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				015B1DAF29E56F5E004AD9C7 /* GoogleMobileAds in Frameworks */,
 				015B1DAC29E56EE6004AD9C7 /* RevenueCat in Frameworks */,
 				015B1DAA29E56EE6004AD9C7 /* ReceiptParser in Frameworks */,
+				014AABEE29E9FB3900F39B18 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +176,7 @@
 		A3FD9F3AE1FAE7E82EF5E40C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				014AABED29E9FB3900F39B18 /* StoreKit.framework */,
 				01A4240629E2D30C00053D1A /* SwiftUI.framework */,
 			);
 			name = Frameworks;

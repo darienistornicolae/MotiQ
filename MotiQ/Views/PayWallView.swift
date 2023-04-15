@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import RevenueCat
 
 struct PayWallView: View {
     //TODO: Revenue Cat
     @State var animate: Bool = false
+    @State private var selectedOption: String = ""
+    @State var currentOffering: Offering?
     var body: some View {
         ScrollView {
             
@@ -17,13 +20,33 @@ struct PayWallView: View {
                 Spacer()
                 newsletterWhy
                 features
-                purchases
+                purchases(selectedOption: $selectedOption)
                     .padding(.top)
+                Button(action: {
+                    print("Selected option: \(selectedOption)")
+                }, label: {
+                    Text("Subscribe")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .frame(height:55)
+                        .frame(maxWidth: 290)
+                        .background(Color.blue)
+                        .cornerRadius(20)
+                })
+                .disabled(selectedOption.isEmpty)
                 legalActs
+                    .padding(.top)
             }
             .navigationTitle("Premium MotiQ")
             .navigationBarTitleDisplayMode(.large)
             
+        }
+        .onAppear {
+            Purchases.shared.getOfferings { offerings, error in
+                if let offer = offerings?.current, error == nil {
+                    currentOffering = offer
+                }
+            }
         }
     }
     
@@ -38,11 +61,11 @@ struct PayWallView_Previews: PreviewProvider {
 
 fileprivate extension PayWallView {
     
-    var purchases: some View {
-        HStack() {
-            Button {
-                print("Dsd")
-            } label: {
+    func purchases(selectedOption: Binding<String>) -> some View {
+        HStack {
+            Button(action: {
+                selectedOption.wrappedValue = "Annually"
+            }, label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(Color.blue)
@@ -57,28 +80,26 @@ fileprivate extension PayWallView {
                 }
                 .padding(.trailing)
                 .foregroundColor(.white)
-            }
- 
-            HStack() {
-                Button {
-                    print("ds")
-                } label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(Color.blue)
-                            .frame(width: 125, height: 125)
-                        Text("Monthly")
-                            .padding(.bottom, 80)
-                        Text("2.99$")
-                            .font(.title)
-                        Text("4.99$")
-                            .strikethrough(true)
-                            .padding(.top,70)
-                    }
-                    .padding(.leading)
-                    .foregroundColor(.white)
+            })
+            
+            Button(action: {
+                selectedOption.wrappedValue = "Monthly"
+            }, label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(Color.blue)
+                        .frame(width: 125, height: 125)
+                    Text("Monthly")
+                        .padding(.bottom, 80)
+                    Text("2.99$")
+                        .font(.title)
+                    Text("4.99$")
+                        .strikethrough(true)
+                        .padding(.top,70)
                 }
-            }
+                .padding(.leading)
+                .foregroundColor(.white)
+            })
         }
     }
     

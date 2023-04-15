@@ -7,7 +7,7 @@
 
 import SwiftUI
 import GoogleMobileAds
-
+import RevenueCat
 
 @main
 
@@ -18,6 +18,8 @@ struct MotiQApp: App {
     
     init() {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        Purchases.logLevel = .debug
+        Purchases.configure(withAPIKey: "appl_jWKLVAnpkjXeJobUQlyOrzLRkkn")
         
     }
     var body: some Scene {
