@@ -20,22 +20,8 @@ struct PayWallView: View {
                 Spacer()
                 newsletterWhy
                 features
-                purchases(selectedOption: $selectedOption)
-                    .padding(.top)
-                Button(action: {
-                    print("Selected option: \(selectedOption)")
-                }, label: {
-                    Text("Subscribe")
-                        .foregroundColor(.white)
-                        .font(.headline)
-                        .frame(height:55)
-                        .frame(maxWidth: 290)
-                        .background(Color.blue)
-                        .cornerRadius(20)
-                })
-                .disabled(selectedOption.isEmpty)
+                subscribeButton
                 legalActs
-                    .padding(.top)
             }
             .navigationTitle("Premium MotiQ")
             .navigationBarTitleDisplayMode(.large)
@@ -45,6 +31,7 @@ struct PayWallView: View {
             Purchases.shared.getOfferings { offerings, error in
                 if let offer = offerings?.current, error == nil {
                     currentOffering = offer
+                    
                 }
             }
         }
@@ -61,45 +48,67 @@ struct PayWallView_Previews: PreviewProvider {
 
 fileprivate extension PayWallView {
     
-    func purchases(selectedOption: Binding<String>) -> some View {
-        HStack {
-            Button(action: {
-                selectedOption.wrappedValue = "Annually"
-            }, label: {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(Color.blue)
-                        .frame(width: 125, height: 125)
-                    Text("Annually")
-                        .padding(.bottom, 80)
-                    Text("14.99$")
-                        .font(.title)
-                    Text("59.99$")
-                        .strikethrough(true)
-                        .padding(.top,70)
+//    func purchases(selectedOption: Binding<String>) -> some View {
+//        HStack {
+//            Button(action: {
+//                selectedOption.wrappedValue = "Annually"
+//            }, label: {
+//                ZStack {
+//                    RoundedRectangle(cornerRadius: 20)
+//                        .foregroundColor(Color.blue)
+//                        .frame(width: 125, height: 125)
+//                    Text("Annually")
+//                        .padding(.bottom, 80)
+//                    Text("14.99$")
+//                        .font(.title)
+//                    Text("59.99$")
+//                        .strikethrough(true)
+//                        .padding(.top,70)
+//                }
+//                .padding(.trailing)
+//                .foregroundColor(.white)
+//            })
+//
+//            Button(action: {
+//                selectedOption.wrappedValue = "Monthly"
+//            }, label: {
+//                ZStack {
+//                    RoundedRectangle(cornerRadius: 20)
+//                        .foregroundColor(Color.blue)
+//                        .frame(width: 125, height: 125)
+//                    Text("Monthly")
+//                        .padding(.bottom, 80)
+//                    Text("2.99$")
+//                        .font(.title)
+//                    Text("4.99$")
+//                        .strikethrough(true)
+//                        .padding(.top,70)
+//                }
+//                .padding(.leading)
+//                .foregroundColor(.white)
+//            })
+//        }
+//    }
+    
+    var subscribeButton: some View {
+        VStack {
+            if currentOffering != nil {
+                ForEach(currentOffering!.availablePackages) { pkg in
+ 
+                    Button(action: {
+                        print("Selected option: \(selectedOption)")
+                    }, label: {
+                        Text("Subscribe for only \(pkg.storeProduct.localizedPriceString)/\(pkg.storeProduct.subscriptionPeriod!.periodTitle) ")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                            .frame(height:55)
+                            .frame(maxWidth: 350)
+                            .background(Color.blue)
+                            .cornerRadius(20)
+                    })
+                    .disabled(selectedOption.isEmpty)
                 }
-                .padding(.trailing)
-                .foregroundColor(.white)
-            })
-            
-            Button(action: {
-                selectedOption.wrappedValue = "Monthly"
-            }, label: {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(Color.blue)
-                        .frame(width: 125, height: 125)
-                    Text("Monthly")
-                        .padding(.bottom, 80)
-                    Text("2.99$")
-                        .font(.title)
-                    Text("4.99$")
-                        .strikethrough(true)
-                        .padding(.top,70)
-                }
-                .padding(.leading)
-                .foregroundColor(.white)
-            })
+            }
         }
     }
     

@@ -12,7 +12,7 @@ import SwiftUI
 struct HomeScreenView: View {
     
     //MARK: Properties
-    @State var showAlert: Bool = false
+    @State var showAlert: Bool = true
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
     
@@ -42,6 +42,7 @@ struct HomeScreenView: View {
                                 showAlert = true
                             }
                         }
+                    // TODO: Alert is not showing anymore :/
                         .alert(isPresented: $showAlert, content: {
                             Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
                         })

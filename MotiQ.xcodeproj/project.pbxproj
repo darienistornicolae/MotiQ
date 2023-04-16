@@ -27,6 +27,7 @@
 		015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */; };
 		015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522829D5F9C00098DBB6 /* NotificationCenter.swift */; };
 		018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E963829DDE0AB004D5A41 /* NetworkManager.swift */; };
+		01A1512729EC17E700A609AD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1512629EC17E700A609AD /* Extensions.swift */; };
 		01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B85BC429E1CC780009C388 /* PayWallView.swift */; };
 		01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesListView.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		018E963829DDE0AB004D5A41 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		01A1512629EC17E700A609AD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		01A4240629E2D30C00053D1A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		01B85BC429E1CC780009C388 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
 		01B8942029DACD480052EF7E /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		014B55F129D38ADC00B14F40 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				01A1512629EC17E700A609AD /* Extensions.swift */,
 				014B560429D38C1000B14F40 /* ColorsExtension.swift */,
 			);
 			path = Extensions;
@@ -274,6 +277,7 @@
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
 				013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */,
 				01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */,
+				01A1512729EC17E700A609AD /* Extensions.swift in Sources */,
 				014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */,
 				014B55FE29D38BAA00B14F40 /* QuotesModel.swift in Sources */,
 				014B55E129D38AAF00B14F40 /* MotiQApp.swift in Sources */,
