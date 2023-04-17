@@ -9,8 +9,6 @@ import Foundation
 import Combine
 
 
-
-
 class MotivationalViewModel: ObservableObject {
     // MARK: Properties
     let apiService = MotivationalAPI(quotes: QuotesModel(q: "", a: ""))

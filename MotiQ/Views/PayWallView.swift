@@ -96,7 +96,11 @@ fileprivate extension PayWallView {
                 ForEach(currentOffering!.availablePackages) { pkg in
  
                     Button(action: {
-                        print("Selected option: \(selectedOption)")
+                        Purchases.shared.purchase(package: pkg) { transaction, customerInfo, error, userCancelled in
+                            if customerInfo?.entitlements.all["premium"]?.isActive == true {
+                                
+                            }
+                        }
                     }, label: {
                         Text("Subscribe for only \(pkg.storeProduct.localizedPriceString)/\(pkg.storeProduct.subscriptionPeriod!.periodTitle) ")
                             .foregroundColor(.white)

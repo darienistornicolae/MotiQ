@@ -12,7 +12,7 @@ import SwiftUI
 struct HomeScreenView: View {
     
     //MARK: Properties
-    @State var showAlert: Bool = true
+    @State var showAlert: Bool = false
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
     
@@ -36,16 +36,9 @@ struct HomeScreenView: View {
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: 350)
                         .animation(.linear)
-                        .onLongPressGesture {
-                            viewModel.saveQuote()
-                            withAnimation {
-                                showAlert = true
-                            }
-                        }
+                        
                     // TODO: Alert is not showing anymore :/
-                        .alert(isPresented: $showAlert, content: {
-                            Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
-                        })
+                        
                 } else {
                     Text("No Internet Connection")
                 }
@@ -132,6 +125,15 @@ fileprivate extension HomeScreenView {
         }
         .onTapGesture {
             viewModel.nextQuote()
+        }
+        .alert(isPresented: $showAlert, content: {
+            Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
+        })
+        .onLongPressGesture {
+            viewModel.saveQuote()
+            withAnimation {
+                showAlert = true
+            }
         }
     }
 }
