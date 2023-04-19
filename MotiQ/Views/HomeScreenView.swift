@@ -12,6 +12,7 @@ import SwiftUI
 struct HomeScreenView: View {
     
     //MARK: Properties
+    @State var alerting: Bool = false
     @State var showAlert: Bool = false
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
@@ -22,7 +23,6 @@ struct HomeScreenView: View {
     
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
-        
     }
     
     var body: some View {
@@ -36,9 +36,8 @@ struct HomeScreenView: View {
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: 350)
                         .animation(.linear)
-                        
-                    // TODO: Alert is not showing anymore :/
-                        
+
+                    
                 } else {
                     Text("No Internet Connection")
                 }
