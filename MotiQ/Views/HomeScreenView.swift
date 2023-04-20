@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+//Just the commit of the day to look good
 
 struct HomeScreenView: View {
     
@@ -64,6 +64,7 @@ fileprivate extension HomeScreenView {
                 .frame(width: 300, height: 100)
             Spacer()
         }
+        
     }
     
     var menuButton: some View {
