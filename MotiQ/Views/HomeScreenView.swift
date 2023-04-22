@@ -27,7 +27,7 @@ struct HomeScreenView: View {
     
     var body: some View {
         ZStack {
-            add
+            googleAds
             HStack(alignment: .center) {
                 
                 if networkManager.isConnected {
@@ -36,7 +36,7 @@ struct HomeScreenView: View {
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: 350)
                         .animation(.linear)
-
+                    
                     
                 } else {
                     Text("No Internet Connection")
@@ -58,10 +58,10 @@ struct HomeScreenView_Previews: PreviewProvider {
 
 fileprivate extension HomeScreenView {
     
-    var add: some View {
+    var googleAds: some View {
         VStack(){
             BannerAd(unitID: "ca-app-pub-8739348674271989/8823793414")
-                .frame(width: 300, height: 100)
+                .frame(height: 150)
             Spacer()
         }
         

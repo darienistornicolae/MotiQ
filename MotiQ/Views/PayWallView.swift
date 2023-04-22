@@ -137,8 +137,8 @@ fileprivate extension PayWallView {
             Text("\(Image(systemName: "checkmark.seal")) Support the developer ❤️")
             Text("\(Image(systemName: "checkmark.seal")) Custom Widgets (Soon) 👀")
             Text("\(Image(systemName: "checkmark.seal")) Offline mode (Soon)")
-            Text("\(Image(systemName: "checkmark.seal")) Sync Saved Quotes 🛜 (Soon)")
             Text("\(Image(systemName: "checkmark.seal")) iPad&WatchOS app⌚️ (Soon)")
+            Text("\(Image(systemName: "checkmark.seal")) And many more!")
             
         }
         .padding(.top)
