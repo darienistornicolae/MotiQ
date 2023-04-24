@@ -42,7 +42,6 @@ struct HomeScreenView: View {
                     Text("No Internet Connection")
                 }
             }
-            
             menuButton
             addText
         }

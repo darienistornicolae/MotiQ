@@ -48,48 +48,6 @@ struct PayWallView_Previews: PreviewProvider {
 
 fileprivate extension PayWallView {
     
-//    func purchases(selectedOption: Binding<String>) -> some View {
-//        HStack {
-//            Button(action: {
-//                selectedOption.wrappedValue = "Annually"
-//            }, label: {
-//                ZStack {
-//                    RoundedRectangle(cornerRadius: 20)
-//                        .foregroundColor(Color.blue)
-//                        .frame(width: 125, height: 125)
-//                    Text("Annually")
-//                        .padding(.bottom, 80)
-//                    Text("14.99$")
-//                        .font(.title)
-//                    Text("59.99$")
-//                        .strikethrough(true)
-//                        .padding(.top,70)
-//                }
-//                .padding(.trailing)
-//                .foregroundColor(.white)
-//            })
-//
-//            Button(action: {
-//                selectedOption.wrappedValue = "Monthly"
-//            }, label: {
-//                ZStack {
-//                    RoundedRectangle(cornerRadius: 20)
-//                        .foregroundColor(Color.blue)
-//                        .frame(width: 125, height: 125)
-//                    Text("Monthly")
-//                        .padding(.bottom, 80)
-//                    Text("2.99$")
-//                        .font(.title)
-//                    Text("4.99$")
-//                        .strikethrough(true)
-//                        .padding(.top,70)
-//                }
-//                .padding(.leading)
-//                .foregroundColor(.white)
-//            })
-//        }
-//    }
-    
     var subscribeButton: some View {
         VStack {
             if currentOffering != nil {
@@ -97,7 +55,7 @@ fileprivate extension PayWallView {
  
                     Button(action: {
                         Purchases.shared.purchase(package: pkg) { transaction, customerInfo, error, userCancelled in
-                            if customerInfo?.entitlements.all["premium"]?.isActive == true {
+                            if customerInfo?.entitlements.all["Premium MotiQ"]?.isActive == true {
                                 
                             }
                         }
@@ -110,7 +68,6 @@ fileprivate extension PayWallView {
                             .background(Color.blue)
                             .cornerRadius(20)
                     })
-                    .disabled(selectedOption.isEmpty)
                 }
             }
         }
