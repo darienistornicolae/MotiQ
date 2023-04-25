@@ -15,6 +15,7 @@ struct SettingsSheet: View {
     @State var selectedDate: Date = Date()
     @ObservedObject var viewModel = NotificationCenter()
     @State private var payWall: Bool = false //Revenue Cat
+    @EnvironmentObject var userViewModel: UserViewModel
     
     var startingDate: Date = Date()
     var endingDate: Date = Calendar.current.date(from: DateComponents (year: 2026)) ?? Date ()

@@ -13,6 +13,8 @@ struct PayWallView: View {
     @State var animate: Bool = false
     @State private var selectedOption: String = ""
     @State var currentOffering: Offering?
+    @EnvironmentObject var userViewModel: UserViewModel
+    
     var body: some View {
         ScrollView {
             
@@ -56,7 +58,7 @@ fileprivate extension PayWallView {
                     Button(action: {
                         Purchases.shared.purchase(package: pkg) { transaction, customerInfo, error, userCancelled in
                             if customerInfo?.entitlements.all["Premium MotiQ"]?.isActive == true {
-                                
+                                userViewModel.isSubscribeActive = true
                             }
                         }
                     }, label: {
