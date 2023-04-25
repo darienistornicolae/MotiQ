@@ -12,7 +12,6 @@ import SwiftUI
 struct HomeScreenView: View {
     
     //MARK: Properties
-    @State var alerting: Bool = false
     @State var showAlert: Bool = false
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
