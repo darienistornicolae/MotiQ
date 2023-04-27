@@ -38,7 +38,7 @@ struct HomeScreenView: View {
                     
                     
                 } else {
-                    Text("No Internet Connection")
+                    Text("No Internet Connection :((")
                 }
             }
             menuButton
