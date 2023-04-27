@@ -18,7 +18,6 @@ class MotivationalAPI {
         self.cancellables = cancellables
     }
     
-    
     func getQuotes() {
         let url: String = "https://zenquotes.io/api/quotes/"
         
