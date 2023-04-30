@@ -37,9 +37,7 @@ struct PayWallView: View {
                 }
             }
         }
-        
     }
-    
 }
 
 struct PayWallView_Previews: PreviewProvider {

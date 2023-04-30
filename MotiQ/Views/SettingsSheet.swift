@@ -37,6 +37,7 @@ struct SettingsSheet: View {
                     notifications
                     newsLetter
                     bannerAds
+                    Text("The api is provided by Zen Api")
                     
                 }
                 .navigationBarTitle("MotiQ", displayMode: .inline)
