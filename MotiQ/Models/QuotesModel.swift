@@ -16,8 +16,5 @@ struct QuotesModel: Codable, Hashable {
         self.q = q
         self.a = a
     }
-    func updateCompletition() -> QuotesModel {
-        return QuotesModel(q: q, a: a)
-    }
 }
    
