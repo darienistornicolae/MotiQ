@@ -11,7 +11,7 @@ import SwiftUI
 
 class AlertManager: ObservableObject {
     @Published var isPresented: Bool = false
-    
+    static let shared = AlertManager()
     private var titleText: Text = Text("")
         private var messageText: Text?
         private var dismissButton: Alert.Button?
@@ -20,7 +20,7 @@ class AlertManager: ObservableObject {
             return Alert(title: titleText, message: messageText,
                 dismissButton: dismissButton)
         }
-    
+    private init () {}
     func presentAlert(title: String, message: String?, dismissButton: Alert.Button?) {
             self.titleText = Text(title)
             if let message = message {
