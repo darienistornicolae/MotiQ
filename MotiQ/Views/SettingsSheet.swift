@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WebKit
+import RevenueCat
 
 struct SettingsSheet: View {
     
@@ -15,6 +16,8 @@ struct SettingsSheet: View {
     @State var selectedDate: Date = Date()
     @ObservedObject var viewModel = NotificationCenter()
     @State private var payWall: Bool = false //Revenue Cat
+    @State var currentOffering: Offering?
+    @State var customer: CustomerInfo?
     @EnvironmentObject var userViewModel: UserViewModel
     
     var startingDate: Date = Date()
@@ -31,7 +34,11 @@ struct SettingsSheet: View {
             VStack() {
                 Form {
                     darkMode
-                    premiumContent
+                    if customer?.entitlements["Premium MotiQ"]?.isActive == true {
+                        
+                    } else {
+                        premiumContent
+                    }
                     restorePurchase
                     savedQuotes
                     notifications

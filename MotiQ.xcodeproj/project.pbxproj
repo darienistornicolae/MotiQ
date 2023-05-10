@@ -27,8 +27,9 @@
 		015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */; };
 		015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522829D5F9C00098DBB6 /* NotificationCenter.swift */; };
 		018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E963829DDE0AB004D5A41 /* NetworkManager.swift */; };
+		019BD33B2A0B797A0009F418 /* QuotesContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BD33A2A0B797A0009F418 /* QuotesContainerView.swift */; };
 		01A1512729EC17E700A609AD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1512629EC17E700A609AD /* Extensions.swift */; };
-		01B22DDE29F70037001810F0 /* PayWallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22DDD29F70037001810F0 /* PayWallViewModel.swift */; };
+		01B22DDE29F70037001810F0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22DDD29F70037001810F0 /* UserViewModel.swift */; };
 		01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B85BC429E1CC780009C388 /* PayWallView.swift */; };
 		01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesListView.swift */; };
 /* End PBXBuildFile section */
@@ -65,9 +66,10 @@
 		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		018E963829DDE0AB004D5A41 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		019BD33A2A0B797A0009F418 /* QuotesContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesContainerView.swift; sourceTree = "<group>"; };
 		01A1512629EC17E700A609AD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		01A4240629E2D30C00053D1A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		01B22DDD29F70037001810F0 /* PayWallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewModel.swift; sourceTree = "<group>"; };
+		01B22DDD29F70037001810F0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		01B85BC429E1CC780009C388 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
 		01B8942029DACD480052EF7E /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 				01B8942029DACD480052EF7E /* QuotesListView.swift */,
 				013F207A29E06E5E000C8E22 /* BannerAd.swift */,
 				01B85BC429E1CC780009C388 /* PayWallView.swift */,
+				019BD33A2A0B797A0009F418 /* QuotesContainerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -146,7 +149,7 @@
 			children = (
 				014B55F629D38B6900B14F40 /* CoreDataViewModel.swift */,
 				014B55F529D38B6900B14F40 /* MotivationalViewModel.swift */,
-				01B22DDD29F70037001810F0 /* PayWallViewModel.swift */,
+				01B22DDD29F70037001810F0 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -278,7 +281,8 @@
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
-				01B22DDE29F70037001810F0 /* PayWallViewModel.swift in Sources */,
+				019BD33B2A0B797A0009F418 /* QuotesContainerView.swift in Sources */,
+				01B22DDE29F70037001810F0 /* UserViewModel.swift in Sources */,
 				013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */,
 				01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */,
 				01A1512729EC17E700A609AD /* Extensions.swift in Sources */,

@@ -12,17 +12,9 @@ import SwiftUI
 struct HomeScreenView: View {
     
     //MARK: Properties
-    @State var showAlert: Bool = false
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
-    
-    @StateObject var viewModel: MotivationalViewModel
     @ObservedObject var networkManager = NetworkManager()
-    
-    
-    init(viewModel: MotivationalViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
-    }
     
     var body: some View {
         ZStack {
@@ -30,7 +22,7 @@ struct HomeScreenView: View {
             HStack(alignment: .center) {
                 
                 if networkManager.isConnected {
-                    quotesContainer
+                    QuotesContainerView(viewModel: MotivationalViewModel())
                         .font(.custom("Avenir", size: 24))
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: 350)
@@ -49,7 +41,7 @@ struct HomeScreenView: View {
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenView(viewModel: MotivationalViewModel())
+        HomeScreenView()
     }
 }
 
@@ -114,25 +106,6 @@ fileprivate extension HomeScreenView {
         .padding(.leading, 280)
         .padding()
         
-    }
-    
-    var quotesContainer: some View {
-        VStack(alignment: .center, spacing: 30) {
-            Text("\"\(viewModel.q)\"")
-            Text(viewModel.a)
-        }
-        .onTapGesture {
-            viewModel.nextQuote()
-        }
-        .alert(isPresented: $showAlert, content: {
-            Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
-        })
-        .onLongPressGesture {
-            viewModel.saveQuote()
-            withAnimation {
-                showAlert = true
-            }
-        }
     }
 }
 
