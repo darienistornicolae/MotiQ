@@ -212,5 +212,10 @@
 		<string>fetch</string>
 		<string>processing</string>
 	</array>
+    <key>BGTaskSchedulerPermittedIdentifiers</key>
+    <array>
+        <string>dnn.MotiQ.backgroundtask</string>
+    </array>
+
 </dict>
 </plist>
