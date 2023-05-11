@@ -8,7 +8,9 @@
 import SwiftUI
 import WebKit
 import RevenueCat
-
+import StoreKit
+import  UIKit
+import MessageUI
 struct SettingsSheet: View {
     
     //MARK: Properties
@@ -39,6 +41,7 @@ struct SettingsSheet: View {
                     } else {
                         premiumContent
                     }
+                    review
                     restorePurchase
                     savedQuotes
                     notifications
@@ -88,6 +91,22 @@ fileprivate extension SettingsSheet {
             NavigationLink("Buy Me") {
                 PayWallView()
             }
+        }
+    }
+    
+    var review: some View {
+        Section(header: Text("Rate us!❤️")) {
+            Button {
+                if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
+            } label: {
+                Text("Rate us!")
+            }
+        }
+    }
+    
+    var contact: some View {
+        Section(header: Text("Contact us 📞")) {
+            Text("s")
         }
     }
     
@@ -142,3 +161,5 @@ fileprivate extension SettingsSheet {
             .frame(width: 400, height: 300)
     }
 }
+
+

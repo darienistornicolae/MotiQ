@@ -20,7 +20,7 @@ class AlertManager: ObservableObject {
             return Alert(title: titleText, message: messageText,
                 dismissButton: dismissButton)
         }
-    private init () {}
+    
     func presentAlert(title: String, message: String?, dismissButton: Alert.Button?) {
             self.titleText = Text(title)
             if let message = message {
@@ -32,4 +32,17 @@ class AlertManager: ObservableObject {
             
             isPresented = true
         }
+}
+
+struct AlertInfo: Identifiable {
+
+    enum AlertType {
+        case one
+        case two
+    }
+
+    let id: AlertType
+    let title: String
+    let message: String
+    let dismissButton: Alert.Button
 }

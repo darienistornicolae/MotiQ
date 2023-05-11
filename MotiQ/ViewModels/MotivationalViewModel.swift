@@ -19,8 +19,8 @@ class MotivationalViewModel: ObservableObject {
     var index: Int = 0
     
     init() {
-        getData()
         apiService.getQuotes()
+        getData()
         refreshData()
     }
     

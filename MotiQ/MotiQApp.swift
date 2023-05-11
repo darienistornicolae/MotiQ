@@ -14,7 +14,6 @@ import RevenueCat
 
 struct MotiQApp: App {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
-   // @StateObject private var alertManager = AlertManager()
     
     init() {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
@@ -24,14 +23,8 @@ struct MotiQApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            HomeScreenView()
+            HomeScreenView(viewModel: MotivationalViewModel())
                 .preferredColorScheme(isDarkMode ? .dark : .light)
-//                .onAppear {
-//                    self.alertManager.presentAlert(title: "Useful Tip~", message: "If you long press on the quote, that quote will be saved!", dismissButton: .cancel())
-//                }
-//                .alert(isPresented: $alertManager.isPresented) {
-//                    self.alertManager.alert
-//                }
         }
     }
 }
