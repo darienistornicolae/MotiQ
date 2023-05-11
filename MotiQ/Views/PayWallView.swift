@@ -22,8 +22,10 @@ struct PayWallView: View {
                 Spacer()
                 newsletterWhy
                 features
+                    .padding(.bottom)
                 subscribeButton
                 legalActs
+                    .padding()
             }
             .navigationTitle("Premium MotiQ")
             .navigationBarTitleDisplayMode(.large)
@@ -72,6 +74,7 @@ fileprivate extension PayWallView {
                 }
             }
         }
+        
     }
     
     func addAnimation() {
@@ -94,8 +97,6 @@ fileprivate extension PayWallView {
             Text("\(Image(systemName: "checkmark.seal")) No Ads 😇")
             Text("\(Image(systemName: "checkmark.seal")) Support the developer ❤️")
             Text("\(Image(systemName: "checkmark.seal")) Custom Widgets (Soon) 👀")
-            Text("\(Image(systemName: "checkmark.seal")) Offline mode (Soon)")
-            Text("\(Image(systemName: "checkmark.seal")) iPad&WatchOS app⌚️ (Soon)")
             Text("\(Image(systemName: "checkmark.seal")) And many more!")
             
         }

@@ -20,7 +20,7 @@ struct SettingsSheet: View {
     @State private var payWall: Bool = false //Revenue Cat
     @State var currentOffering: Offering?
     @State var customer: CustomerInfo?
-    @EnvironmentObject var userViewModel: UserViewModel
+    @StateObject var userViewModel = UserViewModel()
     
     var startingDate: Date = Date()
     var endingDate: Date = Calendar.current.date(from: DateComponents (year: 2026)) ?? Date ()
@@ -36,17 +36,19 @@ struct SettingsSheet: View {
             VStack() {
                 Form {
                     darkMode
-                    if customer?.entitlements["Premium MotiQ"]?.isActive == true {
-                        
-                    } else {
+                    if !userViewModel.isSubscribeActive {
                         premiumContent
+                    } else {
+                        newsLetter
                     }
                     review
                     restorePurchase
                     savedQuotes
                     notifications
-                    newsLetter
-                    bannerAds
+                    if !userViewModel.isSubscribeActive {
+                        bannerAds
+                        
+                    }
                     Text("The api is provided by Zen Api")
                     
                 }
@@ -57,6 +59,7 @@ struct SettingsSheet: View {
                 viewModel.requestAuthorization()
                 viewModel.requestPermission()
             }
+            .environmentObject(UserViewModel())
             
             
         }
@@ -90,6 +93,7 @@ fileprivate extension SettingsSheet {
         Section(header: Text("Premium access")) {
             NavigationLink("Buy Me") {
                 PayWallView()
+                    .environmentObject(UserViewModel())
             }
         }
     }
@@ -114,6 +118,10 @@ fileprivate extension SettingsSheet {
         Section() {
             Button {
                 //TODO: Revenue Cat
+                Purchases.shared.restorePurchases {customerInfo, error in
+                    userViewModel.isSubscribeActive = customerInfo?.entitlements["Premium MotiQ"]?.isActive == true
+                    
+                }
             } label: {
                 Text("Restore purchase")
                     .font(.headline)
@@ -150,7 +158,7 @@ fileprivate extension SettingsSheet {
     
     var newsLetter: some View {
         Section(header: Text("Newsletter Form"), footer: Text("Here you'll insert the email you want to recive the Newsletter")) {
-            NavigationLink("Premium") {
+            NavigationLink("MotiQ newsletter") {
                 WebView()
             }
         }

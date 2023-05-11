@@ -11,6 +11,7 @@ struct AddUserQuoteView: View {
     
     //MARK: PROPERTIES
     @StateObject var viewModel = CoreDataViewModel()
+    @StateObject var userViewModel = UserViewModel()
     @State var userQuote: String = ""
     @State private var isPressed: Bool = false
     @Environment(\.presentationMode) var presentationMode
@@ -58,7 +59,9 @@ fileprivate extension AddUserQuoteView {
                                 }
                         }
                     }
-                    bannerAdd
+                    if !userViewModel.isSubscribeActive {
+                        bannerAdd
+                    }
                 }
             }
             .navigationBarTitle("MotiQ", displayMode: .inline)

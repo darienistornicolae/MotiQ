@@ -14,12 +14,24 @@ struct HomeScreenView: View {
     @State private var info: AlertInfo?
     @ObservedObject var networkManager = NetworkManager()
     @StateObject var viewModel = MotivationalViewModel()
+    @StateObject var userViewModel = UserViewModel()
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     var body: some View {
         ZStack {
-            googleAds
+            if !userViewModel.isSubscribeActive {
+                googleAds
+            } else {
+                VStack {
+                    Text("MotiQ")
+                        .font(.custom("Avenir", size: 45))
+                        .padding(.top)
+                        .foregroundColor(.buttonColor)
+                    
+                    Spacer()
+                }
+            }
             HStack(alignment: .center) {
                 
                 if networkManager.isConnected {
