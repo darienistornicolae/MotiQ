@@ -9,17 +9,18 @@ import SwiftUI
 import WebKit
 import RevenueCat
 import StoreKit
-import  UIKit
+import UIKit
 import MessageUI
+
 struct SettingsSheet: View {
     
     //MARK: Properties
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    @State private var payWall: Bool = false
     @State var selectedDate: Date = Date()
     @ObservedObject var viewModel = NotificationCenter()
-    @State private var payWall: Bool = false //Revenue Cat
-    @State var currentOffering: Offering?
-    @State var customer: CustomerInfo?
+    @State private var currentOffering: Offering?
+    @State private var customer: CustomerInfo?
     @StateObject var userViewModel = UserViewModel()
     
     var startingDate: Date = Date()
@@ -73,27 +74,21 @@ struct SettingsSheet_Previews: PreviewProvider {
     }
 }
 
-struct WebView: UIViewRepresentable {
-    
-    func makeUIView(context: UIViewRepresentableContext<WebView>) -> WebView.UIViewType {
-        WKWebView(frame: .zero)
-    }
-    
-    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<WebView>) {
-        let formUrl = "https://36838a2b.sibforms.com/serve/MUIEAI4kVJVjBuZCD_M5bH77lS5L92HgPKg5uhPWMUGc2jhsME527CIMpF4aS5zABf7j_LwblPuJNEicRme1yrooCt3NiqCuzDkf6dAVcxu_4aYMrbGBkUp5BQ9KzcYB7fFh94NefpsVVEj_YAdK_Dw8Vz7WjXN3rL-5ZM_ilnD-1kBWlHuELFfEz-G5TCNNhtJKDpaMLCPP5Az5"
-        let request = URLRequest(url: URL(string: formUrl)!)
-        uiView.load(request)
-    }
-    
-}
-
 fileprivate extension SettingsSheet {
     
     var premiumContent: some View {
         Section(header: Text("Premium access")) {
-            NavigationLink("Buy Me") {
+            Button {
+                payWall.toggle()
+            } label: {
+                Text("Premium MotiQ")
+                    .foregroundColor(.buttonColor)
+            }
+            .sheet(isPresented: $payWall) {
                 PayWallView()
                     .environmentObject(UserViewModel())
+                    .navigationTitle("Premium MotiQ")
+                    
             }
         }
     }
@@ -101,7 +96,8 @@ fileprivate extension SettingsSheet {
     var review: some View {
         Section(header: Text("Rate us!❤️")) {
             Button {
-                if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
+                SKStoreReviewController.requestReviewInCurrentScene()
+//                if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
             } label: {
                 Text("Rate us!")
             }
@@ -170,4 +166,26 @@ fileprivate extension SettingsSheet {
     }
 }
 
+extension SKStoreReviewController {
+    public static func requestReviewInCurrentScene() {
+        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+            DispatchQueue.main.async {
+                requestReview(in: scene)
+            }
+        }
+    }
+}
 
+struct WebView: UIViewRepresentable {
+    
+    func makeUIView(context: UIViewRepresentableContext<WebView>) -> WebView.UIViewType {
+        WKWebView(frame: .zero)
+    }
+    
+    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<WebView>) {
+        let formUrl = "https://36838a2b.sibforms.com/serve/MUIEAI4kVJVjBuZCD_M5bH77lS5L92HgPKg5uhPWMUGc2jhsME527CIMpF4aS5zABf7j_LwblPuJNEicRme1yrooCt3NiqCuzDkf6dAVcxu_4aYMrbGBkUp5BQ9KzcYB7fFh94NefpsVVEj_YAdK_Dw8Vz7WjXN3rL-5ZM_ilnD-1kBWlHuELFfEz-G5TCNNhtJKDpaMLCPP5Az5"
+        let request = URLRequest(url: URL(string: formUrl)!)
+        uiView.load(request)
+    }
+    
+}

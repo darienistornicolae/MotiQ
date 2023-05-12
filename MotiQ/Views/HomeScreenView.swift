@@ -20,10 +20,10 @@ struct HomeScreenView: View {
     }
     var body: some View {
         ZStack {
-            if !userViewModel.isSubscribeActive {
-                googleAds
-            } else {
-                VStack {
+            VStack {
+                if !userViewModel.isSubscribeActive {
+                    googleAds
+                } else {
                     Text("MotiQ")
                         .font(.custom("Avenir", size: 45))
                         .padding(.top)
@@ -31,6 +31,7 @@ struct HomeScreenView: View {
                     
                     Spacer()
                 }
+                
             }
             HStack(alignment: .center) {
                 

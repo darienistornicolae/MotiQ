@@ -9,12 +9,13 @@ import SwiftUI
 import RevenueCat
 
 struct PayWallView: View {
-    //TODO: Revenue Cat
+    
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State var animate: Bool = false
     @State private var selectedOption: String = ""
     @State var currentOffering: Offering?
     @EnvironmentObject var userViewModel: UserViewModel
-    
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         ScrollView {
             
@@ -27,17 +28,16 @@ struct PayWallView: View {
                 legalActs
                     .padding()
             }
-            .navigationTitle("Premium MotiQ")
-            .navigationBarTitleDisplayMode(.large)
             
         }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
         .onAppear {
             Purchases.shared.getOfferings { offerings, error in
                 if let offer = offerings?.current, error == nil {
                     currentOffering = offer
-                    
                 }
             }
+
         }
     }
 }
@@ -60,6 +60,7 @@ fileprivate extension PayWallView {
                         Purchases.shared.purchase(package: pkg) { transaction, customerInfo, error, userCancelled in
                             if customerInfo?.entitlements.all["Premium MotiQ"]?.isActive == true {
                                 userViewModel.isSubscribeActive = true
+                                presentationMode.wrappedValue.dismiss()
                             }
                         }
                     }, label: {
@@ -89,7 +90,6 @@ fileprivate extension PayWallView {
             }
         }
     }
-    
     
     var features: some View {
         VStack(alignment:.leading , spacing: 25) {
