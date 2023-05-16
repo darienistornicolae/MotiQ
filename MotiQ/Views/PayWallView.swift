@@ -11,15 +11,15 @@ import RevenueCat
 struct PayWallView: View {
     
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    @Binding var isPayWallPresented: Bool
     @State var animate: Bool = false
-    @State private var selectedOption: String = ""
     @State var currentOffering: Offering?
     @EnvironmentObject var userViewModel: UserViewModel
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        ScrollView {
+        VStack {
             
-            VStack() {
+            ScrollView() {
                 Spacer()
                 newsletterWhy
                 features
@@ -32,39 +32,44 @@ struct PayWallView: View {
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
         .onAppear {
-            Purchases.shared.getOfferings { offerings, error in
-                if let offer = offerings?.current, error == nil {
-                    currentOffering = offer
-                }
-            }
-
+            makePayment()
         }
     }
 }
 
 struct PayWallView_Previews: PreviewProvider {
     static var previews: some View {
-        PayWallView()
+        PayWallView(isPayWallPresented: .constant(false))
     }
 }
 
 
 fileprivate extension PayWallView {
     
+    func makePayment() {
+        Purchases.shared.getOfferings { offerings, error in
+            if let offer = offerings?.current, error == nil {
+                currentOffering = offer
+            }
+        }
+    }
+    
     var subscribeButton: some View {
         VStack {
             if currentOffering != nil {
                 ForEach(currentOffering!.availablePackages) { pkg in
- 
+                    
                     Button(action: {
                         Purchases.shared.purchase(package: pkg) { transaction, customerInfo, error, userCancelled in
                             if customerInfo?.entitlements.all["Premium MotiQ"]?.isActive == true {
+                                
                                 userViewModel.isSubscribeActive = true
-                                presentationMode.wrappedValue.dismiss()
+                                isPayWallPresented = false
                             }
+                            presentationMode.wrappedValue.dismiss()
                         }
                     }, label: {
-                        Text("Subscribe for only \(pkg.storeProduct.localizedPriceString)/\(pkg.storeProduct.subscriptionPeriod!.periodTitle) ")
+                        Text("Subscribe for \(pkg.storeProduct.localizedPriceString)/\(pkg.storeProduct.subscriptionPeriod!.periodTitle) ")
                             .foregroundColor(.white)
                             .font(.headline)
                             .frame(height:55)

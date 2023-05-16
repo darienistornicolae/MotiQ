@@ -11,20 +11,6 @@ import StoreKit
 
 /* Some methods to make displaying subscription terms easier */
 
-extension Package {
-    var terms: String {
-        if let intro = self.storeProduct.introductoryDiscount {
-            if intro.price == 0 {
-                return "\(intro.subscriptionPeriod.periodTitle) free trial"
-            } else {
-                return "\(self.localizedIntroductoryPriceString!) for \(intro.subscriptionPeriod.periodTitle)"
-            }
-        } else {
-            return "Unlocks Premium"
-        }
-    }
-}
-
 extension SubscriptionPeriod {
     var durationTitle: String {
         switch self.unit {

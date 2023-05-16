@@ -9,6 +9,7 @@ import SwiftUI
 import GoogleMobileAds
 import RevenueCat
 import BackgroundTasks
+
 @main
 
 struct MotiQApp: App {
@@ -30,7 +31,6 @@ struct MotiQApp: App {
                     default: break
                     }
                 }
-            
         }
     }
 }

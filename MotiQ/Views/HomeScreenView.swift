@@ -14,29 +14,17 @@ struct HomeScreenView: View {
     @State private var info: AlertInfo?
     @ObservedObject var networkManager = NetworkManager()
     @StateObject var viewModel = MotivationalViewModel()
-    @StateObject var userViewModel = UserViewModel()
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     var body: some View {
         ZStack {
-            VStack {
-                if !userViewModel.isSubscribeActive {
-                    googleAds
-                } else {
-                    Text("MotiQ")
-                        .font(.custom("Avenir", size: 45))
-                        .padding(.top)
-                        .foregroundColor(.buttonColor)
-                    
-                    Spacer()
-                }
-                
-            }
+            title
+            
             HStack(alignment: .center) {
                 
                 if networkManager.isConnected {
-                    quotesContainer
+                   quotesContainer
                         .font(.custom("Avenir", size: 24))
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: 350)
@@ -74,10 +62,12 @@ struct HomeScreenView_Previews: PreviewProvider {
 
 fileprivate extension HomeScreenView {
     
-    var googleAds: some View {
+    var title: some View {
         VStack(){
-            BannerAd(unitID: "ca-app-pub-8739348674271989/8823793414")
-                .frame(height: 150)
+            Text("MotiQ")
+                .font(.custom("Avenir", size: 45))
+                .padding(.top)
+                .foregroundColor(.buttonColor)
             Spacer()
         }
         

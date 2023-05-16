@@ -19,8 +19,6 @@ struct SettingsSheet: View {
     @State private var payWall: Bool = false
     @State var selectedDate: Date = Date()
     @ObservedObject var viewModel = NotificationCenter()
-    @State private var currentOffering: Offering?
-    @State private var customer: CustomerInfo?
     @StateObject var userViewModel = UserViewModel()
     
     var startingDate: Date = Date()
@@ -61,8 +59,6 @@ struct SettingsSheet: View {
                 viewModel.requestPermission()
             }
             .environmentObject(UserViewModel())
-            
-            
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
@@ -85,10 +81,8 @@ fileprivate extension SettingsSheet {
                     .foregroundColor(.buttonColor)
             }
             .sheet(isPresented: $payWall) {
-                PayWallView()
+                PayWallView(isPayWallPresented: $payWall)
                     .environmentObject(UserViewModel())
-                    .navigationTitle("Premium MotiQ")
-                    
             }
         }
     }
@@ -101,12 +95,6 @@ fileprivate extension SettingsSheet {
             } label: {
                 Text("Rate us!")
             }
-        }
-    }
-    
-    var contact: some View {
-        Section(header: Text("Contact us 📞")) {
-            Text("s")
         }
     }
     
@@ -153,7 +141,7 @@ fileprivate extension SettingsSheet {
     }
     
     var newsLetter: some View {
-        Section(header: Text("Newsletter Form"), footer: Text("Here you'll insert the email you want to recive the Newsletter")) {
+        Section(header: Text("Newsletter Form"), footer: Text("Here is the newsletter form to complete to recivee the Weekly Newsletter!☺️")) {
             NavigationLink("MotiQ newsletter") {
                 WebView()
             }
