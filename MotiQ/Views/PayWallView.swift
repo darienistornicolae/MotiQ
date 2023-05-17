@@ -11,9 +11,9 @@ import RevenueCat
 struct PayWallView: View {
     
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
-    @Binding var isPayWallPresented: Bool
     @State var animate: Bool = false
     @State var currentOffering: Offering?
+    @State private var selectedPackageIdentifier: String?
     @EnvironmentObject var userViewModel: UserViewModel
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
@@ -24,6 +24,8 @@ struct PayWallView: View {
                 newsletterWhy
                 features
                     .padding(.bottom)
+                packageSelection
+                    .padding()
                 subscribeButton
                 legalActs
                     .padding()
@@ -39,7 +41,7 @@ struct PayWallView: View {
 
 struct PayWallView_Previews: PreviewProvider {
     static var previews: some View {
-        PayWallView(isPayWallPresented: .constant(false))
+        PayWallView()
     }
 }
 
@@ -54,34 +56,68 @@ fileprivate extension PayWallView {
         }
     }
     
-    var subscribeButton: some View {
-        VStack {
-            if currentOffering != nil {
-                ForEach(currentOffering!.availablePackages) { pkg in
-                    
-                    Button(action: {
-                        Purchases.shared.purchase(package: pkg) { transaction, customerInfo, error, userCancelled in
-                            if customerInfo?.entitlements.all["Premium MotiQ"]?.isActive == true {
-                                
-                                userViewModel.isSubscribeActive = true
-                                isPayWallPresented = false
+    var packageSelection: some View { // Added this view
+            HStack {
+                if let offering = currentOffering {
+                    ForEach(offering.availablePackages) { pkg in
+                        Button(action: {
+                            selectedPackageIdentifier = pkg.identifier
+                        }) {
+                            VStack {
+                                if selectedPackageIdentifier == pkg.identifier {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 30))
+                                        .padding(.bottom, 8)
+                                } else {
+                                    Image(systemName: "circle")
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 30))
+                                        .padding(.bottom, 8)
+                                }
+                                Text("\(pkg.storeProduct.localizedPriceString)/\(pkg.storeProduct.subscriptionPeriod!.periodTitle) ")
+                                    .foregroundColor(Color.buttonColor)
+                                    .font(.headline)
+                                    .padding(.bottom, 4)
                             }
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    }, label: {
-                        Text("Subscribe for \(pkg.storeProduct.localizedPriceString)/\(pkg.storeProduct.subscriptionPeriod!.periodTitle) ")
+                            .padding()
+                            .background(selectedPackageIdentifier == pkg.identifier ? Color.blue : Color.blue)
+                            .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(selectedPackageIdentifier == pkg.identifier ? Color.clear : Color.clear, lineWidth: 2)
+                            )
                             .foregroundColor(.white)
-                            .font(.headline)
-                            .frame(height:55)
-                            .frame(maxWidth: 350)
-                            .background(Color.blue)
-                            .cornerRadius(20)
-                    })
+                            .padding(.bottom)
+                        }
+
+                        
+                    }
                 }
             }
         }
-        
-    }
+    
+    var subscribeButton: some View {
+            Button(action: {
+                if let identifier = selectedPackageIdentifier,
+                   let package = currentOffering?.availablePackages.first(where: { $0.identifier == identifier }) {
+                    Purchases.shared.purchase(package: package) { transaction, customerInfo, error, userCancelled in
+                        if customerInfo?.entitlements.all["Premium MotiQ"]?.isActive == true {
+                            userViewModel.isSubscribeActive = true
+                        }
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }
+            }) {
+                Text("Subscribe")
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .frame(height:55)
+                    .frame(maxWidth: 350)
+                    .background(Color.blue)
+                    .cornerRadius(20)
+            }
+        }
     
     func addAnimation() {
         guard !animate else { return }

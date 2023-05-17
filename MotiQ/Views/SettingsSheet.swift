@@ -18,6 +18,7 @@ struct SettingsSheet: View {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State private var payWall: Bool = false
     @State var selectedDate: Date = Date()
+    @State private var isSubscribed = false
     @ObservedObject var viewModel = NotificationCenter()
     @StateObject var userViewModel = UserViewModel()
     
@@ -38,7 +39,11 @@ struct SettingsSheet: View {
                     if !userViewModel.isSubscribeActive {
                         premiumContent
                     } else {
-                        newsLetter
+                        if !isSubscribed {
+                            newsLetter
+                        } else {
+                            EmptyView()
+                        }
                     }
                     review
                     restorePurchase
@@ -81,7 +86,7 @@ fileprivate extension SettingsSheet {
                     .foregroundColor(.buttonColor)
             }
             .sheet(isPresented: $payWall) {
-                PayWallView(isPayWallPresented: $payWall)
+                PayWallView()
                     .environmentObject(UserViewModel())
             }
         }
@@ -142,8 +147,8 @@ fileprivate extension SettingsSheet {
     
     var newsLetter: some View {
         Section(header: Text("Newsletter Form"), footer: Text("Here is the newsletter form to complete to recivee the Weekly Newsletter!☺️")) {
-            NavigationLink("MotiQ newsletter") {
-                WebView()
+            NavigationLink("MotiQ Newsletter") {
+                    WebView()
             }
         }
     }
