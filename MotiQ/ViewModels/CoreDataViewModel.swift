@@ -46,9 +46,14 @@ class CoreDataViewModel: ObservableObject {
     }
     
     func saveData() {
-        try? container.viewContext.save()
-        fetchQuotes()
+        do {
+            try container.viewContext.save()
+            fetchQuotes()
+        } catch {
+            print("Error saving data: \(error.localizedDescription)")
+        }
     }
+
     
     func deleteQuote(indexSet: IndexSet) {
         guard let index = indexSet.first else {return}

@@ -19,20 +19,7 @@ class MotivationalViewModel: ObservableObject {
     var index: Int = 0
     
     init() {
-        apiService.getQuotes()
         getData()
-        refreshData()
-    }
-    
-    func refreshData() {
-        DispatchQueue.global(qos: .background).async {
-            Timer.publish(every: 150, on: .main, in: .common)
-                .autoconnect()
-                .sink { [weak self] _ in
-                    self?.apiService.getQuotes()
-                }
-                .store(in: &self.cancellables)
-        }
     }
     
     func getData() {
@@ -59,7 +46,7 @@ class MotivationalViewModel: ObservableObject {
     }
     
     func startTimer() {
-        Timer.publish(every: 5, on: .main, in: .common)
+        Timer.publish(every: 15, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 guard let self = self else { return }
@@ -77,15 +64,29 @@ class MotivationalViewModel: ObservableObject {
     }
     
     func nextQuote() {
-        index = (index + 1) % apiService.quotes.count
-        let slice = Array(apiService.quotes[index..<min(index + 1, apiService.quotes.count)])
-        if let quote = slice.first?.q {
-            q = quote
+        let isLastQuote = index == apiService.quotes.count - 1
+        if isLastQuote {
+            apiService.getQuotes()
         }
-        if let author = slice.first?.a {
-            a = author
-        }
+        
+        let quoteIndex = isLastQuote ? 0 : index + 1
+        let quote = apiService.quotes[quoteIndex]
+        q = quote.q
+        a = quote.a
+        
+        index = quoteIndex
     }
+    
+    func previousQuote() {
+        let isFirstQuote = index == 0
+        let quoteIndex = isFirstQuote ? apiService.quotes.count - 1 : index - 1
+        let quote = apiService.quotes[quoteIndex]
+        q = quote.q
+        a = quote.a
+        
+        index = quoteIndex
+    }
+
     
     func saveQuote() {
         coreData.addQuote(quote: q, author: a)

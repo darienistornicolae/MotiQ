@@ -12,7 +12,8 @@ struct AddUserQuoteView: View {
     //MARK: PROPERTIES
     @StateObject var viewModel = CoreDataViewModel()
     @StateObject var userViewModel = UserViewModel()
-    @State var userQuote: String = ""
+    @State var userQuote: String = "Patience, persistence and perspiration make an unbeatable combination for success"
+    @State var userAuthor: String = "Napoleon Hill"
     @State private var isPressed: Bool = false
     @Environment(\.presentationMode) var presentationMode
     init(viewModel: CoreDataViewModel) {
@@ -37,9 +38,12 @@ fileprivate extension AddUserQuoteView {
                 Form {
                     Section(header: Text("Add Quote"), footer: Text("Here you can add your quote")) {
                         FirstResponderTextField(input: $userQuote, placeholder: "Write your quote...")
+                            .frame(height: 100)
+                            .multilineTextAlignment(.leading)
+                        FirstResponderTextField(input: $userAuthor, placeholder: "Author")
                         Button {
                             guard !userQuote.isEmpty else { return }
-                            viewModel.addQuote(quote: userQuote, author: "Your Quote")
+                            viewModel.addQuote(quote: userQuote, author: userAuthor)
                             userQuote = ""
                             presentationMode.wrappedValue.dismiss()
                             withAnimation {
@@ -79,16 +83,15 @@ struct FirstResponderTextField: UIViewRepresentable {
     @Binding var input: String
     let placeholder: String
     
-    class Coordinator:NSObject, UITextFieldDelegate {
+    class Coordinator: NSObject, UITextViewDelegate{
         @Binding var input: String
-        var becameFirstResponder = false
         
-        init(input: Binding<String> ) {
+        init(input: Binding<String>) {
             self._input = input
         }
         
-        func textFieldDidChangeSelection(_ textField: UITextField) {
-            input = textField.text ?? ""
+        func textViewDidChange(_ textView: UITextView) {
+            input = textView.text
         }
     }
     
@@ -96,18 +99,21 @@ struct FirstResponderTextField: UIViewRepresentable {
         return Coordinator(input: $input)
     }
     
-    func makeUIView(context: Context) -> some UIView {
-        let textField = UITextField()
-        textField.delegate = context.coordinator
-        textField.placeholder = placeholder
-        return textField
-        
+    func makeUIView(context: Context) -> UITextView {
+        let textView = UITextView()
+        textView.delegate = context.coordinator
+        textView.text = input
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
+        textView.isScrollEnabled = true
+        textView.isEditable = true
+        textView.backgroundColor = .clear
+        return textView
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        if !context.coordinator.becameFirstResponder {
-            uiView.becomeFirstResponder()
-            context.coordinator.becameFirstResponder = true
+    func updateUIView(_ uiView: UITextView, context: Context) {
+        if uiView.text != input {
+            uiView.text = input
         }
     }
 }
+

@@ -24,19 +24,7 @@ struct HomeScreenView: View {
             HStack(alignment: .center) {
                 
                 if networkManager.isConnected {
-                   quotesContainer
-                        .font(.custom("Avenir", size: 24))
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: 350)
-                        .animation(.linear)
-                        .alert(item: $info) { info in
-                            Alert(title: Text(info.title).font(.custom("Avenir", size: 24)), message: Text(info.message), dismissButton: .default(Text("OK")))
-                        }
-                        .onLongPressGesture {
-                            info = AlertInfo(id: .two, title: "Quote Saved!", message: "", dismissButton: .default(Text("OK")))
-                            viewModel.saveQuote()
-                        }
-                    
+                   QuotesContainerView(viewModel: MotivationalViewModel())
                 } else {
                     Text("No Internet Connection :((")
                 }
@@ -64,8 +52,8 @@ fileprivate extension HomeScreenView {
     
     var title: some View {
         VStack(){
-            Text("MotiQ")
-                .font(.custom("Avenir", size: 45))
+            Text("Motiq")
+                .font(.custom("Avenir", size: 40))
                 .padding(.top)
                 .foregroundColor(.buttonColor)
             Spacer()
@@ -122,16 +110,6 @@ fileprivate extension HomeScreenView {
         .padding(.leading, 280)
         .padding()
         
-    }
-    
-    var quotesContainer: some View {
-        VStack(alignment: .center, spacing: 30) {
-            Text("\"\(viewModel.q)\"")
-            Text(viewModel.a)
-        }
-        .onTapGesture {
-            viewModel.nextQuote()
-        }
     }
 }
 

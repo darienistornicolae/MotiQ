@@ -35,7 +35,9 @@ struct SettingsSheet: View {
         NavigationView {
             VStack() {
                 Form {
+                    notifications
                     darkMode
+                    savedQuotes
                     if !userViewModel.isSubscribeActive {
                         premiumContent
                     } else {
@@ -47,16 +49,13 @@ struct SettingsSheet: View {
                     }
                     review
                     restorePurchase
-                    savedQuotes
-                    notifications
                     if !userViewModel.isSubscribeActive {
                         bannerAds
-                        
                     }
                     Text("The api is provided by Zen Api")
                     
                 }
-                .navigationBarTitle("MotiQ", displayMode: .inline)
+                .navigationBarTitle("Motiq", displayMode: .inline)
                 
             }
             .onAppear {
@@ -146,7 +145,7 @@ fileprivate extension SettingsSheet {
     }
     
     var newsLetter: some View {
-        Section(header: Text("Newsletter Form"), footer: Text("Here is the newsletter form to complete to recivee the Weekly Newsletter!☺️")) {
+        Section(header: Text("Newsletter Form"), footer: Text("Here is the newsletter form to complete to recive the Weekly Newsletter!☺️")) {
             NavigationLink("MotiQ Newsletter") {
                     WebView()
             }
