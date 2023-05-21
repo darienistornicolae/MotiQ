@@ -76,7 +76,7 @@ fileprivate extension PayWallView {
                                         .padding(.bottom, 8)
                                 }
                                 Text("\(pkg.storeProduct.localizedPriceString)/\(pkg.storeProduct.subscriptionPeriod!.periodTitle) ")
-                                    .foregroundColor(Color.buttonColor)
+                                    .foregroundColor(Color.white)
                                     .font(.headline)
                                     .padding(.bottom, 4)
                             }
@@ -137,6 +137,7 @@ fileprivate extension PayWallView {
             
             Text("\(Image(systemName: "checkmark.seal")) No Ads 😇")
             Text("\(Image(systemName: "checkmark.seal")) Support the developer ❤️")
+            Text("\(Image(systemName: "checkmark.seal")) Access to the newest features!")
             Text("\(Image(systemName: "checkmark.seal")) Custom Widgets (Soon) 👀")
             Text("\(Image(systemName: "checkmark.seal")) And many more!")
             

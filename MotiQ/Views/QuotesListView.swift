@@ -33,7 +33,6 @@ fileprivate extension QuotesListView {
             ForEach(viewModel.savedEntities, id: \.self) { item in
                 QuoteCardView(quote: item.quotes ?? "No name", author: item.author ?? "")
                     .font(.custom("Avenir", size: 20))
-                    .cornerRadius(10)
                     
             }
             .onDelete(perform: viewModel.deleteQuote)

@@ -11,7 +11,6 @@ struct HomeScreenView: View {
     //MARK: Properties
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
-    @State private var info: AlertInfo?
     @ObservedObject var networkManager = NetworkManager()
     @StateObject var viewModel = MotivationalViewModel()
     init(viewModel: MotivationalViewModel) {
@@ -28,12 +27,6 @@ struct HomeScreenView: View {
                 } else {
                     Text("No Internet Connection :((")
                 }
-            }
-            .onAppear {
-                info = AlertInfo(id: .one, title: "Usefull Tip!", message: "If you long press on a quote, It'll be saved!", dismissButton: .default(Text("Great!")))
-            }
-            .alert(item: $info) { info in
-                Alert(title: Text(info.title), message: Text(info.message), dismissButton: info.dismissButton)
             }
             menuButton
             addText
