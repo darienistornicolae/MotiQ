@@ -21,6 +21,7 @@ struct QuotesContainerView: View {
     }
     
     var body: some View {
+        
         VStack(alignment: .center, spacing: 30) {
             VStack(spacing: 10) {
                 Text("\"\(viewModel.q)\"")
@@ -45,13 +46,12 @@ struct QuotesContainerView: View {
                     Button(action: {
                         viewModel.saveQuote()
                         isSaved = true
-                        info = AlertInfo(id: .two, title: "Quote Saved!", message: "", dismissButton: .default(Text("OK")))
                     }) {
                         Image(systemName: isSaved ? "heart.fill" : "heart")
                             .font(.system(size: 20))
                             .foregroundColor(.red)
                             .padding(8)
-                            .shadow(color: Color.black.opacity(0.3), radius: 3, x: 1, y: 1)
+                           
                     }
                 }
                 .padding([.top, .trailing], 8)
@@ -72,7 +72,7 @@ struct QuotesContainerView: View {
                     }
             )
             .offset(x: offset)
-            .animation(.spring())
+            .animation(Animation.default)
             .onChange(of: viewModel.q) { _ in
                 offset = 0.0
                 isSaved = false
@@ -84,9 +84,6 @@ struct QuotesContainerView: View {
         .font(.custom("Avenir", size: 24))
         .frame(maxWidth: 350)
         .animation(.linear)
-        .alert(item: $info) { info in
-            Alert(title: Text(info.title).font(.custom("Avenir", size: 24)), message: Text(info.message), dismissButton: .default(Text("OK")))
-        }
     }
 }
 

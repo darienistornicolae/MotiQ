@@ -32,6 +32,16 @@ struct PayWallView: View {
             }
             
         }
+        .navigationTitle("Premium Motiq")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing:
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Text("Dismiss")
+                                .foregroundColor(.blue)
+                        }
+                    )
         .preferredColorScheme(isDarkMode ? .dark : .light)
         .onAppear {
             makePayment()
@@ -98,26 +108,30 @@ fileprivate extension PayWallView {
         }
     
     var subscribeButton: some View {
-            Button(action: {
-                if let identifier = selectedPackageIdentifier,
-                   let package = currentOffering?.availablePackages.first(where: { $0.identifier == identifier }) {
-                    Purchases.shared.purchase(package: package) { transaction, customerInfo, error, userCancelled in
-                        if customerInfo?.entitlements.all["Premium MotiQ"]?.isActive == true {
-                            userViewModel.isSubscribeActive = true
-                        }
-                        presentationMode.wrappedValue.dismiss()
+        Button(action: {
+            if let identifier = selectedPackageIdentifier,
+               let package = currentOffering?.availablePackages.first(where: { $0.identifier == identifier }) {
+                Purchases.shared.purchase(package: package) { transaction, customerInfo, error, userCancelled in
+                    if customerInfo?.entitlements.all["Premium MotiQ"]?.isActive == true {
+                        userViewModel.isSubscribeActive = true
+                        UserDefaults.standard.set(true, forKey: "isPaywallShown")
+                        
                     }
+
+                    presentationMode.wrappedValue.dismiss()
                 }
-            }) {
-                Text("Subscribe")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .frame(height:55)
-                    .frame(maxWidth: 350)
-                    .background(Color.blue)
-                    .cornerRadius(20)
             }
+        }) {
+            Text("Subscribe")
+                .foregroundColor(.white)
+                .font(.headline)
+                .frame(height: 55)
+                .frame(maxWidth: 350)
+                .background(Color.blue)
+                .cornerRadius(20)
         }
+    }
+
     
     func addAnimation() {
         guard !animate else { return }

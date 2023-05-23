@@ -42,7 +42,7 @@ class MotivationalViewModel: ObservableObject {
                 self?.a = newString
             }
             .store(in: &cancellables)
-        startTimer()
+        //startTimer()
     }
     
     func startTimer() {

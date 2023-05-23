@@ -16,7 +16,6 @@ struct SettingsSheet: View {
     
     //MARK: Properties
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
-    @State private var payWall: Bool = false
     @State var selectedDate: Date = Date()
     @State private var isSubscribed = false
     @ObservedObject var viewModel = NotificationCenter()
@@ -78,16 +77,22 @@ fileprivate extension SettingsSheet {
     
     var premiumContent: some View {
         Section(header: Text("Premium access")) {
-            Button {
-                payWall.toggle()
-            } label: {
-                Text("Premium MotiQ")
-                    .foregroundColor(.buttonColor)
-            }
-            .sheet(isPresented: $payWall) {
+            
+            NavigationLink("Premium Motiq") {
                 PayWallView()
                     .environmentObject(UserViewModel())
             }
+            
+//            Button {
+//                payWall.toggle()
+//            } label: {
+//                Text("Premium MotiQ")
+//                    .foregroundColor(.buttonColor)
+//            }
+//            .sheet(isPresented: $payWall) {
+//                PayWallView()
+//                    .environmentObject(UserViewModel())
+//            }
         }
     }
     

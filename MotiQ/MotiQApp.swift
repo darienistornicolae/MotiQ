@@ -15,6 +15,8 @@ import BackgroundTasks
 struct MotiQApp: App {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @Environment(\.scenePhase) private var phase
+    @AppStorage("isPaywallShown") private var isPaywallShown: Bool = false
+
     init() {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         Purchases.logLevel = .debug
@@ -23,20 +25,29 @@ struct MotiQApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            HomeScreenView(viewModel: MotivationalViewModel())
-                .preferredColorScheme(isDarkMode ? .dark : .light)
-                .onChange(of: phase) { newPhase in
-                    switch newPhase {
-                    case .background: scheduleAppRefresh()
-                    default: break
+            if isPaywallShown {
+                HomeScreenView(viewModel: MotivationalViewModel())
+                    .preferredColorScheme(isDarkMode ? .dark : .light)
+                    .onChange(of: phase) { newPhase in
+                        switch newPhase {
+                        case .background: scheduleAppRefresh()
+                        default: break
+                        }
                     }
-                }
+            } else {
+                PayWallView()
+                    .preferredColorScheme(isDarkMode ? .dark : .light)
+                    .onAppear {
+                        isPaywallShown = true
+                    }
+            }
         }
     }
+
 }
 
 func scheduleAppRefresh() {
     let backgroundTask = BGAppRefreshTaskRequest(identifier: "refresh")
-    backgroundTask.earliestBeginDate = .distantFuture.addingTimeInterval(120)
+    backgroundTask.earliestBeginDate = .distantFuture.addingTimeInterval(300)
     try? BGTaskScheduler.shared.submit(backgroundTask)
 }

@@ -57,22 +57,18 @@ fileprivate extension HomeScreenView {
     var menuButton: some View {
         VStack() {
             Spacer()
-            Circle()
-                .foregroundColor(.buttonColor)
-                .frame(width: 60, height: 60)
-                .overlay(
                     Button(action: {
                         print("Sheet")
                         settingsSheet.toggle()
                     }, label: {
                         Image(systemName: "gearshape")
-                            .foregroundColor(.iconColor)
+                            .foregroundColor(.buttonColor)
                             .font(.title)
                     })
                     .sheet(isPresented: $settingsSheet, content: {
                         SettingsSheet()
                     })
-                )
+                
         }
         .padding(.trailing, 280)
         .padding()
@@ -81,21 +77,17 @@ fileprivate extension HomeScreenView {
     var addText: some View {
         VStack() {
             Spacer()
-            Circle()
-                .foregroundColor(.buttonColor)
-                .frame(width: 60, height: 60)
-                .overlay(
                     Button(action: {
                         addUserQuoteSheet.toggle()
                     }, label: {
                         Image(systemName: "plus")
-                            .foregroundColor(.iconColor)
+                            .foregroundColor(.buttonColor)
                             .font(.title)
                     })
                     .sheet(isPresented: $addUserQuoteSheet, content: {
                         AddUserQuoteView(viewModel: CoreDataViewModel())
                     })
-                )
+                
                 .onTapGesture {
                     addUserQuoteSheet.toggle()
                 }
