@@ -16,17 +16,18 @@ struct MotiQApp: App {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @Environment(\.scenePhase) private var phase
     @AppStorage("isPaywallShown") private var isPaywallShown: Bool = false
-
+    @Environment(\.presentationMode) var presentationMode
     init() {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         Purchases.logLevel = .debug
         Purchases.configure(withAPIKey: "appl_jWKLVAnpkjXeJobUQlyOrzLRkkn")
-        
+        checkInitialLaunch() // Check the initial launch status
     }
+    
     var body: some Scene {
         WindowGroup {
             if isPaywallShown {
-                HomeScreenView(viewModel: MotivationalViewModel())
+                HomeScreenView()
                     .preferredColorScheme(isDarkMode ? .dark : .light)
                     .onChange(of: phase) { newPhase in
                         switch newPhase {
@@ -35,16 +36,27 @@ struct MotiQApp: App {
                         }
                     }
             } else {
-                PayWallView()
+                PayWallOpeningView()
                     .preferredColorScheme(isDarkMode ? .dark : .light)
-                    .onAppear {
-                        isPaywallShown = true
-                    }
+                    .environmentObject(UserViewModel())
             }
         }
     }
 
+    
+    private func checkInitialLaunch() {
+        let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+        if !hasLaunchedBefore {
+            isPaywallShown = false // Show the paywall on the first launch
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+        } else {
+            isPaywallShown = true // Paywall has been shown before, so skip it
+        }
+    }
+    
+    // ...
 }
+
 
 func scheduleAppRefresh() {
     let backgroundTask = BGAppRefreshTaskRequest(identifier: "refresh")

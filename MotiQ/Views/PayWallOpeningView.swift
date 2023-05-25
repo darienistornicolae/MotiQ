@@ -1,14 +1,14 @@
 //
-//  PayWallView.swift
+//  PayWallOpeningView.swift
 //  MotiQ
 //
-//  Created by Darie-Nistor Nicolae on 08.04.2023.
+//  Created by Darie-Nistor Nicolae on 24.05.2023.
 //
 
 import SwiftUI
 import RevenueCat
 
-struct PayWallView: View {
+struct PayWallOpeningView: View {
     
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State var animate: Bool = false
@@ -17,45 +17,43 @@ struct PayWallView: View {
     @EnvironmentObject var userViewModel: UserViewModel
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        VStack {
+        NavigationView {
             
-            ScrollView() {
-                Spacer()
-                newsletterWhy
-                features
-                    .padding(.bottom)
-                packageSelection
-                    .padding()
-                subscribeButton
-                legalActs
-                    .padding()
+            VStack {
+                
+                ScrollView() {
+                    Spacer()
+                    newsletterWhy
+                    features
+                        .padding(.bottom)
+                    packageSelection
+                        .padding()
+                    subscribeButton
+                    declineButton
+                    legalActs
+                        .padding()
+                }
+                
+            }
+            .navigationTitle("Premium Motiq")
+            .navigationBarTitleDisplayMode(.inline)
+            .preferredColorScheme(isDarkMode ? .dark : .light)
+            .onAppear {
+                makePayment()
             }
             
-        }
-        .navigationTitle("Premium Motiq")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(trailing:
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Text("Dismiss")
-                                .foregroundColor(.blue)
-                        }
-                    )
-        .preferredColorScheme(isDarkMode ? .dark : .light)
-        .onAppear {
-            makePayment()
         }
     }
 }
 
-struct PayWallView_Previews: PreviewProvider {
+struct PayWallOpeningView_Previews: PreviewProvider {
     static var previews: some View {
         PayWallView()
     }
 }
 
-fileprivate extension PayWallView {
+
+fileprivate extension PayWallOpeningView {
     
     func makePayment() {
         Purchases.shared.getOfferings { offerings, error in
@@ -114,10 +112,9 @@ fileprivate extension PayWallView {
                     if customerInfo?.entitlements.all["Premium MotiQ"]?.isActive == true {
                         userViewModel.isSubscribeActive = true
                         UserDefaults.standard.set(true, forKey: "isPaywallShown")
+                        presentationMode.wrappedValue.dismiss()
                         
                     }
-
-                    presentationMode.wrappedValue.dismiss()
                 }
             }
         }) {
@@ -128,9 +125,28 @@ fileprivate extension PayWallView {
                 .frame(maxWidth: 350)
                 .background(Color.blue)
                 .cornerRadius(20)
+            
+            
         }
     }
+    
+    var declineButton: some View {
+        Button {
+            UserDefaults.standard.set(true, forKey: "isPaywallShown")
+            presentationMode.wrappedValue.dismiss()
+            
 
+        } label: {
+            Text("Decline")
+                .foregroundColor(.white)
+                .font(.headline)
+                .frame(height: 55)
+                .frame(maxWidth: 350)
+                .background(Color.blue)
+                .cornerRadius(20)
+        }
+
+    }
     
     func addAnimation() {
         guard !animate else { return }
@@ -204,4 +220,3 @@ fileprivate extension PayWallView {
         }
     }
 }
-

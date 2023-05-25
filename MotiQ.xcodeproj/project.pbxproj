@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01016CEF2A1DE2CF00D31F6C /* PayWallOpeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */; };
 		013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F207A29E06E5E000C8E22 /* BannerAd.swift */; };
 		014AABEE29E9FB3900F39B18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014AABED29E9FB3900F39B18 /* StoreKit.framework */; };
 		014B55E129D38AAF00B14F40 /* MotiQApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55E029D38AAF00B14F40 /* MotiQApp.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallOpeningView.swift; sourceTree = "<group>"; };
 		013F207A29E06E5E000C8E22 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		014AABED29E9FB3900F39B18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		014B55DD29D38AAF00B14F40 /* MotiQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotiQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 				013F207A29E06E5E000C8E22 /* BannerAd.swift */,
 				01B85BC429E1CC780009C388 /* PayWallView.swift */,
 				01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */,
+				01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01016CEF2A1DE2CF00D31F6C /* PayWallOpeningView.swift in Sources */,
 				01FFF6F52A1909510017EC46 /* QuotesContainerView.swift in Sources */,
 				015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */,
 				014B55FA29D38B7A00B14F40 /* SettingsSheet.swift in Sources */,
@@ -441,7 +445,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -481,7 +485,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq;
 				PRODUCT_NAME = "$(TARGET_NAME)";

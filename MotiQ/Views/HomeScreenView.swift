@@ -11,32 +11,28 @@ struct HomeScreenView: View {
     //MARK: Properties
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
-    @ObservedObject var networkManager = NetworkManager()
-    @StateObject var viewModel = MotivationalViewModel()
-    init(viewModel: MotivationalViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
-    }
+    
+    @State private var offset: CGSize = .zero
+    
     var body: some View {
         ZStack {
             title
             
             HStack(alignment: .center) {
-                
-                if networkManager.isConnected {
-                   QuotesContainerView(viewModel: MotivationalViewModel())
-                } else {
-                    Text("No Internet Connection :((")
-                }
+                QuotesContainerView(viewModel: MotivationalViewModel())
+                    
             }
+            
             menuButton
             addText
         }
     }
 }
 
+
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenView(viewModel: MotivationalViewModel())
+        HomeScreenView()
     }
 }
 
@@ -57,18 +53,18 @@ fileprivate extension HomeScreenView {
     var menuButton: some View {
         VStack() {
             Spacer()
-                    Button(action: {
-                        print("Sheet")
-                        settingsSheet.toggle()
-                    }, label: {
-                        Image(systemName: "gearshape")
-                            .foregroundColor(.buttonColor)
-                            .font(.title)
-                    })
-                    .sheet(isPresented: $settingsSheet, content: {
-                        SettingsSheet()
-                    })
-                
+            Button(action: {
+                print("Sheet")
+                settingsSheet.toggle()
+            }, label: {
+                Image(systemName: "gearshape")
+                    .foregroundColor(.buttonColor)
+                    .font(.title)
+            })
+            .sheet(isPresented: $settingsSheet, content: {
+                SettingsSheet()
+            })
+            
         }
         .padding(.trailing, 280)
         .padding()
@@ -77,20 +73,20 @@ fileprivate extension HomeScreenView {
     var addText: some View {
         VStack() {
             Spacer()
-                    Button(action: {
-                        addUserQuoteSheet.toggle()
-                    }, label: {
-                        Image(systemName: "plus")
-                            .foregroundColor(.buttonColor)
-                            .font(.title)
-                    })
-                    .sheet(isPresented: $addUserQuoteSheet, content: {
-                        AddUserQuoteView(viewModel: CoreDataViewModel())
-                    })
-                
-                .onTapGesture {
-                    addUserQuoteSheet.toggle()
-                }
+            Button(action: {
+                addUserQuoteSheet.toggle()
+            }, label: {
+                Image(systemName: "plus")
+                    .foregroundColor(.buttonColor)
+                    .font(.title)
+            })
+            .sheet(isPresented: $addUserQuoteSheet, content: {
+                AddUserQuoteView(viewModel: CoreDataViewModel())
+            })
+            
+            .onTapGesture {
+                addUserQuoteSheet.toggle()
+            }
         }
         .padding(.leading, 280)
         .padding()
