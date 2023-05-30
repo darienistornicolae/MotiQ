@@ -87,6 +87,7 @@ fileprivate extension PayWallOpeningView {
                                     .font(.headline)
                                     .padding(.bottom, 4)
                             }
+                            .frame(width: 150)
                             .padding()
                             .background(selectedPackageIdentifier == pkg.identifier ? Color.blue : Color.blue)
                             .cornerRadius(10)
