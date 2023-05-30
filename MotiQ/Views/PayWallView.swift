@@ -65,7 +65,7 @@ fileprivate extension PayWallView {
         }
     }
     
-    var packageSelection: some View { // Added this view
+    var packageSelection: some View { 
             HStack {
                 if let offering = currentOffering {
                     ForEach(offering.availablePackages) { pkg in
@@ -89,6 +89,7 @@ fileprivate extension PayWallView {
                                     .font(.headline)
                                     .padding(.bottom, 4)
                             }
+                            .frame(maxWidth:150)
                             .padding()
                             .background(selectedPackageIdentifier == pkg.identifier ? Color.blue : Color.blue)
                             .cornerRadius(10)
@@ -193,7 +194,7 @@ fileprivate extension PayWallView {
                     }
                 }
             
-            Text("Terms & Conditions")
+            Text("Terms")
                 .underline()
                 .foregroundColor(.blue)
                 .onTapGesture {

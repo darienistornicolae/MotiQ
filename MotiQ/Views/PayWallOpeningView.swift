@@ -63,7 +63,7 @@ fileprivate extension PayWallOpeningView {
         }
     }
     
-    var packageSelection: some View { // Added this view
+    var packageSelection: some View { 
             HStack {
                 if let offering = currentOffering {
                     ForEach(offering.availablePackages) { pkg in
@@ -210,7 +210,7 @@ fileprivate extension PayWallOpeningView {
                     }
                 }
             
-            Text("Terms & Conditions")
+            Text("Terms")
                 .underline()
                 .foregroundColor(.blue)
                 .onTapGesture {
