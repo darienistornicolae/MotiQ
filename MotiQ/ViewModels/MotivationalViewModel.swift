@@ -92,5 +92,8 @@ class MotivationalViewModel: ObservableObject {
         coreData.addQuote(quote: q, author: a)
     }
     
+    func deleteQuote() {
+        coreData.deleteQuotes(quote: q, author: a)
+    }
     
 }

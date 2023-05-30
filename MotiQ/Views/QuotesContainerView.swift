@@ -22,68 +22,85 @@ struct QuotesContainerView: View {
     }
     
     var body: some View {
-        
         VStack(alignment: .center, spacing: 30) {
             VStack(spacing: 10) {
-                
                 if networkManager.isConnected {
                     Text("\"\(viewModel.q)\"")
                         .multilineTextAlignment(.center)
                         .foregroundColor(colorScheme == .dark ? .white : .black)
+                        .padding()
                     
                     Text(viewModel.a)
+                        .foregroundColor(colorScheme == .dark ? .white : .gray)
                         .font(.headline)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(colorScheme == .dark ? .white : .gray)
+                        
+                        .padding()
                 } else {
-                    Text("No Internet Connection :( ")
-                    //.font(.headline)
+                    Text("No Internet Connection")
                         .multilineTextAlignment(.center)
                         .foregroundColor(colorScheme == .dark ? .white : .gray)
+                        .padding()
                     
                     Text("WIFI/Mobile Data")
                         .multilineTextAlignment(.center)
                         .foregroundColor(colorScheme == .dark ? .white : .gray)
+                        .padding()
                 }
+                
+                
             }
-            .padding()
+            .frame(width: 300, height: 500)
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .fill(colorScheme == .dark ? Color.black : Color.white)
-                    .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 0, y: 2)
+                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.gray.opacity(0.4), radius: 5, x: 0, y: 2)
             )
             .overlay(
-                Button(action: {
-                    shareQuote()
-                }) {
-                    Image(systemName: "square.and.arrow.up")
-                        .font(.system(size: 20))
-                        .foregroundColor(.blue)
-                        .padding(8)
-                }
-                .padding([.bottom, .leading], 8)
-                .foregroundColor(.primary),
-                alignment: .bottomLeading
-            )
-            .overlay(
-                Button(action: {
-                    viewModel.saveQuote()
-                    isSaved = true
-                }) {
-                    Image(systemName: isSaved ? "heart.fill" : "heart")
-                        .font(.system(size: 20))
-                        .foregroundColor(.red)
-                        .padding(8)
-                }
-                .padding([.bottom, .trailing], 8)
-                .foregroundColor(.primary),
-                alignment: .bottomTrailing
-            )
+                HStack {
+                    Spacer()
+                    
+                    Button(action: {
+                        shareQuote()
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.system(size: 25))
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                            .padding(8)
+                    }
+                    .padding(.bottom, 8)
+                    .foregroundColor(.primary)
+                    
+                    Button(action: {
+                        if isSaved {
+                            viewModel.deleteQuote()
+                            isSaved = false
+                        } else {
+                            viewModel.saveQuote()
+                            isSaved = true
+                        }
+                    }) {
+                        if isSaved {
+                            Image(systemName: "heart.fill")
+                                .foregroundColor(.buttonColor)
+                        } else {
+                            Image(systemName: "heart")
+                                .foregroundColor(.buttonColor)
+                        }
+                    }
 
+                    .padding(.bottom, 8)
+                    .foregroundColor(.primary)
+                    
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity, alignment: .center),
+                alignment: .bottom
+            )
             .gesture(dragGesture)
             .offset(x: offset)
             .animation(Animation.default)
-            .onChange( of: viewModel.q) { _ in
+            .onChange(of: viewModel.q) { _ in
                 offset = 0.0
                 isSaved = false
             }
@@ -112,14 +129,11 @@ struct QuotesContainerView: View {
     
     private func shareQuote() {
         let appName = "Motiq"
-        let quoteText = "\(viewModel.q)\n\n\(viewModel.a)\n\nShared from \(appName)"
+        let quoteText = "\"\(viewModel.q)\"\n\n\(viewModel.a)\n\nShared from \(appName)"
         let activityViewController = UIActivityViewController(activityItems: [quoteText], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
     }
-    
 }
-
-
 
 enum DragState {
     case inactive
@@ -133,10 +147,3 @@ struct QuotesContainerView_Previews: PreviewProvider {
     }
 }
 
-struct HitTestView: View {
-    var body: some View {
-        Color.clear
-            .contentShape(Rectangle())
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-}

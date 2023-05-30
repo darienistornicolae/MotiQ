@@ -14,7 +14,6 @@ class CoreDataViewModel: ObservableObject {
     let container: NSPersistentContainer
     @Published var savedEntities: [QuotesEntity] = []
     
-    
     init() {
         container = NSPersistentContainer(name: "QuotesContainer")
         container.loadPersistentStores { description, error in
@@ -25,8 +24,11 @@ class CoreDataViewModel: ObservableObject {
             }
             
         }
+        
         fetchQuotes()
     }
+    
+
     
     func fetchQuotes() {
         let request = NSFetchRequest<QuotesEntity>(entityName: "QuotesEntity")
@@ -37,6 +39,7 @@ class CoreDataViewModel: ObservableObject {
             print("Problems with fetching:\(error.localizedDescription )")
         }
     }
+    
     
     func addQuote(quote: String, author: String) {
         let newQuote = QuotesEntity(context: container.viewContext)
@@ -54,6 +57,13 @@ class CoreDataViewModel: ObservableObject {
         }
     }
 
+    func deleteQuotes(quote: String, author: String) {
+        guard let quoteToDelete = savedEntities.first(where: { $0.quotes == quote && $0.author == author }) else {
+            return
+        }
+        container.viewContext.delete(quoteToDelete)
+        saveData()
+    }
     
     func deleteQuote(indexSet: IndexSet) {
         guard let index = indexSet.first else {return}
@@ -61,9 +71,6 @@ class CoreDataViewModel: ObservableObject {
         container.viewContext.delete(item)
         saveData()
     }
-    
-    func modifyQuote(at index: Int, newQuote: String) {
-        savedEntities[index].quotes = newQuote
-        saveData()
-    }
 }
+
+

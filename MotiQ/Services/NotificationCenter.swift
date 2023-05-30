@@ -52,7 +52,7 @@ class NotificationCenter: ObservableObject {
     func scheduleUserNotification(at date: Date) {
         let content = UNMutableNotificationContent()
         content.title = "MotiQ"
-        content.subtitle = "Your daily quote is waiting for you"
+        content.subtitle = "Your daily quote is waiting for you!"
         content.sound = .default
         
         let calendar = Calendar.current

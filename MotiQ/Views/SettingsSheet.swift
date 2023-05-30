@@ -36,7 +36,8 @@ struct SettingsSheet: View {
                 Form {
                     notifications
                     darkMode
-                    savedQuotes
+                    favoriteQuotes
+                    userAddedQuotes
                     if !userViewModel.isSubscribeActive {
                         premiumContent
                     } else {
@@ -130,14 +131,22 @@ fileprivate extension SettingsSheet {
         }
     }
     
-    var savedQuotes: some View {
-        Section(header: Text("Quotes"), footer: Text("Modify your saved quotes")) {
-            NavigationLink("Your Quotes") {
+    var favoriteQuotes: some View {
+        Section(header: Text("Favorites Quotes"), footer: Text("See your favorite quotes")) {
+            NavigationLink("Favorites Quotes") {
                 QuotesListView(viewModel: CoreDataViewModel())
             }
         }
     }
     
+    var userAddedQuotes: some View {
+        Section(header: Text("Your Quotes"), footer: Text("See your added quotes")) {
+            NavigationLink("Your Quotes") {
+                UserAddedQuotes(viewModel: UserCoreDataViewModel())
+            }
+        }
+    }
+     
     var notifications: some View {
         Section(header: Text("Push Notifications"), footer: Text("Reminder to check the app for quotes 😊. When you set up the date and time, it'll automatically update")) {
             

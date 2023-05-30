@@ -1,43 +1,41 @@
 //
-//  QuotesList.swift
+//  UserAddedQuotes.swift
 //  MotiQ
 //
-//  Created by Darie-Nistor Nicolae on 03.04.2023.
+//  Created by Darie-Nistor Nicolae on 27.05.2023.
 //
 
 import SwiftUI
 
-struct QuotesListView: View {
+struct UserAddedQuotes: View {
     
     //MARK: PROPERTIES
-    @StateObject var viewModel = CoreDataViewModel()
+    @StateObject var viewModel = UserCoreDataViewModel()
     
-    init(viewModel: CoreDataViewModel) {
+    init(viewModel: UserCoreDataViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
         userQuotes
-        
     }
 }
 
-struct QuotesList_Previews: PreviewProvider {
+struct UserAddedQuotes_Previews: PreviewProvider {
     static var previews: some View {
-        QuotesListView(viewModel: CoreDataViewModel())
-            
+        UserAddedQuotes(viewModel: UserCoreDataViewModel())
     }
 }
 
-fileprivate extension QuotesListView {
+fileprivate extension UserAddedQuotes {
     var userQuotes: some View {
         List {
-            ForEach(viewModel.savedEntities, id: \.self) { item in
+            ForEach(viewModel.userQuotesEntity, id: \.self) { item in
                 QuoteCardView(quote: item.quotes ?? "No Quote", author: item.author ?? "Your Quote")
                     .font(.custom("Avenir", size: 20))
-                    
             }
-            .onDelete(perform: viewModel.deleteQuote)
+            .onDelete(perform: viewModel.deleteUserQuote)
+
         }
         .navigationTitle("Quotes")
     

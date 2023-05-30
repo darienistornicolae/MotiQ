@@ -81,7 +81,7 @@ fileprivate extension HomeScreenView {
                     .font(.title)
             })
             .sheet(isPresented: $addUserQuoteSheet, content: {
-                AddUserQuoteView(viewModel: CoreDataViewModel())
+                AddUserQuoteView(viewModel: UserCoreDataViewModel())
             })
             
             .onTapGesture {

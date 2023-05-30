@@ -10,13 +10,13 @@ import SwiftUI
 struct AddUserQuoteView: View {
     
     //MARK: PROPERTIES
-    @StateObject var viewModel = CoreDataViewModel()
+    @StateObject var viewModel = UserCoreDataViewModel()
     @StateObject var userViewModel = UserViewModel()
     @State var userQuote: String = "Patience, persistence and perspiration make an unbeatable combination for success"
     @State var userAuthor: String = "Napoleon Hill"
     @State private var isPressed: Bool = false
     @Environment(\.presentationMode) var presentationMode
-    init(viewModel: CoreDataViewModel) {
+    init(viewModel: UserCoreDataViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
@@ -27,7 +27,7 @@ struct AddUserQuoteView: View {
 
 struct AddUserQuoteView_Previews: PreviewProvider {
     static var previews: some View {
-        AddUserQuoteView(viewModel: CoreDataViewModel())
+        AddUserQuoteView(viewModel: UserCoreDataViewModel())
     }
 }
 
@@ -43,7 +43,7 @@ fileprivate extension AddUserQuoteView {
                         FirstResponderTextField(input: $userAuthor, placeholder: "Author")
                         Button {
                             guard !userQuote.isEmpty else { return }
-                            viewModel.addQuote(quote: userQuote, author: userAuthor)
+                            viewModel.addUserQuote(quote: userQuote, author: userAuthor)
                             userQuote = ""
                             presentationMode.wrappedValue.dismiss()
                             withAnimation {
@@ -64,7 +64,7 @@ fileprivate extension AddUserQuoteView {
                         }
                     }
                     if !userViewModel.isSubscribeActive {
-                        bannerAdd
+                       // bannerAdd
                     }
                 }
             }
