@@ -201,6 +201,15 @@ fileprivate extension PayWallView {
                         UIApplication.shared.open(url)
                     }
                 }
+            
+            Text("Eula")
+                .underline()
+                .foregroundColor(.blue)
+                .onTapGesture {
+                    if let url = URL(string: "https://motiq.org/eula") {
+                        UIApplication.shared.open(url)
+                    }
+                }
         }
     }
 }

@@ -10,7 +10,6 @@ import SwiftUI
 struct QuotesContainerView: View {
     @Environment(\.colorScheme) var colorScheme
     @StateObject var viewModel = MotivationalViewModel()
-    @State private var info: AlertInfo?
     @State private var isSaved: Bool = false
     @ObservedObject var networkManager = NetworkManager()
     
