@@ -71,6 +71,19 @@ class CoreDataViewModel: ObservableObject {
         container.viewContext.delete(item)
         saveData()
     }
+    
+    func filteredUserQuotes(searchText: String) -> [QuotesEntity] {
+            if searchText.isEmpty {
+                return savedEntities
+            } else {
+                return savedEntities.filter { quote in
+                    let quoteText = quote.quotes ?? ""
+                    let author = quote.author ?? ""
+                    return quoteText.localizedCaseInsensitiveContains(searchText) ||
+                        author.localizedCaseInsensitiveContains(searchText)
+                }
+            }
+        }
 }
 
 

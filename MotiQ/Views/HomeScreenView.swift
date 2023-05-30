@@ -20,7 +20,6 @@ struct HomeScreenView: View {
             
             HStack(alignment: .center) {
                 QuotesContainerView(viewModel: MotivationalViewModel())
-                
             }
             .onAppear {
                 info = AlertInfo(id: .one, title: "Usefull Tip", message: "Swipe left to go to the next quote!", dismissButton: .default(Text("Great!")))

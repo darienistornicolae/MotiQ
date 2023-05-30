@@ -54,6 +54,7 @@ struct QuotesContainerView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(colorScheme == .dark ? Color.black : Color.white)
                     .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.gray.opacity(0.4), radius: 5, x: 0, y: 2)
+                
             )
             .overlay(
                 HStack {
@@ -109,7 +110,6 @@ struct QuotesContainerView: View {
         }
         .font(.custom("Avenir", size: 24))
         .frame(maxWidth: 350)
-        .animation(.linear)
     }
     
     private var dragGesture: some Gesture {

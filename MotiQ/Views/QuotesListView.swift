@@ -11,12 +11,14 @@ struct QuotesListView: View {
     
     //MARK: PROPERTIES
     @StateObject var viewModel = CoreDataViewModel()
+    @State private var searchText = ""
     
     init(viewModel: CoreDataViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
+        searchBar
         userQuotes
         
     }
@@ -30,9 +32,19 @@ struct QuotesList_Previews: PreviewProvider {
 }
 
 fileprivate extension QuotesListView {
+    var searchBar: some View {
+        HStack {
+            Image(systemName: "magnifyingglass").foregroundColor(.gray)
+            TextField("Search quote or author...", text: $searchText)
+        }
+        .frame(maxWidth: 350)
+        .padding(10)
+        .background(Color(.systemGray5))
+        .cornerRadius(20)
+    }
     var userQuotes: some View {
         List {
-            ForEach(viewModel.savedEntities, id: \.self) { item in
+            ForEach(viewModel.filteredUserQuotes(searchText: searchText), id: \.self) { item in
                 QuoteCardView(quote: item.quotes ?? "No Quote", author: item.author ?? "Your Quote")
                     .font(.custom("Avenir", size: 20))
                     

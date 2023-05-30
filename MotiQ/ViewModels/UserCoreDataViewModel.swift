@@ -68,4 +68,17 @@ class UserCoreDataViewModel: ObservableObject {
             print("Problems with fetching:\(error.localizedDescription )")
         }
     }
+    
+    func filteredUserQuotes(searchText: String) -> [UserQuotesEntity] {
+            if searchText.isEmpty {
+                return userQuotesEntity
+            } else {
+                return userQuotesEntity.filter { quote in
+                    let quoteText = quote.quotes ?? ""
+                    let author = quote.author ?? ""
+                    return quoteText.localizedCaseInsensitiveContains(searchText) ||
+                        author.localizedCaseInsensitiveContains(searchText)
+                }
+            }
+        }
 }

@@ -63,7 +63,7 @@ fileprivate extension PayWallOpeningView {
         }
     }
     
-    var packageSelection: some View { 
+    var packageSelection: some View {
             HStack {
                 if let offering = currentOffering {
                     ForEach(offering.availablePackages) { pkg in
