@@ -13,7 +13,6 @@ struct HomeScreenView: View {
     @State private var addUserQuoteSheet: Bool = false
     @State private var info: AlertInfo?
     @State private var offset: CGSize = .zero
-    
     var body: some View {
         ZStack {
             title
