@@ -89,7 +89,7 @@ fileprivate extension PayWallView {
                                     .font(.headline)
                                     .padding(.bottom, 4)
                             }
-                            .frame(width:150)
+                            .frame(width: 120)
                             .padding()
                             .background(selectedPackageIdentifier == pkg.identifier ? Color.blue : Color.blue)
                             .cornerRadius(10)
@@ -126,7 +126,7 @@ fileprivate extension PayWallView {
                 .foregroundColor(.white)
                 .font(.headline)
                 .frame(height: 55)
-                .frame(maxWidth: 350)
+                .frame(maxWidth: 300)
                 .background(Color.blue)
                 .cornerRadius(20)
         }

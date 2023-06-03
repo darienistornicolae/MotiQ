@@ -87,7 +87,7 @@ fileprivate extension PayWallOpeningView {
                                     .font(.headline)
                                     .padding(.bottom, 4)
                             }
-                            .frame(width: 70)
+                            .frame(width: 120)
                             .padding()
                             .background(selectedPackageIdentifier == pkg.identifier ? Color.blue : Color.blue)
                             .cornerRadius(10)
@@ -123,7 +123,7 @@ fileprivate extension PayWallOpeningView {
                 .foregroundColor(.white)
                 .font(.headline)
                 .frame(height: 55)
-                .frame(maxWidth: 350)
+                .frame(maxWidth: 300)
                 .background(Color.blue)
                 .cornerRadius(20)
             
@@ -142,7 +142,7 @@ fileprivate extension PayWallOpeningView {
                 .foregroundColor(.white)
                 .font(.headline)
                 .frame(height: 55)
-                .frame(maxWidth: 350)
+                .frame(maxWidth: 300)
                 .background(Color.blue)
                 .cornerRadius(20)
         }
@@ -215,6 +215,15 @@ fileprivate extension PayWallOpeningView {
                 .foregroundColor(.blue)
                 .onTapGesture {
                     if let url = URL(string: "https://motiq.org/terms") {
+                        UIApplication.shared.open(url)
+                    }
+                }
+            
+            Text("Eula")
+                .underline()
+                .foregroundColor(.blue)
+                .onTapGesture {
+                    if let url = URL(string: "https://motiq.org/eula") {
                         UIApplication.shared.open(url)
                     }
                 }

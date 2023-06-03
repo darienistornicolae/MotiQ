@@ -133,7 +133,7 @@ fileprivate extension SettingsSheet {
     
     var favoriteQuotes: some View {
         Section(header: Text("Favorites Quotes"), footer: Text("See your favorite quotes")) {
-            NavigationLink("Favorites Quotes") {
+            NavigationLink("Favorite Quotes") {
                 QuotesListView(viewModel: CoreDataViewModel())
             }
         }
@@ -142,7 +142,7 @@ fileprivate extension SettingsSheet {
     var userAddedQuotes: some View {
         Section(header: Text("Your Quotes"), footer: Text("See your added quotes")) {
             NavigationLink("Your Quotes") {
-                UserAddedQuotes(viewModel: UserCoreDataViewModel())
+                UserAddedQuotesList(viewModel: UserCoreDataViewModel())
             }
         }
     }

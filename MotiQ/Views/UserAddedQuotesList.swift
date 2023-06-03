@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserAddedQuotes: View {
+struct UserAddedQuotesList: View {
     
     //MARK: PROPERTIES
     @StateObject var viewModel = UserCoreDataViewModel()
@@ -24,11 +24,11 @@ struct UserAddedQuotes: View {
 
 struct UserAddedQuotes_Previews: PreviewProvider {
     static var previews: some View {
-        UserAddedQuotes(viewModel: UserCoreDataViewModel())
+        UserAddedQuotesList(viewModel: UserCoreDataViewModel())
     }
 }
 
-fileprivate extension UserAddedQuotes {
+fileprivate extension UserAddedQuotesList {
     var searchBar: some View {
         HStack {
             Image(systemName: "magnifyingglass").foregroundColor(.gray)

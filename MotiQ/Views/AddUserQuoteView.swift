@@ -36,7 +36,7 @@ fileprivate extension AddUserQuoteView {
         NavigationView {
             VStack() {
                 Form {
-                    Section(header: Text("Add Quote"), footer: Text("Here you can add your quote")) {
+                    Section(header: Text("Add Quote"), footer: Text("")) {
                         FirstResponderTextField(input: $userQuote, placeholder: "Write your quote...")
                             .frame(height: 100)
                             .multilineTextAlignment(.leading)
@@ -64,7 +64,7 @@ fileprivate extension AddUserQuoteView {
                         }
                     }
                     if !userViewModel.isSubscribeActive {
-                       // bannerAdd
+                        bannerAdd
                     }
                 }
             }

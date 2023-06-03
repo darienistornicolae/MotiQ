@@ -11,7 +11,8 @@ import GoogleMobileAds
 
 class InterstitialAd: NSObject, GADFullScreenContentDelegate {
     private var interstitial: GADInterstitialAd?
-
+    
+    
     override init() {
         super.init()
         loadInterstitial()
@@ -30,11 +31,13 @@ class InterstitialAd: NSObject, GADFullScreenContentDelegate {
     }
 
     func showInterstitial(viewController: UIViewController) {
-        if let ad = interstitial {
-            ad.present(fromRootViewController: viewController)
-        } else {
-            print("Ad wasn't ready")
-        }
+        
+            if let ad = interstitial {
+                ad.present(fromRootViewController: viewController)
+            } else {
+                print("Ad wasn't ready")
+            }
+        
     }
 
     // MARK: - GADFullScreenContentDelegate
