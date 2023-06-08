@@ -17,7 +17,7 @@ struct QuotesListView: View {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
-    var body: some View {
+    var body: some View { 
         searchBar
         userQuotes
         

@@ -49,17 +49,17 @@ struct QuotesContainerView: View {
                 }
                 
                 if !userViewModel.isSubscribeActive {
-                    
                     swipeCount += 1
-                    
-                    if swipeCount >= 5 {
-                        swipeCount = 0
+                    if swipeCount % 5 == 0 {
                         adSense.showInterstitial(viewController: (UIApplication.shared.windows.first?.rootViewController)!)
+                    
                     }
+                    
                 }
             }
-
+            
     }
+
 
     private func shareQuote() {
         let appName = "Motiq"

@@ -101,7 +101,7 @@ fileprivate extension SettingsSheet {
         Section(header: Text("Rate us!❤️")) {
             Button {
                 SKStoreReviewController.requestReviewInCurrentScene()
-//                if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
+                if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
             } label: {
                 Text("Rate us!")
             }
@@ -109,12 +109,15 @@ fileprivate extension SettingsSheet {
     }
     
     var restorePurchase: some View {
-        Section() {
+        Section {
             Button {
-                //TODO: Revenue Cat
-                Purchases.shared.restorePurchases {customerInfo, error in
-                    userViewModel.isSubscribeActive = customerInfo?.entitlements["Premium MotiQ"]?.isActive == true
-                    
+                // TODO: Revenue Cat
+                Purchases.shared.restorePurchases { customerInfo, error in
+                    if let customerInfo = customerInfo,
+                       customerInfo.entitlements["Premium MotiQ"]?.isActive == true {
+                        userViewModel.isSubscribeActive = true
+                        showAlert()
+                    }
                 }
             } label: {
                 Text("Restore purchase")
@@ -122,6 +125,16 @@ fileprivate extension SettingsSheet {
             }
         }
     }
+
+    func showAlert() {
+        let alert = UIAlertController(title: "Subscription Restored",
+                                      message: "Your subscription has been successfully restored.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+       
+    }
+
     
     var darkMode: some View {
         Section(header: Text("Display"), footer: Text("Here you can modify the display mode")) {
