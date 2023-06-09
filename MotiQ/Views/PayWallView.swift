@@ -14,6 +14,7 @@ struct PayWallView: View {
     @State var animate: Bool = false
     @State var currentOffering: Offering?
     @State private var selectedPackageIdentifier: String?
+    @State private var showAlert: Bool = false
     @EnvironmentObject var userViewModel: UserViewModel
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
@@ -27,11 +28,15 @@ struct PayWallView: View {
                 packageSelection
                     .padding()
                 subscribeButton
+                    .alert(isPresented: $showAlert, content: {
+                        Alert(title: Text("Thank you!"), message: Text("Please, close the app from background and reopen it again, for the new content to start again ☺️"), dismissButton: .default(Text("Ok")))
+                    })
                 legalActs
                     .padding()
             }
             
         }
+        
         .navigationTitle("Premium Motiq")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing:
@@ -116,6 +121,7 @@ fileprivate extension PayWallView {
                         userViewModel.isSubscribeActive = true
                         UserDefaults.standard.set(true, forKey: "isPaywallShown")
                         
+                        showAlert = true
                     }
 
                     presentationMode.wrappedValue.dismiss()

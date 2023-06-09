@@ -13,6 +13,7 @@ struct HomeScreenView: View {
     @State private var addUserQuoteSheet: Bool = false
     @State private var info: AlertInfo?
     @State private var offset: CGSize = .zero
+    @State private var isAlertShown: Bool = false
     
     var body: some View {
         ZStack {
@@ -23,9 +24,10 @@ struct HomeScreenView: View {
                 
             }
             .onAppear {
-                info = AlertInfo(id: .one, title: "Usefull Tip", message: "Swipe left to go to the next quote!", dismissButton: .default(Text("Great!")))
-                
-                
+                if !isAlertShown { // Check if the alert has not been shown
+                    info = AlertInfo(id: .one, title: "Useful Tip", message: "Swipe left to go to the next quote!", dismissButton: .default(Text("Great!")))
+                    isAlertShown = true // Mark the alert as shown
+                }
             }
             .alert(item: $info) { info in
                 Alert(title: Text(info.title), message: Text(info.message), dismissButton: info.dismissButton)

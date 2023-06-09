@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 
 class MotivationalViewModel: ObservableObject {
@@ -14,6 +15,7 @@ class MotivationalViewModel: ObservableObject {
     let apiService = MotivationalAPI(quotes: QuotesModel(q: "", a: ""))
     let coreData = CoreDataViewModel()
     var cancellables = Set<AnyCancellable>()
+    private let adSense = InterstitialAd()
     @Published var q: String = ""
     @Published var a: String = ""
     var index: Int = 0
@@ -75,6 +77,12 @@ class MotivationalViewModel: ObservableObject {
         a = quote.a
         
         index = quoteIndex
+        
+//        if index % 5 == 0 {
+//            if UserViewModel.
+//            adSense.showInterstitial(viewController: (UIApplication.shared.windows.first?.rootViewController)!)
+//        }
+        
     }
     
     func previousQuote() {
@@ -86,7 +94,7 @@ class MotivationalViewModel: ObservableObject {
         
         index = quoteIndex
     }
-
+    
     
     func saveQuote() {
         coreData.addQuote(quote: q, author: a)

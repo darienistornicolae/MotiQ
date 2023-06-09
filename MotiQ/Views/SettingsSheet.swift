@@ -15,7 +15,19 @@ import MessageUI
 struct SettingsSheet: View {
     
     //MARK: Properties
-    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = {
+        let systemColorScheme: Bool
+        if #available(iOS 13.0, *) {
+            systemColorScheme = UITraitCollection.current.userInterfaceStyle == .dark
+        } else {
+            systemColorScheme = false
+        }
+        
+        let storedValue = UserDefaults.standard.bool(forKey: "isDarkMode")
+        return storedValue ? storedValue : systemColorScheme
+    }()
+    
+    @State private var showAlert = false
     @State var selectedDate: Date = Date()
     @State private var isSubscribed = false
     @ObservedObject var viewModel = NotificationCenter()
@@ -48,15 +60,20 @@ struct SettingsSheet: View {
                         }
                     }
                     review
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Subscription Restored"),
+                                message: Text("Your subscription has been successfully restored."),
+                                dismissButton: .default(Text("OK"))
+                            )
+                        }
                     restorePurchase
                     if !userViewModel.isSubscribeActive {
                         bannerAds
                     }
                     Text("The api is provided by Zen Api")
-                    
                 }
                 .navigationBarTitle("Motiq", displayMode: .inline)
-                
             }
             .onAppear {
                 viewModel.requestAuthorization()
@@ -65,7 +82,16 @@ struct SettingsSheet: View {
             .environmentObject(UserViewModel())
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
+        .onChange(of: isDarkMode) { newValue in
+            updateColorScheme()
+        }
     }
+    
+    private func updateColorScheme() {
+        UIApplication.shared.windows.first?.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+        UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
+    }
+    
 }
 
 struct SettingsSheet_Previews: PreviewProvider {
@@ -83,17 +109,6 @@ fileprivate extension SettingsSheet {
                 PayWallView()
                     .environmentObject(UserViewModel())
             }
-            
-//            Button {
-//                payWall.toggle()
-//            } label: {
-//                Text("Premium MotiQ")
-//                    .foregroundColor(.buttonColor)
-//            }
-//            .sheet(isPresented: $payWall) {
-//                PayWallView()
-//                    .environmentObject(UserViewModel())
-//            }
         }
     }
     
@@ -107,7 +122,7 @@ fileprivate extension SettingsSheet {
             }
         }
     }
-    
+
     var restorePurchase: some View {
         Section {
             Button {
@@ -116,7 +131,7 @@ fileprivate extension SettingsSheet {
                     if let customerInfo = customerInfo,
                        customerInfo.entitlements["Premium MotiQ"]?.isActive == true {
                         userViewModel.isSubscribeActive = true
-                        showAlert()
+                        showAlert = true
                     }
                 }
             } label: {
@@ -126,18 +141,8 @@ fileprivate extension SettingsSheet {
         }
     }
 
-    func showAlert() {
-        let alert = UIAlertController(title: "Subscription Restored",
-                                      message: "Your subscription has been successfully restored.",
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        
-       
-    }
-
-    
     var darkMode: some View {
-        Section(header: Text("Display"), footer: Text("Here you can modify the display mode")) {
+        Section(header: Text("Display"), footer: Text("By default is based on the system settings. You can modify it after as you wish!")) {
             Toggle(isOn: $isDarkMode) {
                 Text("Dark mode")
             }
@@ -155,7 +160,7 @@ fileprivate extension SettingsSheet {
     var userAddedQuotes: some View {
         Section(header: Text("Your Quotes"), footer: Text("See your added quotes")) {
             NavigationLink("Your Quotes") {
-                UserAddedQuotesList(viewModel: UserCoreDataViewModel())
+                UserAddedQuotesListView(viewModel: UserCoreDataViewModel())
             }
         }
     }

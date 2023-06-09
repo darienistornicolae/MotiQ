@@ -1,37 +1,34 @@
 //
-//  QuotesList.swift
+//  UserAddedQuotes.swift
 //  MotiQ
 //
-//  Created by Darie-Nistor Nicolae on 03.04.2023.
+//  Created by Darie-Nistor Nicolae on 27.05.2023.
 //
 
 import SwiftUI
 
-struct QuotesListView: View {
+struct UserAddedQuotesListView: View {
     
     //MARK: PROPERTIES
-    @StateObject var viewModel = CoreDataViewModel()
+    @StateObject var viewModel = UserCoreDataViewModel()
     @State private var searchText = ""
-    
-    init(viewModel: CoreDataViewModel) {
+    init(viewModel: UserCoreDataViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
-            searchBar
-            userQuotes
-        
+        searchBar
+        userQuotes
     }
 }
 
-struct QuotesList_Previews: PreviewProvider {
+struct UserAddedQuotes_Previews: PreviewProvider {
     static var previews: some View {
-        QuotesListView(viewModel: CoreDataViewModel())
-            
+        UserAddedQuotesListView(viewModel: UserCoreDataViewModel())
     }
 }
 
-fileprivate extension QuotesListView {
+fileprivate extension UserAddedQuotesListView {
     var searchBar: some View {
         HStack {
             Image(systemName: "magnifyingglass").foregroundColor(.gray)
@@ -43,17 +40,15 @@ fileprivate extension QuotesListView {
         .cornerRadius(20)
     }
     var userQuotes: some View {
-            List {
-                ForEach(viewModel.filteredUserQuotes(searchText: searchText), id: \.self) { item in
-                    QuoteCardView(quote: item.quotes ?? "No Quote", author: item.author ?? "Your Quote")
-                        .font(.custom("Avenir", size: 20))
-                    
-                }
-                .onDelete(perform: viewModel.deleteQuote)
+        List {
+            ForEach(viewModel.filteredUserQuotes(searchText: searchText), id: \.self) { item in
+                QuoteCardView(quote: item.quotes ?? "No Quote", author: item.author ?? "Your Quote")
+                    .font(.custom("Avenir", size: 20))
             }
-            .navigationTitle("Quotes")
-            
-        
+            .onDelete(perform: viewModel.deleteUserQuote)
+
+        }
+        .navigationTitle("Quotes")
     }
     
     struct QuoteCardView: View {
@@ -99,5 +94,4 @@ fileprivate extension QuotesListView {
         }
 
     }
-
 }
