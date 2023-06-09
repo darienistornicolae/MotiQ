@@ -24,9 +24,9 @@ struct HomeScreenView: View {
                 
             }
             .onAppear {
-                if !isAlertShown { // Check if the alert has not been shown
+                if !isAlertShown {
                     info = AlertInfo(id: .one, title: "Useful Tip", message: "Swipe left to go to the next quote!", dismissButton: .default(Text("Great!")))
-                    isAlertShown = true // Mark the alert as shown
+                    isAlertShown = true 
                 }
             }
             .alert(item: $info) { info in

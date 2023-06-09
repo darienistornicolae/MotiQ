@@ -27,7 +27,8 @@ struct SettingsSheet: View {
         return storedValue ? storedValue : systemColorScheme
     }()
     
-    @State private var showAlert = false
+    @State private var showAlert: Bool = false
+    @State private var info: AlertInfo?
     @State var selectedDate: Date = Date()
     @State private var isSubscribed = false
     @ObservedObject var viewModel = NotificationCenter()
@@ -60,13 +61,6 @@ struct SettingsSheet: View {
                         }
                     }
                     review
-                        .alert(isPresented: $showAlert) {
-                            Alert(
-                                title: Text("Subscription Restored"),
-                                message: Text("Your subscription has been successfully restored."),
-                                dismissButton: .default(Text("OK"))
-                            )
-                        }
                     restorePurchase
                     if !userViewModel.isSubscribeActive {
                         bannerAds
@@ -131,15 +125,22 @@ fileprivate extension SettingsSheet {
                     if let customerInfo = customerInfo,
                        customerInfo.entitlements["Premium MotiQ"]?.isActive == true {
                         userViewModel.isSubscribeActive = true
-                        showAlert = true
+                        if !showAlert {
+                            info = AlertInfo(id: .two, title: "Subscription Restored", message: "Your subscription has been successfully restored.", dismissButton: .default(Text("Great!")))
+                            showAlert = true 
+                        }
                     }
                 }
             } label: {
                 Text("Restore purchase")
                     .font(.headline)
             }
+            .alert(item: $info) { info in
+                Alert(title: Text(info.title), message: Text(info.message), dismissButton: info.dismissButton)
+            }
         }
     }
+
 
     var darkMode: some View {
         Section(header: Text("Display"), footer: Text("By default is based on the system settings. You can modify it after as you wish!")) {
