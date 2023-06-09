@@ -39,14 +39,6 @@ struct PayWallView: View {
         
         .navigationTitle("Premium Motiq")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(trailing:
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Text("Dismiss")
-                                .foregroundColor(.blue)
-                        }
-                    )
         .preferredColorScheme(isDarkMode ? .dark : .light)
         .onAppear {
             makePayment()
