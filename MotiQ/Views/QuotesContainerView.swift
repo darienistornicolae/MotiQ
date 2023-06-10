@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftyAds
 
 struct QuotesContainerView: View {
     @Environment(\.colorScheme) var colorScheme
