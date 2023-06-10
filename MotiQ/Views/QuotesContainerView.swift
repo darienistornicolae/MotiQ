@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import SwiftyAds
 
 struct QuotesContainerView: View {
     @Environment(\.colorScheme) var colorScheme
     
     @StateObject var viewModel = MotivationalViewModel()
-    @ObservedObject var userViewModel = UserViewModel()
+    @StateObject var userViewModel = UserViewModel()
     @State private var isSaved: Bool = false
     @State private var offset: CGFloat = 0.0
     @State private var swipeCount = 0
@@ -29,11 +30,11 @@ struct QuotesContainerView: View {
     
     var body: some View {
         quotesView
-        .onAppear {
-            viewModel.apiService.getQuotes()
-        }
-        .font(.custom("Avenir", size: 24))
-        .frame(maxWidth: 350)
+            .onAppear {
+                viewModel.apiService.getQuotes()
+            }
+            .font(.custom("Avenir", size: 24))
+            .frame(maxWidth: 350)
     }
     
     private var dragGesture: some Gesture {
@@ -48,25 +49,17 @@ struct QuotesContainerView: View {
                     viewModel.previousQuote()
                 }
                 
+                
+                
+                swipeCount += 1
                 if !userViewModel.isSubscribeActive {
-                    swipeCount += 1
                     if swipeCount % 5 == 0 {
                         adSense.showInterstitial(viewController: (UIApplication.shared.windows.first?.rootViewController)!)
-                    
                     }
-                    
                 }
             }
-            
     }
-
-
-    private func shareQuote() {
-        let appName = "Motiq"
-        let quoteText = "\"\(viewModel.q)\"\n\n\(viewModel.a)\n\nShared from \(appName)"
-        let activityViewController = UIActivityViewController(activityItems: [quoteText], applicationActivities: nil)
-        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
-    }
+    
 }
 
 enum DragState {
@@ -82,6 +75,30 @@ struct QuotesContainerView_Previews: PreviewProvider {
 }
 
 fileprivate extension QuotesContainerView {
+    
+    private var frameWidth: CGFloat {
+        if UIScreen.main.bounds.width >= 413 { // Adjust the width based on your requirements
+            return 350
+        } else {
+            return 300
+        }
+    }
+    
+    private var frameHeight: CGFloat {
+        if UIScreen.main.bounds.height >= 895 { // Adjust the width based on your requirements
+            return 650
+        } else {
+            return 500
+        }
+    }
+    
+    private func shareQuote() {
+        let appName = "Motiq"
+        let link =  "https://apps.apple.com/us/app/motiq-quotes-mindfulness/id6447770639"
+        let quoteText = "\"\(viewModel.q)\"\n\n\(viewModel.a)\n\nShared from \(appName)\n\n\(link)"
+        let activityViewController = UIActivityViewController(activityItems: [quoteText], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+    }
     var quotesView: some View {
         VStack(alignment: .center, spacing: 30) {
             VStack(spacing: 10) {
@@ -95,7 +112,7 @@ fileprivate extension QuotesContainerView {
                         .foregroundColor(colorScheme == .dark ? .white : .gray)
                         .font(.headline)
                         .multilineTextAlignment(.center)
-                        
+                    
                         .padding()
                 } else {
                     Text("No Internet Connection")
@@ -111,7 +128,7 @@ fileprivate extension QuotesContainerView {
                 
                 
             }
-            .frame(width: 300, height: 500)
+            .frame(width: frameWidth, height: frameHeight)
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .fill(colorScheme == .dark ? Color.black : Color.white)
@@ -150,13 +167,13 @@ fileprivate extension QuotesContainerView {
                                 .foregroundColor(.buttonColor)
                         }
                     }
-
+                    
                     .padding(.bottom, 8)
                     .foregroundColor(.primary)
                     
                     Spacer()
                 }
-                .frame(maxWidth: .infinity, alignment: .center),
+                    .frame(maxWidth: .infinity, alignment: .center),
                 alignment: .bottom
             )
             .gesture(dragGesture)

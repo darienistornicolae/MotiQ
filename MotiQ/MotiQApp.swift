@@ -11,12 +11,24 @@ import RevenueCat
 import BackgroundTasks
 
 @main
-
 struct MotiQApp: App {
-    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = {
+        let systemColorScheme: Bool
+        if #available(iOS 13.0, *) {
+            systemColorScheme = UITraitCollection.current.userInterfaceStyle == .dark
+        } else {
+            systemColorScheme = false
+        }
+        
+        let storedValue = UserDefaults.standard.bool(forKey: "isDarkMode")
+        return storedValue ? storedValue : systemColorScheme
+    }()
+    
     @Environment(\.scenePhase) private var phase
     @AppStorage("isPaywallShown") private var isPaywallShown: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    
     init() {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         Purchases.logLevel = .debug
@@ -42,7 +54,6 @@ struct MotiQApp: App {
             }
         }
     }
-
     
     private func checkInitialLaunch() {
         let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
@@ -56,6 +67,7 @@ struct MotiQApp: App {
     
     // ...
 }
+
 
 
 func scheduleAppRefresh() {
