@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftyAds
 
 struct QuotesContainerView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -47,6 +48,8 @@ struct QuotesContainerView: View {
                 } else if value.translation.width > 100 {
                     viewModel.previousQuote()
                 }
+                
+                
                 
                 swipeCount += 1
                 if !userViewModel.isSubscribeActive {

@@ -94,7 +94,6 @@ struct SettingsSheet_Previews: PreviewProvider {
     }
 }
 
-//daily commit
 
 fileprivate extension SettingsSheet {
     
