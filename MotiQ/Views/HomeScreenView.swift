@@ -72,7 +72,7 @@ fileprivate extension HomeScreenView {
                     .font(.title)
             })
             .sheet(isPresented: $settingsSheet, content: {
-                SettingsSheet()
+                SettingsView()
             })
             
         }

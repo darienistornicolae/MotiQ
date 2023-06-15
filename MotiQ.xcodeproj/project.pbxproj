@@ -15,7 +15,7 @@
 		014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55F329D38B5700B14F40 /* HomeScreenView.swift */; };
 		014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55F529D38B6900B14F40 /* MotivationalViewModel.swift */; };
 		014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55F629D38B6900B14F40 /* CoreDataViewModel.swift */; };
-		014B55FA29D38B7A00B14F40 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55F929D38B7A00B14F40 /* SettingsSheet.swift */; };
+		014B55FA29D38B7A00B14F40 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55F929D38B7A00B14F40 /* SettingsView.swift */; };
 		014B55FC29D38B8800B14F40 /* MotivationalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55FB29D38B8800B14F40 /* MotivationalAPI.swift */; };
 		014B55FE29D38BAA00B14F40 /* QuotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55FD29D38BAA00B14F40 /* QuotesModel.swift */; };
 		014B560129D38BC700B14F40 /* QuotesContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 014B55FF29D38BC700B14F40 /* QuotesContainer.xcdatamodeld */; };
@@ -30,11 +30,12 @@
 		01878C602A28B84100AB7714 /* InterstitialAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01878C5F2A28B84100AB7714 /* InterstitialAd.swift */; };
 		018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E963829DDE0AB004D5A41 /* NetworkManager.swift */; };
 		019BD33F2A0B7FAA0009F418 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BD33E2A0B7FAA0009F418 /* AlertManager.swift */; };
-		01A020FF2A27632F00D26E60 /* RewardAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A020FE2A27632F00D26E60 /* RewardAd.swift */; };
 		01A1512729EC17E700A609AD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1512629EC17E700A609AD /* Extensions.swift */; };
 		01B22DDE29F70037001810F0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22DDD29F70037001810F0 /* UserViewModel.swift */; };
 		01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B85BC429E1CC780009C388 /* PayWallView.swift */; };
 		01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesListView.swift */; };
+		01E89D252A3B567B00E12443 /* GoalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E89D242A3B567B00E12443 /* GoalSettingView.swift */; };
+		01E89D272A3B5D9700E12443 /* GoalSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E89D262A3B5D9700E12443 /* GoalSettingViewModel.swift */; };
 		01ED1AC72A2256CE00E57701 /* UserAddedQuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */; };
 		01ED1AC92A227D9900E57701 /* UserCoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1AC82A227D9900E57701 /* UserCoreDataViewModel.swift */; };
 		01FFF6F52A1909510017EC46 /* QuotesContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */; };
@@ -63,7 +64,7 @@
 		014B55F329D38B5700B14F40 /* HomeScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		014B55F529D38B6900B14F40 /* MotivationalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotivationalViewModel.swift; sourceTree = "<group>"; };
 		014B55F629D38B6900B14F40 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
-		014B55F929D38B7A00B14F40 /* SettingsSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
+		014B55F929D38B7A00B14F40 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		014B55FB29D38B8800B14F40 /* MotivationalAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotivationalAPI.swift; sourceTree = "<group>"; };
 		014B55FD29D38BAA00B14F40 /* QuotesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesModel.swift; sourceTree = "<group>"; };
 		014B560029D38BC700B14F40 /* QuotesContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuotesContainer.xcdatamodel; sourceTree = "<group>"; };
@@ -75,12 +76,13 @@
 		01878C5F2A28B84100AB7714 /* InterstitialAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAd.swift; sourceTree = "<group>"; };
 		018E963829DDE0AB004D5A41 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		019BD33E2A0B7FAA0009F418 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		01A020FE2A27632F00D26E60 /* RewardAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAd.swift; sourceTree = "<group>"; };
 		01A1512629EC17E700A609AD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		01A4240629E2D30C00053D1A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		01B22DDD29F70037001810F0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		01B85BC429E1CC780009C388 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
 		01B8942029DACD480052EF7E /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
+		01E89D242A3B567B00E12443 /* GoalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingView.swift; sourceTree = "<group>"; };
+		01E89D262A3B5D9700E12443 /* GoalSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingViewModel.swift; sourceTree = "<group>"; };
 		01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAddedQuotesListView.swift; sourceTree = "<group>"; };
 		01ED1AC82A227D9900E57701 /* UserCoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataViewModel.swift; sourceTree = "<group>"; };
 		01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesContainerView.swift; sourceTree = "<group>"; };
@@ -144,7 +146,7 @@
 		014B55EE29D38ABC00B14F40 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				014B55F929D38B7A00B14F40 /* SettingsSheet.swift */,
+				014B55F929D38B7A00B14F40 /* SettingsView.swift */,
 				014B560229D38BDC00B14F40 /* Launch Screen.storyboard */,
 				014B55F329D38B5700B14F40 /* HomeScreenView.swift */,
 				015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */,
@@ -154,8 +156,8 @@
 				01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */,
 				01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */,
 				01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */,
-				01A020FE2A27632F00D26E60 /* RewardAd.swift */,
 				01878C5F2A28B84100AB7714 /* InterstitialAd.swift */,
+				01E89D242A3B567B00E12443 /* GoalSettingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +169,7 @@
 				014B55F529D38B6900B14F40 /* MotivationalViewModel.swift */,
 				01B22DDD29F70037001810F0 /* UserViewModel.swift */,
 				01ED1AC82A227D9900E57701 /* UserCoreDataViewModel.swift */,
+				01E89D262A3B5D9700E12443 /* GoalSettingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -293,7 +296,8 @@
 				01016CEF2A1DE2CF00D31F6C /* PayWallOpeningView.swift in Sources */,
 				01FFF6F52A1909510017EC46 /* QuotesContainerView.swift in Sources */,
 				015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */,
-				014B55FA29D38B7A00B14F40 /* SettingsSheet.swift in Sources */,
+				014B55FA29D38B7A00B14F40 /* SettingsView.swift in Sources */,
+				01E89D252A3B567B00E12443 /* GoalSettingView.swift in Sources */,
 				01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */,
 				015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */,
 				01ED1AC92A227D9900E57701 /* UserCoreDataViewModel.swift in Sources */,
@@ -303,10 +307,10 @@
 				01ED1AC72A2256CE00E57701 /* UserAddedQuotesListView.swift in Sources */,
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
+				01E89D272A3B5D9700E12443 /* GoalSettingViewModel.swift in Sources */,
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
 				019BD33F2A0B7FAA0009F418 /* AlertManager.swift in Sources */,
 				01B22DDE29F70037001810F0 /* UserViewModel.swift in Sources */,
-				01A020FF2A27632F00D26E60 /* RewardAd.swift in Sources */,
 				013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */,
 				01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */,
 				01A1512729EC17E700A609AD /* Extensions.swift in Sources */,
@@ -440,7 +444,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Motiq/Preview Content\"";
 				DEVELOPMENT_TEAM = V975Z3G3HV;
 				ENABLE_PREVIEWS = YES;
@@ -461,7 +465,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -480,7 +484,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Motiq/Preview Content\"";
 				DEVELOPMENT_TEAM = V975Z3G3HV;
 				ENABLE_PREVIEWS = YES;
@@ -501,7 +505,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq;
 				PRODUCT_NAME = "$(TARGET_NAME)";

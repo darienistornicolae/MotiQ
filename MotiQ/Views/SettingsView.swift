@@ -12,7 +12,7 @@ import StoreKit
 import UIKit
 import MessageUI
 
-struct SettingsSheet: View {
+struct SettingsView: View {
     
     //MARK: Properties
     @AppStorage("isDarkMode") private var isDarkMode: Bool = {
@@ -45,9 +45,10 @@ struct SettingsSheet: View {
     
     var body: some View {
         NavigationView {
-            VStack() {
+            VStack {
                 Form {
                     notifications
+                    goalSetting
                     darkMode
                     favoriteQuotes
                     userAddedQuotes
@@ -67,7 +68,6 @@ struct SettingsSheet: View {
                     }
                     Text("The api is provided by Zen Api")
                 }
-                .navigationBarTitle("Motiq", displayMode: .inline)
             }
             .onAppear {
                 viewModel.requestAuthorization()
@@ -90,12 +90,18 @@ struct SettingsSheet: View {
 
 struct SettingsSheet_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsSheet()
+        SettingsView()
     }
 }
 
 
-fileprivate extension SettingsSheet {
+fileprivate extension SettingsView {
+    
+    var goalSetting: some View {
+        Section(header: Text("Goal Setting")) {
+            NavigationLink("Goal Setting", destination: GoalSettingView())
+        }
+    }
     
     var premiumContent: some View {
         Section(header: Text("Premium access")) {

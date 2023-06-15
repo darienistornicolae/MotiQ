@@ -68,7 +68,6 @@ fileprivate extension AddUserQuoteView {
                     }
                 }
             }
-            .navigationBarTitle("MotiQ", displayMode: .inline)
         }
     }
     

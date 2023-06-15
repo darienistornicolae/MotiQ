@@ -143,7 +143,7 @@ fileprivate extension PayWallOpeningView {
                 .font(.headline)
                 .frame(height: 55)
                 .frame(maxWidth: 300)
-                .background(Color.blue)
+                .background(Color.red)
                 .cornerRadius(20)
         }
 
