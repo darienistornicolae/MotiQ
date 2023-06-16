@@ -32,7 +32,7 @@ struct GoalSettingView_Previews: PreviewProvider {
     }
 }
 
-struct CardView: View {
+private struct CardView: View {
     var body: some View {
         VStack{
             Text("Title")
