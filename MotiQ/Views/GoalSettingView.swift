@@ -129,7 +129,6 @@ private struct AddGoalView: View {
                     .background(Color.buttonColor)
                     .cornerRadius(10)
             }
-            
         }
         .padding()
     }
