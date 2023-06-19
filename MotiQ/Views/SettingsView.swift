@@ -68,6 +68,8 @@ struct SettingsView: View {
                     }
                     Text("The api is provided by Zen Api")
                 }
+                .navigationTitle("Settings")
+                .navigationBarTitleDisplayMode(.inline)
             }
             .onAppear {
                 viewModel.requestAuthorization()
@@ -79,6 +81,7 @@ struct SettingsView: View {
         .onChange(of: isDarkMode) { newValue in
             updateColorScheme()
         }
+        
     }
     
     private func updateColorScheme() {

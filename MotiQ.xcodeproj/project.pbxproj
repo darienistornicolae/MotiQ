@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01016CEF2A1DE2CF00D31F6C /* PayWallOpeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */; };
+		0119B39D2A409C90001E9CF1 /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119B39C2A409C90001E9CF1 /* AddGoalView.swift */; };
 		013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F207A29E06E5E000C8E22 /* BannerAd.swift */; };
 		014AABEE29E9FB3900F39B18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014AABED29E9FB3900F39B18 /* StoreKit.framework */; };
 		014B55E129D38AAF00B14F40 /* MotiQApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B55E029D38AAF00B14F40 /* MotiQApp.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallOpeningView.swift; sourceTree = "<group>"; };
+		0119B39C2A409C90001E9CF1 /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
 		013F207A29E06E5E000C8E22 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		014AABED29E9FB3900F39B18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		014B55DD29D38AAF00B14F40 /* MotiQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotiQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +160,7 @@
 				01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */,
 				01878C5F2A28B84100AB7714 /* InterstitialAd.swift */,
 				01E89D242A3B567B00E12443 /* GoalSettingView.swift */,
+				0119B39C2A409C90001E9CF1 /* AddGoalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
 				01E89D272A3B5D9700E12443 /* GoalSettingViewModel.swift in Sources */,
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
+				0119B39D2A409C90001E9CF1 /* AddGoalView.swift in Sources */,
 				019BD33F2A0B7FAA0009F418 /* AlertManager.swift in Sources */,
 				01B22DDE29F70037001810F0 /* UserViewModel.swift in Sources */,
 				013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */,
