@@ -68,6 +68,7 @@ fileprivate extension AddUserQuoteView {
                     }
                 }
             }
+            .navigationBarTitle("Add Quote", displayMode: .inline)
         }
     }
     
