@@ -48,8 +48,6 @@ struct QuotesContainerView: View {
                     viewModel.previousQuote()
                 }
                 
-                
-                
                 swipeCount += 1
                 if !userViewModel.isSubscribeActive {
                     if swipeCount % 5 == 0 {
@@ -76,7 +74,7 @@ struct QuotesContainerView_Previews: PreviewProvider {
 fileprivate extension QuotesContainerView {
     
     private var frameWidth: CGFloat {
-        if UIScreen.main.bounds.width >= 413 { // Adjust the width based on your requirements
+        if UIScreen.main.bounds.width >= 390 { // Adjust the width based on your requirements
             return 350
         } else {
             return 300
@@ -84,7 +82,7 @@ fileprivate extension QuotesContainerView {
     }
     
     private var frameHeight: CGFloat {
-        if UIScreen.main.bounds.height >= 895 { // Adjust the width based on your requirements
+        if UIScreen.main.bounds.height >= 840 { // Adjust the height based on your requirements
             return 650
         } else {
             return 500
@@ -98,20 +96,30 @@ fileprivate extension QuotesContainerView {
         let activityViewController = UIActivityViewController(activityItems: [quoteText], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
     }
+    
+     enum Constants {
+        static let smallFontSize: CGFloat = 25
+        static let largeFontSize: CGFloat = 34
+    }
+    
+    private var fontSize: CGFloat {
+        return UIScreen.main.bounds.width >= 390 ? Constants.largeFontSize : Constants.smallFontSize
+    }
+    
     var quotesView: some View {
         VStack(alignment: .center, spacing: 30) {
             VStack(spacing: 10) {
                 if networkManager.isConnected {
                     Text("\"\(viewModel.q)\"")
                         .multilineTextAlignment(.center)
+                        .font(.custom("Avenir", size: fontSize))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         .padding()
                     
                     Text(viewModel.a)
+                        .font(.custom("Avenir", size: fontSize - 4))
                         .foregroundColor(colorScheme == .dark ? .white : .gray)
-                        .font(.headline)
                         .multilineTextAlignment(.center)
-                    
                         .padding()
                 } else {
                     Text("No Internet Connection")
@@ -142,7 +150,7 @@ fileprivate extension QuotesContainerView {
                         shareQuote()
                     }) {
                         Image(systemName: "square.and.arrow.up")
-                            .font(.system(size: 25))
+                            .font(.system(size: fontSize))
                             .foregroundColor(colorScheme == .dark ? .white : .black)
                             .padding(8)
                     }
@@ -161,9 +169,11 @@ fileprivate extension QuotesContainerView {
                         if isSaved {
                             Image(systemName: "heart.fill")
                                 .foregroundColor(.buttonColor)
+                                .font(.system(size: fontSize))
                         } else {
                             Image(systemName: "heart")
                                 .foregroundColor(.buttonColor)
+                                .font(.system(size: fontSize))
                         }
                     }
                     

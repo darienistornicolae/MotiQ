@@ -48,7 +48,7 @@ struct SettingsView: View {
             VStack {
                 Form {
                     notifications
-                    goalSetting
+                   // goalSetting
                     darkMode
                     favoriteQuotes
                     userAddedQuotes

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddGoalView: View {
-    @StateObject var viewModel = GoalSettingViewModel()
+    @StateObject var viewModel = GoalSettingViewModel()  
     @State private var sliderValue: Double = 0.5
     
     init(viewModel: GoalSettingViewModel) {
