@@ -32,7 +32,6 @@ extension AddGoalView {
     var addGoal: some View {
         NavigationView {
             VStack(spacing: 25) {
-                Form{
                 Text("Title")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
@@ -84,7 +83,6 @@ extension AddGoalView {
                         .fontWeight(.bold)
                 }
                 .padding(.top, 20)
-                .padding(.leading, 70)
                 
                 Slider(value: Binding(get: { sliderValue }, set: { sliderValue = $0 }))
                     .padding(.horizontal)
@@ -101,7 +99,7 @@ extension AddGoalView {
                         .background(Color.buttonColor)
                         .cornerRadius(10)
                 }
-            }}
+            }
             .padding()
         }
         
@@ -109,7 +107,7 @@ extension AddGoalView {
     
     private func getProgressCircleColor() -> Color {
         let progress = sliderValue
-        if progress < 0.15 {
+        if progress < 0.05 {
             return .white
         } else if progress < 0.5 {
             return .gray

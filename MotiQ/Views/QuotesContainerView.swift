@@ -12,7 +12,6 @@ struct QuotesContainerView: View {
     
     @StateObject var viewModel = MotivationalViewModel()
     @StateObject var userViewModel = UserViewModel()
-    @State private var isSaved: Bool = false
     @State private var offset: CGFloat = 0.0
     @State private var swipeCount = 0
     
@@ -22,9 +21,12 @@ struct QuotesContainerView: View {
     
     @GestureState private var dragState = DragState.inactive
     
-    
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
+    init(userViewModel: UserViewModel) {
+        self._userViewModel = StateObject(wrappedValue: userViewModel)
     }
     
     var body: some View {
@@ -67,7 +69,7 @@ enum DragState {
 
 struct QuotesContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        QuotesContainerView(viewModel: MotivationalViewModel())
+        QuotesContainerView(userViewModel: UserViewModel())
     }
 }
 
@@ -89,7 +91,7 @@ fileprivate extension QuotesContainerView {
         }
     }
     
-    private func shareQuote() {
+    func shareQuote() {
         let appName = "Motiq"
         let link =  "https://apps.apple.com/us/app/motiq-quotes-mindfulness/id6447770639"
         let quoteText = "\"\(viewModel.q)\"\n\n\(viewModel.a)\n\nShared from \(appName)\n\n\(link)"
@@ -158,15 +160,9 @@ fileprivate extension QuotesContainerView {
                     .foregroundColor(.primary)
                     
                     Button(action: {
-                        if isSaved {
-                            viewModel.deleteQuote()
-                            isSaved = false
-                        } else {
-                            viewModel.saveQuote()
-                            isSaved = true
-                        }
+                        viewModel.toggleSaveQuote()
                     }) {
-                        if isSaved {
+                        if viewModel.isSaved {
                             Image(systemName: "heart.fill")
                                 .foregroundColor(.buttonColor)
                                 .font(.system(size: fontSize))
@@ -190,7 +186,7 @@ fileprivate extension QuotesContainerView {
             .animation(Animation.default)
             .onChange(of: viewModel.q) { _ in
                 offset = 0.0
-                isSaved = false
+                viewModel.isSaved = false
             }
         }
     }

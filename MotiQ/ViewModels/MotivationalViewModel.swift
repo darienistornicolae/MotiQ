@@ -16,6 +16,8 @@ class MotivationalViewModel: ObservableObject {
     let coreData = CoreDataViewModel()
     var cancellables = Set<AnyCancellable>()
     private let adSense = InterstitialAd()
+    
+    @Published var isSaved: Bool = false
     @Published var q: String = ""
     @Published var a: String = ""
     var index: Int = 0
@@ -78,10 +80,6 @@ class MotivationalViewModel: ObservableObject {
         
         index = quoteIndex
         
-//        if index % 5 == 0 {
-//            if UserViewModel.
-//            adSense.showInterstitial(viewController: (UIApplication.shared.windows.first?.rootViewController)!)
-//        }
         
     }
     
@@ -95,6 +93,15 @@ class MotivationalViewModel: ObservableObject {
         index = quoteIndex
     }
     
+    func toggleSaveQuote() {
+        if isSaved {
+            deleteQuote()
+            isSaved = false
+        } else {
+            saveQuote()
+            isSaved = true
+        }
+    }
     
     func saveQuote() {
         coreData.addQuote(quote: q, author: a)

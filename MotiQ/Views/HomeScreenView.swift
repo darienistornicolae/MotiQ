@@ -11,8 +11,8 @@ struct HomeScreenView: View {
     @State private var settingsSheet: Bool = false
     @State private var addUserQuoteSheet: Bool = false
     @State private var info: AlertInfo?
-    @State private var offset: CGSize = .zero
     @State private var isAlertShown: Bool = false
+
     
     var body: some View {
         
@@ -25,12 +25,21 @@ struct HomeScreenView: View {
                 }
                 .tag(1)
             
-            QuotesContainerView(viewModel: MotivationalViewModel())
+            QuotesContainerView(userViewModel: UserViewModel())
                 .tabItem {
                     Image(systemName: "quote.bubble")
                     Text("Quotes")
                 }
                 .tag(0)
+                .onAppear {
+                    if !isAlertShown {
+                        info = AlertInfo(id: .one, title: "Useful Tip", message: "Swipe left to go to the next quote!", dismissButton: .default(Text("Great!")))
+                        isAlertShown = true
+                    }
+                }
+                .alert(item: $info) { info in
+                    Alert(title: Text(info.title), message: Text(info.message), dismissButton: info.dismissButton)
+                }
             AddUserQuoteView(viewModel: UserCoreDataViewModel())
                 .tabItem {
                     Image(systemName: "plus")
@@ -54,16 +63,6 @@ struct HomeScreenView_Previews: PreviewProvider {
 
 fileprivate extension HomeScreenView {
     
-    var title: some View {
-        VStack(){
-            Text("Motiq")
-                .font(.custom("Avenir", size: 40))
-                .padding(.top)
-                .foregroundColor(.buttonColor)
-            Spacer()
-        }
-        
-    }
     
     var menuButton: some View {
         VStack() {

@@ -48,7 +48,7 @@ struct SettingsView: View {
             VStack {
                 Form {
                     notifications
-                   // goalSetting
+                    goalSetting
                     darkMode
                     favoriteQuotes
                     userAddedQuotes
@@ -163,7 +163,7 @@ fileprivate extension SettingsView {
     var favoriteQuotes: some View {
         Section(header: Text("Favorites Quotes"), footer: Text("See your favorite quotes")) {
             NavigationLink("Favorite Quotes") {
-                QuotesListView(viewModel: CoreDataViewModel())
+                QuotesListView()
             }
         }
     }

@@ -13,9 +13,6 @@ struct QuotesListView: View {
     @StateObject var viewModel = CoreDataViewModel()
     @State private var searchText = ""
     
-    init(viewModel: CoreDataViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
-    }
     
     var body: some View {
             searchBar
@@ -26,7 +23,7 @@ struct QuotesListView: View {
 
 struct QuotesList_Previews: PreviewProvider {
     static var previews: some View {
-        QuotesListView(viewModel: CoreDataViewModel())
+        QuotesListView()
             
     }
 }
@@ -89,14 +86,13 @@ fileprivate extension QuotesListView {
         
         private func shareQuote() {
             let appName = "Motiq"
-            let link =  "https://apps.apple.com/us/app/motiq-quotes-mindfulness/id6447770639"
+            let link = "https://apps.apple.com/us/app/motiq-quotes-mindfulness/id6447770639"
             let quoteText = "\"\(quote)\"\n\n\(author)\n\nShared from \(appName)\n\n\(link)"
             let activityViewController = UIActivityViewController(activityItems: [quoteText], applicationActivities: nil)
             
-            UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: {
-                UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
-            })
+            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
         }
+
 
     }
 
