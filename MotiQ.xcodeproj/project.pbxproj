@@ -11,6 +11,7 @@
 		010800752A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010800742A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift */; };
 		010800782A530139005250F5 /* GoalContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 010800762A530139005250F5 /* GoalContainer.xcdatamodeld */; };
 		0108007A2A532A27005250F5 /* TrackingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010800792A532A27005250F5 /* TrackingCenter.swift */; };
+		0108007D2A5358A4005250F5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0108007C2A5358A4005250F5 /* FirebaseAnalytics */; };
 		0119B39D2A409C90001E9CF1 /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119B39C2A409C90001E9CF1 /* AddGoalView.swift */; };
 		013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F207A29E06E5E000C8E22 /* BannerAd.swift */; };
 		014AABEE29E9FB3900F39B18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014AABED29E9FB3900F39B18 /* StoreKit.framework */; };
@@ -25,6 +26,7 @@
 		014B560129D38BC700B14F40 /* QuotesContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 014B55FF29D38BC700B14F40 /* QuotesContainer.xcdatamodeld */; };
 		014B560329D38BDC00B14F40 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 014B560229D38BDC00B14F40 /* Launch Screen.storyboard */; };
 		014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B560429D38C1000B14F40 /* ColorsExtension.swift */; };
+		014F94AB2A535B250051092F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 014F94AA2A535B250051092F /* GoogleService-Info.plist */; };
 		015B1DAA29E56EE6004AD9C7 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 015B1DA929E56EE6004AD9C7 /* ReceiptParser */; };
 		015B1DAC29E56EE6004AD9C7 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 015B1DAB29E56EE6004AD9C7 /* RevenueCat */; };
 		015B1DAF29E56F5E004AD9C7 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 015B1DAE29E56F5E004AD9C7 /* GoogleMobileAds */; };
@@ -77,6 +79,7 @@
 		014B560029D38BC700B14F40 /* QuotesContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuotesContainer.xcdatamodel; sourceTree = "<group>"; };
 		014B560229D38BDC00B14F40 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		014B560429D38C1000B14F40 /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
+		014F94AA2A535B250051092F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		015E522229D5C2910098DBB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 				015B1DAF29E56F5E004AD9C7 /* GoogleMobileAds in Frameworks */,
 				015B1DAC29E56EE6004AD9C7 /* RevenueCat in Frameworks */,
 				015B1DAA29E56EE6004AD9C7 /* ReceiptParser in Frameworks */,
+				0108007D2A5358A4005250F5 /* FirebaseAnalytics in Frameworks */,
 				014AABEE29E9FB3900F39B18 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +140,7 @@
 				014B55EE29D38ABC00B14F40 /* Views */,
 				014B55E029D38AAF00B14F40 /* MotiQApp.swift */,
 				015E522229D5C2910098DBB6 /* Assets.xcassets */,
+				014F94AA2A535B250051092F /* GoogleService-Info.plist */,
 				014B55E629D38AAF00B14F40 /* Preview Content */,
 			);
 			path = MotiQ;
@@ -242,6 +247,7 @@
 				015B1DA929E56EE6004AD9C7 /* ReceiptParser */,
 				015B1DAB29E56EE6004AD9C7 /* RevenueCat */,
 				015B1DAE29E56F5E004AD9C7 /* GoogleMobileAds */,
+				0108007C2A5358A4005250F5 /* FirebaseAnalytics */,
 			);
 			productName = Motiq;
 			productReference = 014B55DD29D38AAF00B14F40 /* MotiQ.app */;
@@ -274,6 +280,7 @@
 			packageReferences = (
 				015B1DA829E56EE6004AD9C7 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 				015B1DAD29E56F5E004AD9C7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				0108007B2A5358A3005250F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 014B55DE29D38AAF00B14F40 /* Products */;
 			projectDirPath = "";
@@ -290,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				014B560329D38BDC00B14F40 /* Launch Screen.storyboard in Resources */,
+				014F94AB2A535B250051092F /* GoogleService-Info.plist in Resources */,
 				014B55E829D38AAF00B14F40 /* Preview Assets.xcassets in Resources */,
 				015E522329D5C2910098DBB6 /* Assets.xcassets in Resources */,
 			);
@@ -554,6 +562,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0108007B2A5358A3005250F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		015B1DA829E56EE6004AD9C7 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
@@ -573,6 +589,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0108007C2A5358A4005250F5 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0108007B2A5358A3005250F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
 		015B1DA929E56EE6004AD9C7 /* ReceiptParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 015B1DA829E56EE6004AD9C7 /* XCRemoteSwiftPackageReference "purchases-ios" */;

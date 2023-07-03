@@ -9,6 +9,7 @@ import SwiftUI
 import GoogleMobileAds
 import RevenueCat
 import BackgroundTasks
+import FirebaseCore
 
 @main
 struct MotiQApp: App {
@@ -30,6 +31,7 @@ struct MotiQApp: App {
     @Environment(\.presentationMode) var presentationMode
     
     init() {
+        FirebaseApp.configure()
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         Purchases.logLevel = .debug
         Purchases.configure(withAPIKey: "appl_jWKLVAnpkjXeJobUQlyOrzLRkkn")
