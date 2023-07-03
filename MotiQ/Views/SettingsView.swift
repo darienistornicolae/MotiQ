@@ -102,7 +102,7 @@ fileprivate extension SettingsView {
     
     var goalSetting: some View {
         Section(header: Text("Goal Setting")) {
-            NavigationLink("Goal Setting", destination: GoalSettingView())
+            NavigationLink("Goal Setting", destination: GoalSettingView(viewModel: UserGoalCoreDataViewModel()))
         }
     }
     

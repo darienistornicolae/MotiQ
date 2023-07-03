@@ -9,6 +9,7 @@ import SwiftUI
 import RevenueCat
 
 class UserViewModel: ObservableObject {
+    
     @Published var isSubscribeActive = false
 
     init() {

@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct QuotesContainerView: View {
-    @Environment(\.colorScheme) var colorScheme
     
-    @StateObject var viewModel = MotivationalViewModel()
-    @StateObject var userViewModel = UserViewModel()
+    // MARK: PROPERTIES
+    @Environment(\.colorScheme) var colorScheme
+    @ObservedObject var networkManager = NetworkManager()
+    @StateObject private var viewModel = MotivationalViewModel()
+    @StateObject private var userViewModel = UserViewModel()
+    @GestureState private var dragState = DragState.inactive
     @State private var offset: CGFloat = 0.0
     @State private var swipeCount = 0
-    
-    @ObservedObject var networkManager = NetworkManager()
-    
+    private var hasFetchedQuotes: Bool = false
     private let adSense = InterstitialAd()
     
-    @GestureState private var dragState = DragState.inactive
     
     init(viewModel: MotivationalViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
@@ -31,14 +31,33 @@ struct QuotesContainerView: View {
     
     var body: some View {
         quotesView
-            .onAppear {
-                viewModel.apiService.getQuotes()
-            }
             .font(.custom("Avenir", size: 24))
             .frame(maxWidth: 350)
     }
     
-    private var dragGesture: some Gesture {
+}
+
+
+struct QuotesContainerView_Previews: PreviewProvider {
+    static var previews: some View {
+        QuotesContainerView(userViewModel: UserViewModel())
+    }
+}
+
+
+
+fileprivate extension QuotesContainerView {
+    enum DragState {
+        case inactive
+        case dragging(translation: CGFloat)
+    }
+    
+    enum Constants {
+        static let smallFontSize: CGFloat = 25
+        static let largeFontSize: CGFloat = 34
+    }
+    
+    var dragGesture: some Gesture {
         DragGesture()
             .updating($dragState) { value, dragState, _ in
                 dragState = .dragging(translation: value.translation.width)
@@ -59,23 +78,7 @@ struct QuotesContainerView: View {
             }
     }
     
-}
-
-enum DragState {
-    case inactive
-    case dragging(translation: CGFloat)
-}
-
-
-struct QuotesContainerView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuotesContainerView(userViewModel: UserViewModel())
-    }
-}
-
-fileprivate extension QuotesContainerView {
-    
-    private var frameWidth: CGFloat {
+    var frameWidth: CGFloat {
         if UIScreen.main.bounds.width >= 390 { // Adjust the width based on your requirements
             return 350
         } else {
@@ -83,7 +86,7 @@ fileprivate extension QuotesContainerView {
         }
     }
     
-    private var frameHeight: CGFloat {
+    var frameHeight: CGFloat {
         if UIScreen.main.bounds.height >= 840 { // Adjust the height based on your requirements
             return 650
         } else {
@@ -99,12 +102,7 @@ fileprivate extension QuotesContainerView {
         UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
     }
     
-     enum Constants {
-        static let smallFontSize: CGFloat = 25
-        static let largeFontSize: CGFloat = 34
-    }
-    
-    private var fontSize: CGFloat {
+    var fontSize: CGFloat {
         return UIScreen.main.bounds.width >= 390 ? Constants.largeFontSize : Constants.smallFontSize
     }
     

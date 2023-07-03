@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		01016CEF2A1DE2CF00D31F6C /* PayWallOpeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */; };
+		010800752A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010800742A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift */; };
+		010800782A530139005250F5 /* GoalContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 010800762A530139005250F5 /* GoalContainer.xcdatamodeld */; };
 		0119B39D2A409C90001E9CF1 /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119B39C2A409C90001E9CF1 /* AddGoalView.swift */; };
 		013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F207A29E06E5E000C8E22 /* BannerAd.swift */; };
 		014AABEE29E9FB3900F39B18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014AABED29E9FB3900F39B18 /* StoreKit.framework */; };
@@ -36,7 +38,6 @@
 		01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B85BC429E1CC780009C388 /* PayWallView.swift */; };
 		01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesListView.swift */; };
 		01E89D252A3B567B00E12443 /* GoalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E89D242A3B567B00E12443 /* GoalSettingView.swift */; };
-		01E89D272A3B5D9700E12443 /* GoalSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E89D262A3B5D9700E12443 /* GoalSettingViewModel.swift */; };
 		01ED1AC72A2256CE00E57701 /* UserAddedQuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */; };
 		01ED1AC92A227D9900E57701 /* UserCoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1AC82A227D9900E57701 /* UserCoreDataViewModel.swift */; };
 		01FFF6F52A1909510017EC46 /* QuotesContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */; };
@@ -57,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallOpeningView.swift; sourceTree = "<group>"; };
+		010800742A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGoalCoreDataViewModel.swift; sourceTree = "<group>"; };
+		010800772A530139005250F5 /* GoalContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoalContainer.xcdatamodel; sourceTree = "<group>"; };
 		0119B39C2A409C90001E9CF1 /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
 		013F207A29E06E5E000C8E22 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		014AABED29E9FB3900F39B18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -84,7 +87,6 @@
 		01B85BC429E1CC780009C388 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
 		01B8942029DACD480052EF7E /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
 		01E89D242A3B567B00E12443 /* GoalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingView.swift; sourceTree = "<group>"; };
-		01E89D262A3B5D9700E12443 /* GoalSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingViewModel.swift; sourceTree = "<group>"; };
 		01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAddedQuotesListView.swift; sourceTree = "<group>"; };
 		01ED1AC82A227D9900E57701 /* UserCoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataViewModel.swift; sourceTree = "<group>"; };
 		01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesContainerView.swift; sourceTree = "<group>"; };
@@ -172,7 +174,7 @@
 				014B55F529D38B6900B14F40 /* MotivationalViewModel.swift */,
 				01B22DDD29F70037001810F0 /* UserViewModel.swift */,
 				01ED1AC82A227D9900E57701 /* UserCoreDataViewModel.swift */,
-				01E89D262A3B5D9700E12443 /* GoalSettingViewModel.swift */,
+				010800742A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -182,6 +184,7 @@
 			children = (
 				014B55FD29D38BAA00B14F40 /* QuotesModel.swift */,
 				014B55FF29D38BC700B14F40 /* QuotesContainer.xcdatamodeld */,
+				010800762A530139005250F5 /* GoalContainer.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,14 +312,15 @@
 				014B55FC29D38B8800B14F40 /* MotivationalAPI.swift in Sources */,
 				01ED1AC72A2256CE00E57701 /* UserAddedQuotesListView.swift in Sources */,
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
+				010800782A530139005250F5 /* GoalContainer.xcdatamodeld in Sources */,
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
-				01E89D272A3B5D9700E12443 /* GoalSettingViewModel.swift in Sources */,
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
 				0119B39D2A409C90001E9CF1 /* AddGoalView.swift in Sources */,
 				019BD33F2A0B7FAA0009F418 /* AlertManager.swift in Sources */,
 				01B22DDE29F70037001810F0 /* UserViewModel.swift in Sources */,
 				013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */,
 				01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */,
+				010800752A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift in Sources */,
 				01A1512729EC17E700A609AD /* Extensions.swift in Sources */,
 				014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */,
 				014B55FE29D38BAA00B14F40 /* QuotesModel.swift in Sources */,
@@ -583,6 +587,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		010800762A530139005250F5 /* GoalContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				010800772A530139005250F5 /* GoalContainer.xcdatamodel */,
+			);
+			currentVersion = 010800772A530139005250F5 /* GoalContainer.xcdatamodel */;
+			path = GoalContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		014B55FF29D38BC700B14F40 /* QuotesContainer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

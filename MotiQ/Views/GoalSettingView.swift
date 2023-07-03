@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct GoalSettingView: View {
+    
+    @StateObject var viewModel = UserGoalCoreDataViewModel()
+    @State var searchText: String = ""
+    
+    
     var body: some View {
         NavigationView {
             
             VStack {
-                CardView()
-                    .padding(.top)
+                searchBar
+                userQuotes
                 Spacer()
             }
             
@@ -21,7 +26,7 @@ struct GoalSettingView: View {
         .navigationTitle("Goals")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: NavigationLink(destination: {
-            AddGoalView(viewModel: GoalSettingViewModel())
+            AddGoalView(viewModel: UserGoalCoreDataViewModel())
         }, label: {
             Image(systemName: "plus")
                 .foregroundColor(.buttonColor)
@@ -31,24 +36,58 @@ struct GoalSettingView: View {
 
 struct GoalSettingView_Previews: PreviewProvider {
     static var previews: some View {
-        AddGoalView(viewModel: GoalSettingViewModel())
+        GoalSettingView()
     }
 }
 
-private struct CardView: View {
-    var body: some View {
-        VStack{
-            Text("Title")
-                .foregroundColor(.white)
-            Text("Description")
-                .foregroundColor(.white)
+fileprivate extension GoalSettingView {
+    var searchBar: some View {
+        HStack {
+            Image(systemName: "magnifyingglass").foregroundColor(.gray)
+            TextField("Search goal...", text: $searchText)
         }
-        .frame(width: 300, height: 80)
-        .background(Color.gray)
-        .cornerRadius(10)
+        .frame(maxWidth: 330)
+        .padding(10)
+        .background(Color(.systemGray5))
+        .cornerRadius(20)
+    }
+    
+    var userQuotes: some View {
+        List {
+            ForEach(viewModel.filteredUserQuotes(searchText: searchText), id: \.self) { item in
+                CardView(userGoalTitle: item.goalTitle ?? "", userGoaldescription: item.goalDescription ?? "" , userGoalProgress: item.goalProgress)
+                    .font(.custom("Avenir", size: 20))
+                
+            }
+            .onDelete(perform: viewModel.deleteUserGoal)
+        }
+    }
+    
+    struct CardView: View {
         
+        let userGoalTitle: String
+        let userGoaldescription: String
+        let userGoalProgress: Double
+        
+        @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+        
+        var body: some View {
+            VStack(alignment: .leading) {
+                Text("Title: \(userGoalTitle)")
+                Text("Description: \(userGoaldescription)")
+                Text("Progress: \(String(format: "%.0f", userGoalProgress * 100))%")
+                    
+            }
+            .frame(width: 300, height: 80, alignment: .leading)
+            .padding(.leading, 20)
+            .preferredColorScheme(isDarkMode ? .dark : .light)
+            .cornerRadius(10)
+            
+        }
     }
 }
+
+
 
 
 

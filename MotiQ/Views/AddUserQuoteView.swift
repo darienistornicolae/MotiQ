@@ -16,6 +16,7 @@ struct AddUserQuoteView: View {
     @State var userAuthor: String = "Napoleon Hill"
     @State private var isPressed: Bool = false
     @Environment(\.presentationMode) var presentationMode
+    
     init(viewModel: UserCoreDataViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }

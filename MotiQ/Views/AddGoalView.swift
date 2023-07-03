@@ -8,36 +8,40 @@
 import SwiftUI
 
 struct AddGoalView: View {
-    @StateObject var viewModel = GoalSettingViewModel()  
-    @State private var sliderValue: Double = 0.5
+    @StateObject var viewModel = UserGoalCoreDataViewModel()
+    @State var sliderValue: Double = 0.5
+    @State var userGoalTitle: String = ""
+    @State var userGoalDescription: String = ""
     
-    init(viewModel: GoalSettingViewModel) {
+    @State private var isPressed: Bool = false
+    @Environment(\.presentationMode) var presentationMode
+    
+    init(viewModel: UserGoalCoreDataViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
-        addGoal
-            .navigationBarTitle("Goals", displayMode: .inline)
-    }
-    
-    
+            addGoal
+                .navigationBarTitle("Goals", displayMode: .inline)
+        }
 }
 struct AddGoalView_Previews: PreviewProvider {
     static var previews: some View {
-        AddGoalView(viewModel: GoalSettingViewModel())
+        AddGoalView(viewModel: UserGoalCoreDataViewModel())
     }
 }
 
-extension AddGoalView {
+fileprivate extension AddGoalView {
+    
     var addGoal: some View {
-        NavigationView {
+        ScrollView {
             VStack(spacing: 25) {
                 Text("Title")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
                     .font(.custom("Avenir Bold", size: 22))
                 
-                SecondResponderTextField(input: $viewModel.title, placeholder: "")
+                SecondResponderTextField(input: $userGoalTitle, placeholder: "")
                     .frame(height: 40)
                     .font(.custom("Avenir Bold", size: 26))
                     .padding(.horizontal)
@@ -51,7 +55,7 @@ extension AddGoalView {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
                 
-                SecondResponderTextField(input: $viewModel.description, placeholder: "Enter description")
+                SecondResponderTextField(input: $userGoalDescription, placeholder: "Enter description")
                     .frame(height: 100)
                     .font(.custom("Avenir Bold", size: 26))
                     .padding(.horizontal)
@@ -89,7 +93,10 @@ extension AddGoalView {
                 
                 Spacer()
                 Button {
-                    print("ds")
+                    guard !userGoalDescription.isEmpty else { return }
+                    viewModel.addUserGoal(goalTitle: userGoalTitle, goalDescription: userGoalDescription, goalProgress: sliderValue)
+                    presentationMode.wrappedValue.dismiss()
+                   
                 } label: {
                     Text("Save")
                         .foregroundColor(.iconColor)
@@ -119,7 +126,7 @@ extension AddGoalView {
     }
 }
 
-struct SecondResponderTextField: UIViewRepresentable {
+private struct SecondResponderTextField: UIViewRepresentable {
     
     @Binding var input: String
     let placeholder: String

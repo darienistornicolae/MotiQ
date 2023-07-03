@@ -27,13 +27,6 @@ class UserCoreDataViewModel: ObservableObject {
         fetchUserQuotes()
     }
     
-    func deleteUserQuotes(quote: String, author: String) {
-        guard let quoteToDelete = userQuotesEntity.first(where: { $0.quotes == quote && $0.author == author }) else {
-            return
-        }
-        userContainer.viewContext.delete(quoteToDelete)
-        saveUserData()
-    }
     
     func deleteUserQuote(indexSet: IndexSet) {
         guard let index = indexSet.first else { return }
@@ -49,7 +42,6 @@ class UserCoreDataViewModel: ObservableObject {
         saveUserData()
     }
 
-    
     func saveUserData() {
         do {
             try userContainer.viewContext.save()

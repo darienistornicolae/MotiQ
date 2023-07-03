@@ -27,6 +27,7 @@ struct UserAddedQuotes_Previews: PreviewProvider {
 }
 
 fileprivate extension UserAddedQuotesListView {
+    
     var searchBar: some View {
         HStack {
             Image(systemName: "magnifyingglass").foregroundColor(.gray)
@@ -37,6 +38,7 @@ fileprivate extension UserAddedQuotesListView {
         .background(Color(.systemGray5))
         .cornerRadius(20)
     }
+    
     var userQuotes: some View {
         List {
             ForEach(viewModel.filteredUserQuotes(searchText: searchText), id: \.self) { item in

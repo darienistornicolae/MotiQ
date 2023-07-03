@@ -12,8 +12,7 @@ struct QuotesListView: View {
     //MARK: PROPERTIES
     @StateObject var viewModel = CoreDataViewModel()
     @State private var searchText = ""
-    
-    
+
     var body: some View {
             searchBar
             userQuotes
@@ -29,6 +28,7 @@ struct QuotesList_Previews: PreviewProvider {
 }
 
 fileprivate extension QuotesListView {
+    
     var searchBar: some View {
         HStack {
             Image(systemName: "magnifyingglass").foregroundColor(.gray)
@@ -39,6 +39,7 @@ fileprivate extension QuotesListView {
         .background(Color(.systemGray5))
         .cornerRadius(20)
     }
+    
     var userQuotes: some View {
             List {
                 ForEach(viewModel.filteredUserQuotes(searchText: searchText), id: \.self) { item in
@@ -49,8 +50,6 @@ fileprivate extension QuotesListView {
                 .onDelete(perform: viewModel.deleteQuote)
             }
             .navigationTitle("Quotes")
-            
-        
     }
     
     struct QuoteCardView: View {

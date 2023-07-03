@@ -28,8 +28,6 @@ class CoreDataViewModel: ObservableObject {
         fetchQuotes()
     }
     
-
-    
     func fetchQuotes() {
         let request = NSFetchRequest<QuotesEntity>(entityName: "QuotesEntity")
         
@@ -39,7 +37,6 @@ class CoreDataViewModel: ObservableObject {
             print("Problems with fetching:\(error.localizedDescription )")
         }
     }
-    
     
     func addQuote(quote: String, author: String) {
         let newQuote = QuotesEntity(context: container.viewContext)
@@ -56,7 +53,7 @@ class CoreDataViewModel: ObservableObject {
             print("Error saving data: \(error.localizedDescription)")
         }
     }
-
+    
     func deleteQuotes(quote: String, author: String) {
         guard let quoteToDelete = savedEntities.first(where: { $0.quotes == quote && $0.author == author }) else {
             return
@@ -73,17 +70,17 @@ class CoreDataViewModel: ObservableObject {
     }
     
     func filteredUserQuotes(searchText: String) -> [QuotesEntity] {
-            if searchText.isEmpty {
-                return savedEntities
-            } else {
-                return savedEntities.filter { quote in
-                    let quoteText = quote.quotes ?? ""
-                    let author = quote.author ?? ""
-                    return quoteText.localizedCaseInsensitiveContains(searchText) ||
-                        author.localizedCaseInsensitiveContains(searchText)
-                }
+        if searchText.isEmpty {
+            return savedEntities
+        } else {
+            return savedEntities.filter { quote in
+                let quoteText = quote.quotes ?? ""
+                let author = quote.author ?? ""
+                return quoteText.localizedCaseInsensitiveContains(searchText) ||
+                author.localizedCaseInsensitiveContains(searchText)
             }
         }
+    }
 }
 
 

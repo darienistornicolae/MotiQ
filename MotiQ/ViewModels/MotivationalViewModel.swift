@@ -11,6 +11,7 @@ import UIKit
 
 
 class MotivationalViewModel: ObservableObject {
+    
     // MARK: Properties
     let apiService = MotivationalAPI(quotes: QuotesModel(q: "", a: ""))
     let coreData = CoreDataViewModel()
@@ -21,12 +22,20 @@ class MotivationalViewModel: ObservableObject {
     @Published var q: String = ""
     @Published var a: String = ""
     var index: Int = 0
+    var hasFetchedQuotes: Bool = false
     
     init() {
         getData()
     }
     
+    
     func getData() {
+        
+        if !hasFetchedQuotes {
+            apiService.getQuotes()
+            hasFetchedQuotes = true
+        }
+        
         apiService.$quotes
             .map { quote in
                 let stringQuote = quote.first?.q ?? "Unkwon"

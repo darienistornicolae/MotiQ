@@ -12,7 +12,7 @@ import BackgroundTasks
 
 @main
 struct MotiQApp: App {
-    
+    // MARK: Properties
     @AppStorage("isDarkMode") private var isDarkMode: Bool = {
         let systemColorScheme: Bool
         if #available(iOS 13.0, *) {
@@ -33,7 +33,7 @@ struct MotiQApp: App {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         Purchases.logLevel = .debug
         Purchases.configure(withAPIKey: "appl_jWKLVAnpkjXeJobUQlyOrzLRkkn")
-        checkInitialLaunch() // Check the initial launch status
+        checkInitialLaunch()
     }
     
     var body: some Scene {
@@ -58,20 +58,18 @@ struct MotiQApp: App {
     private func checkInitialLaunch() {
         let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
         if !hasLaunchedBefore {
-            isPaywallShown = false // Show the paywall on the first launch
+            isPaywallShown = false
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
         } else {
-            isPaywallShown = true // Paywall has been shown before, so skip it
+            isPaywallShown = true
         }
     }
-    
-    // ...
+    private func scheduleAppRefresh() {
+        let backgroundTask = BGAppRefreshTaskRequest(identifier: "refresh")
+        backgroundTask.earliestBeginDate = .distantFuture.addingTimeInterval(60)
+        try? BGTaskScheduler.shared.submit(backgroundTask)
+    }
 }
 
 
 
-func scheduleAppRefresh() {
-    let backgroundTask = BGAppRefreshTaskRequest(identifier: "refresh")
-    backgroundTask.earliestBeginDate = .distantFuture.addingTimeInterval(300)
-    try? BGTaskScheduler.shared.submit(backgroundTask)
-}
