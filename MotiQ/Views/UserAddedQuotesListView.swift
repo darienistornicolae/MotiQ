@@ -46,7 +46,7 @@ fileprivate extension UserAddedQuotesListView {
                     .font(.custom("Avenir", size: 20))
             }
             .onDelete(perform: viewModel.deleteUserQuote)
-
+            .onAppear(perform: viewModel.fetchUserQuotes)
         }
         .navigationTitle("Quotes")
     }

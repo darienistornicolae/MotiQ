@@ -48,10 +48,7 @@ struct SettingsView: View {
             VStack {
                 Form {
                     notifications
-                    goalSetting
                     darkMode
-                    favoriteQuotes
-                    userAddedQuotes
                     if !userViewModel.isSubscribeActive {
                         premiumContent
                     } else {
@@ -61,6 +58,9 @@ struct SettingsView: View {
                             EmptyView()
                         }
                     }
+                    goalSetting
+                    favoriteQuotes
+                    userAddedQuotes
                     review
                     restorePurchase
                     if !userViewModel.isSubscribeActive {
@@ -71,10 +71,7 @@ struct SettingsView: View {
                 .navigationTitle("Settings")
                 .navigationBarTitleDisplayMode(.inline)
             }
-            .onAppear {
-                viewModel.requestAuthorization()
-                viewModel.requestPermission()
-            }
+            
             .environmentObject(UserViewModel())
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
@@ -151,7 +148,6 @@ fileprivate extension SettingsView {
         }
     }
 
-
     var darkMode: some View {
         Section(header: Text("Display"), footer: Text("By default is based on the system settings. You can modify it after as you wish!")) {
             Toggle(isOn: $isDarkMode) {
@@ -163,7 +159,7 @@ fileprivate extension SettingsView {
     var favoriteQuotes: some View {
         Section(header: Text("Favorites Quotes"), footer: Text("See your favorite quotes")) {
             NavigationLink("Favorite Quotes") {
-                QuotesListView()
+                QuotesListView(viewModel: CoreDataViewModel())
             }
         }
     }
@@ -177,15 +173,43 @@ fileprivate extension SettingsView {
     }
      
     var notifications: some View {
-        Section(header: Text("Push Notifications"), footer: Text("Reminder to check the app for quotes 😊. When you set up the date and time, it'll automatically update")) {
-            
-            DatePicker("Remind Me", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
-                .datePickerStyle(CompactDatePickerStyle())
-                .onChange(of: selectedDate) { date in
-                    viewModel.scheduleUserNotification(at: date)
+        Section(header: Text("Push Notifications")) {
+            Toggle(isOn: $viewModel.notificationsEnabled) {
+                Text("Enable Notifications")
+            }
+            .onChange(of: viewModel.notificationsEnabled) { enabled in
+                UserDefaults.standard.set(enabled, forKey: "notificationsEnabled")
+                if enabled {
+                    viewModel.requestAuthorization()
+                    if enabled {
+                        viewModel.scheduleUserNotification(at: selectedDate)
+                    }
+                } else {
+                    viewModel.cancelUserNotification()
+                    redirectToNotificationSettings()
                 }
+            }
+            if viewModel.notificationsEnabled {
+                        DatePicker("Remind Me", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
+                            .datePickerStyle(CompactDatePickerStyle())
+                            .onChange(of: selectedDate) { date in
+                                viewModel.scheduleUserNotification(at: date)
+                            }
+                    }
+        }
+        .onAppear {
+            viewModel.notificationsEnabled = UserDefaults.standard.bool(forKey: "notificationsEnabled")
+            
         }
     }
+
+    private func redirectToNotificationSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl)
+        }
+    }
+
     
     var newsLetter: some View {
         Section(header: Text("Newsletter Form"), footer: Text("Here is the newsletter form to complete to recive the Weekly Newsletter!☺️")) {

@@ -10,6 +10,7 @@
 		01016CEF2A1DE2CF00D31F6C /* PayWallOpeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */; };
 		010800752A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010800742A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift */; };
 		010800782A530139005250F5 /* GoalContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 010800762A530139005250F5 /* GoalContainer.xcdatamodeld */; };
+		0108007A2A532A27005250F5 /* TrackingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010800792A532A27005250F5 /* TrackingCenter.swift */; };
 		0119B39D2A409C90001E9CF1 /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0119B39C2A409C90001E9CF1 /* AddGoalView.swift */; };
 		013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013F207A29E06E5E000C8E22 /* BannerAd.swift */; };
 		014AABEE29E9FB3900F39B18 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014AABED29E9FB3900F39B18 /* StoreKit.framework */; };
@@ -60,6 +61,7 @@
 		01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallOpeningView.swift; sourceTree = "<group>"; };
 		010800742A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGoalCoreDataViewModel.swift; sourceTree = "<group>"; };
 		010800772A530139005250F5 /* GoalContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoalContainer.xcdatamodel; sourceTree = "<group>"; };
+		010800792A532A27005250F5 /* TrackingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingCenter.swift; sourceTree = "<group>"; };
 		0119B39C2A409C90001E9CF1 /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
 		013F207A29E06E5E000C8E22 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		014AABED29E9FB3900F39B18 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -205,6 +207,7 @@
 				014B55FB29D38B8800B14F40 /* MotivationalAPI.swift */,
 				018E963829DDE0AB004D5A41 /* NetworkManager.swift */,
 				019BD33E2A0B7FAA0009F418 /* AlertManager.swift */,
+				010800792A532A27005250F5 /* TrackingCenter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				01016CEF2A1DE2CF00D31F6C /* PayWallOpeningView.swift in Sources */,
 				01FFF6F52A1909510017EC46 /* QuotesContainerView.swift in Sources */,
 				015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */,
+				0108007A2A532A27005250F5 /* TrackingCenter.swift in Sources */,
 				014B55FA29D38B7A00B14F40 /* SettingsView.swift in Sources */,
 				01E89D252A3B567B00E12443 /* GoalSettingView.swift in Sources */,
 				01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */,

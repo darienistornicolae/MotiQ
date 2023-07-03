@@ -34,6 +34,7 @@ struct PayWallOpeningView: View {
                         .padding()
                 }
                 
+                
             }
             .navigationTitle("Premium Motiq")
             .navigationBarTitleDisplayMode(.inline)
@@ -127,7 +128,6 @@ fileprivate extension PayWallOpeningView {
                 .background(Color.blue)
                 .cornerRadius(20)
             
-            
         }
     }
     
@@ -135,7 +135,7 @@ fileprivate extension PayWallOpeningView {
         Button {
             UserDefaults.standard.set(true, forKey: "isPaywallShown")
             presentationMode.wrappedValue.dismiss()
-            
+            TrackingCenter.requestPermission()
 
         } label: {
             Text("Decline")

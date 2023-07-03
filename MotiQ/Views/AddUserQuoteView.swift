@@ -46,6 +46,7 @@ fileprivate extension AddUserQuoteView {
                             guard !userQuote.isEmpty else { return }
                             viewModel.addUserQuote(quote: userQuote, author: userAuthor)
                             userQuote = ""
+                            userAuthor = ""
                             presentationMode.wrappedValue.dismiss()
                             withAnimation {
                                 isPressed = true

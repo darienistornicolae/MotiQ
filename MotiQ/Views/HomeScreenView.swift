@@ -16,21 +16,13 @@ struct HomeScreenView: View {
     
     var body: some View {
         
-        TabView(selection: .constant(0)) {
-            
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "gearshape")
-                    Text("Settings")
-                }
-                .tag(1)
+        TabView {
             
             QuotesContainerView(userViewModel: UserViewModel())
                 .tabItem {
                     Image(systemName: "quote.bubble")
                     Text("Quotes")
                 }
-                .tag(0)
                 .onAppear {
                     if !isAlertShown {
                         info = AlertInfo(id: .one, title: "Useful Tip", message: "Swipe left to go to the next quote!", dismissButton: .default(Text("Great!")))
@@ -40,6 +32,13 @@ struct HomeScreenView: View {
                 .alert(item: $info) { info in
                     Alert(title: Text(info.title), message: Text(info.message), dismissButton: info.dismissButton)
                 }
+            
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gearshape")
+                    Text("Settings")
+                }
+            
             AddUserQuoteView(viewModel: UserCoreDataViewModel())
                 .tabItem {
                     Image(systemName: "plus")

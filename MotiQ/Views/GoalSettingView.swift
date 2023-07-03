@@ -36,7 +36,7 @@ struct GoalSettingView: View {
 
 struct GoalSettingView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalSettingView()
+        GoalSettingView(viewModel: UserGoalCoreDataViewModel())
     }
 }
 
@@ -60,6 +60,8 @@ fileprivate extension GoalSettingView {
                 
             }
             .onDelete(perform: viewModel.deleteUserGoal)
+            .onAppear(perform: viewModel.fetchUserGoals )
+            
         }
     }
     
@@ -76,7 +78,7 @@ fileprivate extension GoalSettingView {
                 Text("Title: \(userGoalTitle)")
                 Text("Description: \(userGoaldescription)")
                 Text("Progress: \(String(format: "%.0f", userGoalProgress * 100))%")
-                    
+                
             }
             .frame(width: 300, height: 80, alignment: .leading)
             .padding(.leading, 20)

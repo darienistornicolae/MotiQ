@@ -10,7 +10,7 @@ import SwiftUI
 struct QuotesListView: View {
     
     //MARK: PROPERTIES
-    @StateObject var viewModel = CoreDataViewModel()
+    @StateObject var viewModel: CoreDataViewModel
     @State private var searchText = ""
 
     var body: some View {
@@ -22,7 +22,7 @@ struct QuotesListView: View {
 
 struct QuotesList_Previews: PreviewProvider {
     static var previews: some View {
-        QuotesListView()
+        QuotesListView(viewModel: CoreDataViewModel())
             
     }
 }
@@ -48,6 +48,8 @@ fileprivate extension QuotesListView {
                     
                 }
                 .onDelete(perform: viewModel.deleteQuote)
+                .onAppear(perform: viewModel.fetchQuotes)
+                
             }
             .navigationTitle("Quotes")
     }

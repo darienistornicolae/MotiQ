@@ -15,10 +15,7 @@ struct AddGoalView: View {
     
     @State private var isPressed: Bool = false
     @Environment(\.presentationMode) var presentationMode
-    
-    init(viewModel: UserGoalCoreDataViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
-    }
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
             addGoal
@@ -48,6 +45,8 @@ fileprivate extension AddGoalView {
                     .background(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.gray, lineWidth: 2)
+                            .background(Color.gray)
+                            .cornerRadius(10)
                     )
                 
                 Text("Description")
@@ -62,6 +61,8 @@ fileprivate extension AddGoalView {
                     .background(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.gray, lineWidth: 2)
+                            .background(Color.gray)
+                            .cornerRadius(10)
                     )
                 
                 
@@ -83,7 +84,6 @@ fileprivate extension AddGoalView {
                     
                     Text("\(Int(sliderValue * 100))%")
                         .font(.title)
-                        .foregroundColor(.blue)
                         .fontWeight(.bold)
                 }
                 .padding(.top, 20)
@@ -105,6 +105,10 @@ fileprivate extension AddGoalView {
                         .frame(maxWidth: .infinity)
                         .background(Color.buttonColor)
                         .cornerRadius(10)
+                        .alert(isPresented: $isPressed) {
+                            Alert(title: Text("Goal Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
+                            
+                        }
                 }
             }
             .padding()
@@ -115,15 +119,16 @@ fileprivate extension AddGoalView {
     private func getProgressCircleColor() -> Color {
         let progress = sliderValue
         if progress < 0.05 {
-            return .white
+            return colorScheme == .dark ? .black : .white
         } else if progress < 0.5 {
-            return .gray
+            return colorScheme == .dark ? Color("darkGray"): .gray
         } else if progress < 0.75 {
-            return Color(.darkGray)
+            return colorScheme == .dark ? .gray : Color(.darkGray)
         } else {
-            return .black
+            return colorScheme == .dark ? .white : .black
         }
     }
+
 }
 
 private struct SecondResponderTextField: UIViewRepresentable {
