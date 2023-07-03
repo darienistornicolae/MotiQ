@@ -14,6 +14,8 @@ struct QuotesContainerView: View {
     @ObservedObject var networkManager = NetworkManager()
     @StateObject private var viewModel = MotivationalViewModel()
     @StateObject private var userViewModel = UserViewModel()
+    @StateObject private var textToSpeech = TextToSpeech()
+
     @GestureState private var dragState = DragState.inactive
     @State private var offset: CGFloat = 0.0
     @State private var swipeCount = 0
@@ -75,6 +77,8 @@ fileprivate extension QuotesContainerView {
                         adSense.showInterstitial(viewController: (UIApplication.shared.windows.first?.rootViewController)!)
                     }
                 }
+                
+                textToSpeech.stop()
             }
     }
     
@@ -156,7 +160,19 @@ fileprivate extension QuotesContainerView {
                     }
                     .padding(.bottom, 8)
                     .foregroundColor(.primary)
-                    
+                    Spacer()
+                    Button(action: {
+                        textToSpeech.speak(viewModel.q)
+                    }) {
+                        Image(systemName: "speaker.wave.2")
+                            .font(.system(size: fontSize))
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                            .padding(8)
+                    }
+                    .padding(.bottom, 8)
+                    .foregroundColor(.primary)
+
+                    Spacer()
                     Button(action: {
                         viewModel.toggleSaveQuote()
                     }) {
