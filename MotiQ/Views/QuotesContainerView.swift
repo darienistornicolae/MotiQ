@@ -15,7 +15,8 @@ struct QuotesContainerView: View {
     @StateObject private var viewModel = MotivationalViewModel()
     @StateObject private var userViewModel = UserViewModel()
     @StateObject private var textToSpeech = TextToSpeech()
-
+    @State var clickCount: Int = 0
+    
     @GestureState private var dragState = DragState.inactive
     @State private var offset: CGFloat = 0.0
     @State private var swipeCount = 0
@@ -164,9 +165,17 @@ fileprivate extension QuotesContainerView {
                     .padding(.bottom, 8)
                     .foregroundColor(.primary)
                     Spacer()
+                    
                     Button(action: {
+                        clickCount += 1
+                        if !userViewModel.isSubscribeActive {
+                            if clickCount % 2 == 0 {
+                                adSense.showInterstitial(viewController: (UIApplication.shared.windows.first?.rootViewController)!)
+                            }
+                        }
+                        
                         textToSpeech.speak(text: "\(viewModel.q) by \(viewModel.a)") {
-                            
+                        
                         }
                     }) {
                         Image(systemName: "speaker.wave.2")
@@ -176,7 +185,7 @@ fileprivate extension QuotesContainerView {
                     }
                     .padding(.bottom, 8)
                     .foregroundColor(.primary)
-
+                    
                     Spacer()
                     Button(action: {
                         viewModel.toggleSaveQuote()
