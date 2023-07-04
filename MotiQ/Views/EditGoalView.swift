@@ -1,39 +1,36 @@
 //
-//  AddGoal.swift
+//  EditGoalView.swift
 //  MotiQ
 //
-//  Created by Darie-Nistor Nicolae on 19.06.2023.
+//  Created by Darie-Nistor Nicolae on 04.07.2023.
 //
 
 import SwiftUI
 
-struct AddGoalView: View {
-    @StateObject var viewModel = UserGoalCoreDataViewModel()
-    @State var sliderValue: Double = 0.5
-    @State var userGoalTitle: String = ""
-    @State var userGoalDescription: String = ""
-    
-    @State private var isPressed: Bool = false
-    @Environment(\.presentationMode) var presentationMode
+struct EditGoalView: View {
+    @Environment(\.presentationMode) private var presentationMode
     @Environment(\.colorScheme) private var colorScheme
-    
-    init(viewModel: UserGoalCoreDataViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    @StateObject private var viewModel: UserGoalCoreDataViewModel
+    @ObservedObject private var goal: UserGoalEntity
+    @State private var userGoalTitle: String
+    @State private var userGoalDescription: String
+    @State private var sliderValue: Double
+
+    init(goal: UserGoalEntity, viewModel: UserGoalCoreDataViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        _goal = ObservedObject(wrappedValue: goal)
+        _userGoalTitle = State(wrappedValue: goal.goalTitle ?? "")
+        _userGoalDescription = State(wrappedValue: goal.goalDescription ?? "")
+        _sliderValue = State(wrappedValue: goal.goalProgress)
     }
-    
+
     var body: some View {
-            addGoal
-                .navigationBarTitle("Goals", displayMode: .inline)
-        }
-}
-struct AddGoalView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddGoalView(viewModel: UserGoalCoreDataViewModel())
+        addGoal
+            .navigationBarTitle("Edit Goal", displayMode: .inline)
     }
 }
 
-fileprivate extension AddGoalView {
-    
+private extension EditGoalView {
     var addGoal: some View {
         ScrollView {
             VStack(spacing: 25) {
@@ -67,7 +64,6 @@ fileprivate extension AddGoalView {
                             .cornerRadius(10)
                     )
                 
-                
                 Text("Completion")
                     .font(.custom("Avenir Bold", size: 26))
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -75,7 +71,6 @@ fileprivate extension AddGoalView {
                     .padding(.top)
                 
                 ZStack {
-                    
                     Circle()
                         .trim(from: 0, to: CGFloat(sliderValue))
                         .stroke(getProgressCircleColor(), style: StrokeStyle(lineWidth: 20, lineCap:
@@ -90,48 +85,51 @@ fileprivate extension AddGoalView {
                 }
                 .padding(.top, 20)
                 
-                Slider(value: Binding(get: { sliderValue }, set: { sliderValue = $0 }))
+                Slider(value: $sliderValue)
                     .padding(.horizontal)
                 
                 Spacer()
-                Button {
-                    guard !userGoalDescription.isEmpty else { return }
-                    viewModel.addUserGoal(goalTitle: userGoalTitle, goalDescription: userGoalDescription, goalProgress: sliderValue)
+                Button(action: {
+                    viewModel.updateUserGoal(
+                        goal: goal,
+                        newTitle: userGoalTitle,
+                        newDescription: userGoalDescription,
+                        newProgress: sliderValue
+                    )
                     presentationMode.wrappedValue.dismiss()
-                    viewModel.fetchUserGoals()
-                   
-                } label: {
+                }, label: {
                     Text("Save")
                         .foregroundColor(.iconColor)
                         .font(.headline)
-                        .frame(height:55)
+                        .frame(height: 55)
                         .frame(maxWidth: .infinity)
                         .background(Color.buttonColor)
                         .cornerRadius(10)
-                        .alert(isPresented: $isPressed) {
-                            Alert(title: Text("Goal Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
-                            
-                        }
-                }
+                })
             }
             .padding()
         }
-        
     }
-    
+
     private func getProgressCircleColor() -> Color {
         let progress = sliderValue
         if progress < 0.05 {
             return colorScheme == .dark ? .black : .white
         } else if progress < 0.5 {
-            return colorScheme == .dark ? Color("darkGray"): .gray
+            return colorScheme == .dark ? Color("darkGray") : .gray
         } else if progress < 0.75 {
             return colorScheme == .dark ? .gray : Color(.darkGray)
         } else {
             return colorScheme == .dark ? .white : .black
         }
     }
+}
 
+
+struct EditGoalView_Previews: PreviewProvider {
+    static var previews: some View {
+        EditGoalView(goal: UserGoalEntity(), viewModel: UserGoalCoreDataViewModel())
+    }
 }
 
 private struct SecondResponderTextField: UIViewRepresentable {

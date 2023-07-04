@@ -17,6 +17,7 @@ struct UserAddedQuotesListView: View {
     var body: some View {
         searchBar
         userQuotes
+            .onAppear(perform: viewModel.fetchUserQuotes)
     }
 }
 
@@ -46,7 +47,7 @@ fileprivate extension UserAddedQuotesListView {
                     .font(.custom("Avenir", size: 20))
             }
             .onDelete(perform: viewModel.deleteUserQuote)
-            .onAppear(perform: viewModel.fetchUserQuotes)
+            
         }
         .navigationTitle("Quotes")
     }

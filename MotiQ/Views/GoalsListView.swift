@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GoalSettingView: View {
+struct GoalsListView: View {
     
     @StateObject var viewModel = UserGoalCoreDataViewModel()
     @State var searchText: String = ""
@@ -21,7 +21,8 @@ struct GoalSettingView: View {
             
             VStack {
                 searchBar
-                userQuotes
+                userGoal
+                    .onAppear(perform: viewModel.fetchUserGoals )
                 Spacer()
             }
             .navigationTitle("Goals")
@@ -39,11 +40,11 @@ struct GoalSettingView: View {
 
 struct GoalSettingView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalSettingView(viewModel: UserGoalCoreDataViewModel())
+        GoalsListView(viewModel: UserGoalCoreDataViewModel())
     }
 }
 
-fileprivate extension GoalSettingView {
+fileprivate extension GoalsListView {
     var searchBar: some View {
         HStack {
             Image(systemName: "magnifyingglass").foregroundColor(.gray)
@@ -55,17 +56,25 @@ fileprivate extension GoalSettingView {
         .cornerRadius(20)
     }
     
-    var userQuotes: some View {
+    var userGoal: some View {
         List {
             ForEach(viewModel.filteredUserQuotes(searchText: searchText), id: \.self) { item in
-                CardView(userGoalTitle: item.goalTitle ?? "", userGoaldescription: item.goalDescription ?? "" , userGoalProgress: item.goalProgress)
-                    .font(.custom("Avenir", size: 20))
-                
+                NavigationLink(
+                    destination: EditGoalView(goal: item, viewModel: UserGoalCoreDataViewModel()).environmentObject(viewModel),
+                    label: {
+                        CardView(userGoalTitle: item.goalTitle ?? "", userGoaldescription: item.goalDescription ?? "", userGoalProgress: item.goalProgress, userGoal: UserGoalEntity()) {
+                            
+                        }
+                    }
+                )
+                .font(.custom("Avenir", size: 20))
             }
             .onDelete(perform: viewModel.deleteUserGoal)
-            .onAppear(perform: viewModel.fetchUserGoals )
-            
         }
+    }
+    func navigateToEditGoal(userGoal: UserGoalEntity) {
+        viewModel.selectedUserGoal = userGoal
+        viewModel.isEditingGoal = true
     }
     
     struct CardView: View {
@@ -73,6 +82,8 @@ fileprivate extension GoalSettingView {
         let userGoalTitle: String
         let userGoaldescription: String
         let userGoalProgress: Double
+        let userGoal: UserGoalEntity
+        let editAction: () -> Void
         
         @AppStorage("isDarkMode") private var isDarkMode: Bool = false
         
@@ -87,6 +98,13 @@ fileprivate extension GoalSettingView {
             .padding(.leading, 20)
             .preferredColorScheme(isDarkMode ? .dark : .light)
             .cornerRadius(10)
+            .contextMenu {
+                Button(action: {
+                    editAction()
+                }) {
+                    Label("Edit", systemImage: "pencil")
+                }
+            }
             
         }
     }

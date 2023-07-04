@@ -32,13 +32,15 @@ struct HomeScreenView: View {
                 .alert(item: $info) { info in
                     Alert(title: Text(info.title), message: Text(info.message), dismissButton: info.dismissButton)
                 }
+                .environmentObject(UserViewModel())
             
             SettingsView()
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Settings")
                 }
-            GoalSettingView(viewModel: UserGoalCoreDataViewModel())
+                .environmentObject(UserViewModel())
+            GoalsListView(viewModel: UserGoalCoreDataViewModel())
                 .tabItem {
                     Image(systemName: "checklist")
                     Text("Goals")
@@ -49,7 +51,7 @@ struct HomeScreenView: View {
                     Image(systemName: "pencil.line")
                     Text("Add Quote")
                 }
-                .tag(2)
+                .environmentObject(UserViewModel())
         }
         .accentColor(.buttonColor)
     }

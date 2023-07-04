@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RevenueCat
 
 struct AddUserQuoteView: View {
     
@@ -45,8 +46,8 @@ fileprivate extension AddUserQuoteView {
                         Button {
                             guard !userQuote.isEmpty else { return }
                             viewModel.addUserQuote(quote: userQuote, author: userAuthor)
-                            userQuote = ""
-                            userAuthor = ""
+                            userQuote = "Your Quote"
+                            userAuthor = "Author"
                             presentationMode.wrappedValue.dismiss()
                             withAnimation {
                                 isPressed = true
@@ -65,6 +66,7 @@ fileprivate extension AddUserQuoteView {
                                 }
                         }
                     }
+                    
                     if !userViewModel.isSubscribeActive {
                         bannerAdd
                     }

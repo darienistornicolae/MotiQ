@@ -15,7 +15,9 @@ class UserGoalCoreDataViewModel: ObservableObject {
     @Published var userGoalEntity: [UserGoalEntity] = []
     @Published var title: String = ""
     @Published var description: String = ""
-    
+    @Published var selectedUserGoal: UserGoalEntity?
+    @Published var isEditingGoal: Bool = false
+
     init() {
         userGoalContainer = NSPersistentContainer(name: "GoalContainer")
         userGoalContainer.loadPersistentStores { description, error in
@@ -35,6 +37,13 @@ class UserGoalCoreDataViewModel: ObservableObject {
         userGoalContainer.viewContext.delete(item)
         saveUserData()
     }
+    
+    func updateUserGoal(goal: UserGoalEntity, newTitle: String, newDescription: String, newProgress: Double) {
+            goal.goalTitle = newTitle
+            goal.goalDescription = newDescription
+            goal.goalProgress = newProgress
+            saveUserData()
+        }
     
     func addUserGoal(goalTitle: String, goalDescription: String, goalProgress: Double) {
         let newGoal = UserGoalEntity(context: userGoalContainer.viewContext)

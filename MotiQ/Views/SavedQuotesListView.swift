@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct QuotesListView: View {
+struct SavedQuotesListView: View {
     
     //MARK: PROPERTIES
     @StateObject var viewModel: CoreDataViewModel
@@ -16,18 +16,19 @@ struct QuotesListView: View {
     var body: some View {
             searchBar
             userQuotes
+            .onAppear(perform: viewModel.fetchQuotes)
         
     }
 }
 
 struct QuotesList_Previews: PreviewProvider {
     static var previews: some View {
-        QuotesListView(viewModel: CoreDataViewModel())
+        SavedQuotesListView(viewModel: CoreDataViewModel())
             
     }
 }
 
-fileprivate extension QuotesListView {
+fileprivate extension SavedQuotesListView {
     
     var searchBar: some View {
         HStack {
@@ -48,7 +49,6 @@ fileprivate extension QuotesListView {
                     
                 }
                 .onDelete(perform: viewModel.deleteQuote)
-                .onAppear(perform: viewModel.fetchQuotes)
                 
             }
             .navigationTitle("Quotes")

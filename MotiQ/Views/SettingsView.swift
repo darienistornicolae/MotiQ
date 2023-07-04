@@ -99,7 +99,7 @@ fileprivate extension SettingsView {
     
     var goalSetting: some View {
         Section(header: Text("Goal Setting")) {
-            NavigationLink("Goal Setting", destination: GoalSettingView(viewModel: UserGoalCoreDataViewModel()))
+            NavigationLink("Goal Setting", destination: GoalsListView(viewModel: UserGoalCoreDataViewModel()))
         }
     }
     
@@ -159,7 +159,7 @@ fileprivate extension SettingsView {
     var favoriteQuotes: some View {
         Section(header: Text("Favorites Quotes"), footer: Text("See your favorite quotes")) {
             NavigationLink("Favorite Quotes") {
-                QuotesListView(viewModel: CoreDataViewModel())
+                SavedQuotesListView(viewModel: CoreDataViewModel())
             }
         }
     }

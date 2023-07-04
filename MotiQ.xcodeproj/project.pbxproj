@@ -34,14 +34,15 @@
 		015E522329D5C2910098DBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015E522229D5C2910098DBB6 /* Assets.xcassets */; };
 		015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */; };
 		015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522829D5F9C00098DBB6 /* NotificationCenter.swift */; };
+		01777F832A544FC70002367C /* EditGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01777F822A544FC70002367C /* EditGoalView.swift */; };
 		01878C602A28B84100AB7714 /* InterstitialAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01878C5F2A28B84100AB7714 /* InterstitialAd.swift */; };
 		018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E963829DDE0AB004D5A41 /* NetworkManager.swift */; };
 		019BD33F2A0B7FAA0009F418 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BD33E2A0B7FAA0009F418 /* AlertManager.swift */; };
 		01A1512729EC17E700A609AD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1512629EC17E700A609AD /* Extensions.swift */; };
 		01B22DDE29F70037001810F0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22DDD29F70037001810F0 /* UserViewModel.swift */; };
 		01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B85BC429E1CC780009C388 /* PayWallView.swift */; };
-		01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* QuotesListView.swift */; };
-		01E89D252A3B567B00E12443 /* GoalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E89D242A3B567B00E12443 /* GoalSettingView.swift */; };
+		01B8942129DACD480052EF7E /* SavedQuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* SavedQuotesListView.swift */; };
+		01E89D252A3B567B00E12443 /* GoalsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E89D242A3B567B00E12443 /* GoalsListView.swift */; };
 		01ED1AC72A2256CE00E57701 /* UserAddedQuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */; };
 		01ED1AC92A227D9900E57701 /* UserCoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1AC82A227D9900E57701 /* UserCoreDataViewModel.swift */; };
 		01FFF6F52A1909510017EC46 /* QuotesContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */; };
@@ -85,6 +86,7 @@
 		015E522229D5C2910098DBB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		01777F822A544FC70002367C /* EditGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalView.swift; sourceTree = "<group>"; };
 		01878C5F2A28B84100AB7714 /* InterstitialAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAd.swift; sourceTree = "<group>"; };
 		018E963829DDE0AB004D5A41 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		019BD33E2A0B7FAA0009F418 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -92,8 +94,8 @@
 		01A4240629E2D30C00053D1A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		01B22DDD29F70037001810F0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		01B85BC429E1CC780009C388 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
-		01B8942029DACD480052EF7E /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
-		01E89D242A3B567B00E12443 /* GoalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingView.swift; sourceTree = "<group>"; };
+		01B8942029DACD480052EF7E /* SavedQuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedQuotesListView.swift; sourceTree = "<group>"; };
+		01E89D242A3B567B00E12443 /* GoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListView.swift; sourceTree = "<group>"; };
 		01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAddedQuotesListView.swift; sourceTree = "<group>"; };
 		01ED1AC82A227D9900E57701 /* UserCoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataViewModel.swift; sourceTree = "<group>"; };
 		01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesContainerView.swift; sourceTree = "<group>"; };
@@ -163,14 +165,15 @@
 				014B560229D38BDC00B14F40 /* Launch Screen.storyboard */,
 				014B55F329D38B5700B14F40 /* HomeScreenView.swift */,
 				015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */,
-				01B8942029DACD480052EF7E /* QuotesListView.swift */,
+				01777F822A544FC70002367C /* EditGoalView.swift */,
+				01B8942029DACD480052EF7E /* SavedQuotesListView.swift */,
 				013F207A29E06E5E000C8E22 /* BannerAd.swift */,
 				01B85BC429E1CC780009C388 /* PayWallView.swift */,
 				01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */,
 				01016CEE2A1DE2CF00D31F6C /* PayWallOpeningView.swift */,
 				01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */,
 				01878C5F2A28B84100AB7714 /* InterstitialAd.swift */,
-				01E89D242A3B567B00E12443 /* GoalSettingView.swift */,
+				01E89D242A3B567B00E12443 /* GoalsListView.swift */,
 				0119B39C2A409C90001E9CF1 /* AddGoalView.swift */,
 			);
 			path = Views;
@@ -318,7 +321,7 @@
 				015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */,
 				0108007A2A532A27005250F5 /* TrackingCenter.swift in Sources */,
 				014B55FA29D38B7A00B14F40 /* SettingsView.swift in Sources */,
-				01E89D252A3B567B00E12443 /* GoalSettingView.swift in Sources */,
+				01E89D252A3B567B00E12443 /* GoalsListView.swift in Sources */,
 				01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */,
 				015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */,
 				014F94C82A537E6E0051092F /* TextToSpeechService.swift in Sources */,
@@ -328,6 +331,7 @@
 				014B55FC29D38B8800B14F40 /* MotivationalAPI.swift in Sources */,
 				01ED1AC72A2256CE00E57701 /* UserAddedQuotesListView.swift in Sources */,
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
+				01777F832A544FC70002367C /* EditGoalView.swift in Sources */,
 				010800782A530139005250F5 /* GoalContainer.xcdatamodeld in Sources */,
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
@@ -335,7 +339,7 @@
 				019BD33F2A0B7FAA0009F418 /* AlertManager.swift in Sources */,
 				01B22DDE29F70037001810F0 /* UserViewModel.swift in Sources */,
 				013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */,
-				01B8942129DACD480052EF7E /* QuotesListView.swift in Sources */,
+				01B8942129DACD480052EF7E /* SavedQuotesListView.swift in Sources */,
 				010800752A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift in Sources */,
 				01A1512729EC17E700A609AD /* Extensions.swift in Sources */,
 				014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */,
