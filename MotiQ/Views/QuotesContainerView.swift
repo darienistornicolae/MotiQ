@@ -78,7 +78,7 @@ fileprivate extension QuotesContainerView {
                     }
                 }
                 
-                textToSpeech.stop()
+                
             }
     }
     
@@ -162,7 +162,9 @@ fileprivate extension QuotesContainerView {
                     .foregroundColor(.primary)
                     Spacer()
                     Button(action: {
-                        textToSpeech.speak(viewModel.q)
+                        textToSpeech.speak(text: "\(viewModel.q) by \(viewModel.a)") {
+                            
+                        }
                     }) {
                         Image(systemName: "speaker.wave.2")
                             .font(.system(size: fontSize))
