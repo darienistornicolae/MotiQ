@@ -16,7 +16,7 @@ class UserViewModel: ObservableObject {
         checkSubscriptionStatus()
     }
 
-    private func checkSubscriptionStatus() {
+     func checkSubscriptionStatus() {
         Purchases.shared.getCustomerInfo { [weak self] purchaserInfo, error in
             guard let self = self else { return }
             if let entitlements = purchaserInfo?.entitlements, let isSubscribed = entitlements["Premium MotiQ"]?.isActive {

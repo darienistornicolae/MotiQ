@@ -35,6 +35,9 @@ struct QuotesContainerView: View {
         quotesView
             .font(.custom("Avenir", size: 24))
             .frame(maxWidth: 350)
+            .onAppear {
+                userViewModel.checkSubscriptionStatus()
+            }
     }
     
 }

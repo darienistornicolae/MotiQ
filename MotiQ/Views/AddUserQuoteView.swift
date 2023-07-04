@@ -66,7 +66,9 @@ fileprivate extension AddUserQuoteView {
                                 }
                         }
                     }
-                    
+                    .onAppear {
+                        userViewModel.checkSubscriptionStatus()
+                    }
                     if !userViewModel.isSubscribeActive {
                         bannerAdd
                     }

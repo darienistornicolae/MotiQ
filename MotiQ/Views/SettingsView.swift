@@ -71,7 +71,9 @@ struct SettingsView: View {
                 .navigationTitle("Settings")
                 .navigationBarTitleDisplayMode(.inline)
             }
-            
+            .onAppear {
+                userViewModel.checkSubscriptionStatus()
+            }
             .environmentObject(UserViewModel())
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
