@@ -8,10 +8,6 @@
 import Foundation
 import UserNotifications
 
-
-import Foundation
-import UserNotifications
-
 class NotificationCenter: ObservableObject {
     @Published var notificationsEnabled: Bool = false
     @Published var authorizationStatus: UNAuthorizationStatus = .notDetermined
