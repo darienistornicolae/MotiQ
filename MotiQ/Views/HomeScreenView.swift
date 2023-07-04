@@ -38,10 +38,15 @@ struct HomeScreenView: View {
                     Image(systemName: "gearshape")
                     Text("Settings")
                 }
+            GoalSettingView(viewModel: UserGoalCoreDataViewModel())
+                .tabItem {
+                    Image(systemName: "checklist")
+                    Text("Goals")
+                }
             
             AddUserQuoteView(viewModel: UserCoreDataViewModel())
                 .tabItem {
-                    Image(systemName: "plus")
+                    Image(systemName: "pencil.line")
                     Text("Add Quote")
                 }
                 .tag(2)

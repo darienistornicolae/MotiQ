@@ -12,6 +12,9 @@ struct GoalSettingView: View {
     @StateObject var viewModel = UserGoalCoreDataViewModel()
     @State var searchText: String = ""
     
+    init(viewModel: UserGoalCoreDataViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         NavigationView {
@@ -21,16 +24,16 @@ struct GoalSettingView: View {
                 userQuotes
                 Spacer()
             }
-            
+            .navigationTitle("Goals")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing: NavigationLink(destination: {
+                AddGoalView(viewModel: UserGoalCoreDataViewModel())
+            }, label: {
+                Image(systemName: "plus")
+                    .foregroundColor(.buttonColor)
+            }))
         }
-        .navigationTitle("Goals")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(trailing: NavigationLink(destination: {
-            AddGoalView(viewModel: UserGoalCoreDataViewModel())
-        }, label: {
-            Image(systemName: "plus")
-                .foregroundColor(.buttonColor)
-        }))
+        
     }
 }
 

@@ -58,7 +58,7 @@ struct SettingsView: View {
                             EmptyView()
                         }
                     }
-                    goalSetting
+                  //  goalSetting
                     favoriteQuotes
                     userAddedQuotes
                     review
