@@ -39,14 +39,17 @@
 		018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E963829DDE0AB004D5A41 /* NetworkManager.swift */; };
 		019BD33F2A0B7FAA0009F418 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BD33E2A0B7FAA0009F418 /* AlertManager.swift */; };
 		01A1512729EC17E700A609AD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1512629EC17E700A609AD /* Extensions.swift */; };
-		01A56E342A55F5A50096EE63 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A56E332A55F5A50096EE63 /* WidgetKit.framework */; };
-		01A56E352A55F5A50096EE63 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A4240629E2D30C00053D1A /* SwiftUI.framework */; };
-		01A56E382A55F5A50096EE63 /* MotiqWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E372A55F5A50096EE63 /* MotiqWidgetsBundle.swift */; };
-		01A56E3C2A55F5A50096EE63 /* MotiqWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E3B2A55F5A50096EE63 /* MotiqWidgets.swift */; };
-		01A56E3F2A55F5A60096EE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01A56E3E2A55F5A60096EE63 /* Assets.xcassets */; };
-		01A56E412A55F5A60096EE63 /* MotiqWidgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E3D2A55F5A50096EE63 /* MotiqWidgets.intentdefinition */; };
-		01A56E422A55F5A60096EE63 /* MotiqWidgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E3D2A55F5A50096EE63 /* MotiqWidgets.intentdefinition */; };
-		01A56E452A55F5A60096EE63 /* MotiqWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 01A56E322A55F5A50096EE63 /* MotiqWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		01A56E642A56046D0096EE63 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A56E4E2A5603E50096EE63 /* WidgetKit.framework */; };
+		01A56E652A56046D0096EE63 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A4240629E2D30C00053D1A /* SwiftUI.framework */; };
+		01A56E682A56046D0096EE63 /* MotiqWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E672A56046D0096EE63 /* MotiqWidgetBundle.swift */; };
+		01A56E6A2A56046D0096EE63 /* MotiqWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E692A56046D0096EE63 /* MotiqWidget.swift */; };
+		01A56E6D2A56046D0096EE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01A56E6C2A56046D0096EE63 /* Assets.xcassets */; };
+		01A56E6F2A56046D0096EE63 /* MotiqWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E6B2A56046D0096EE63 /* MotiqWidget.intentdefinition */; };
+		01A56E702A56046D0096EE63 /* MotiqWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E6B2A56046D0096EE63 /* MotiqWidget.intentdefinition */; };
+		01A56E732A56046D0096EE63 /* MotiqWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 01A56E632A56046D0096EE63 /* MotiqWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		01A56E7A2A5609610096EE63 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E792A5609610096EE63 /* TimelineProvider.swift */; };
+		01A56E7C2A56098C0096EE63 /* TimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E7B2A56098C0096EE63 /* TimelineEntry.swift */; };
+		01A56E7E2A5609FD0096EE63 /* QuotesWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E7D2A5609FD0096EE63 /* QuotesWidgetView.swift */; };
 		01B22DDE29F70037001810F0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B22DDD29F70037001810F0 /* UserViewModel.swift */; };
 		01B85BC529E1CC780009C388 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B85BC429E1CC780009C388 /* PayWallView.swift */; };
 		01B8942129DACD480052EF7E /* SavedQuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8942029DACD480052EF7E /* SavedQuotesListView.swift */; };
@@ -57,12 +60,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		01A56E432A55F5A60096EE63 /* PBXContainerItemProxy */ = {
+		01A56E712A56046D0096EE63 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 014B55D529D38AAE00B14F40 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 01A56E312A55F5A50096EE63;
-			remoteInfo = MotiqWidgetsExtension;
+			remoteGlobalIDString = 01A56E622A56046D0096EE63;
+			remoteInfo = MotiqWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -73,7 +76,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				01A56E452A55F5A60096EE63 /* MotiqWidgetsExtension.appex in Embed Foundation Extensions */,
+				01A56E732A56046D0096EE63 /* MotiqWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,13 +114,16 @@
 		019BD33E2A0B7FAA0009F418 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		01A1512629EC17E700A609AD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		01A4240629E2D30C00053D1A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		01A56E322A55F5A50096EE63 /* MotiqWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MotiqWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		01A56E332A55F5A50096EE63 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		01A56E372A55F5A50096EE63 /* MotiqWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiqWidgetsBundle.swift; sourceTree = "<group>"; };
-		01A56E3B2A55F5A50096EE63 /* MotiqWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiqWidgets.swift; sourceTree = "<group>"; };
-		01A56E3D2A55F5A50096EE63 /* MotiqWidgets.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MotiqWidgets.intentdefinition; sourceTree = "<group>"; };
-		01A56E3E2A55F5A60096EE63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		01A56E402A55F5A60096EE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01A56E4E2A5603E50096EE63 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		01A56E632A56046D0096EE63 /* MotiqWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MotiqWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		01A56E672A56046D0096EE63 /* MotiqWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiqWidgetBundle.swift; sourceTree = "<group>"; };
+		01A56E692A56046D0096EE63 /* MotiqWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiqWidget.swift; sourceTree = "<group>"; };
+		01A56E6B2A56046D0096EE63 /* MotiqWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MotiqWidget.intentdefinition; sourceTree = "<group>"; };
+		01A56E6C2A56046D0096EE63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01A56E6E2A56046D0096EE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01A56E792A5609610096EE63 /* TimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineProvider.swift; sourceTree = "<group>"; };
+		01A56E7B2A56098C0096EE63 /* TimelineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineEntry.swift; sourceTree = "<group>"; };
+		01A56E7D2A5609FD0096EE63 /* QuotesWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesWidgetView.swift; sourceTree = "<group>"; };
 		01B22DDD29F70037001810F0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		01B85BC429E1CC780009C388 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
 		01B8942029DACD480052EF7E /* SavedQuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedQuotesListView.swift; sourceTree = "<group>"; };
@@ -140,12 +146,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		01A56E2F2A55F5A50096EE63 /* Frameworks */ = {
+		01A56E602A56046D0096EE63 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A56E352A55F5A50096EE63 /* SwiftUI.framework in Frameworks */,
-				01A56E342A55F5A50096EE63 /* WidgetKit.framework in Frameworks */,
+				01A56E652A56046D0096EE63 /* SwiftUI.framework in Frameworks */,
+				01A56E642A56046D0096EE63 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				014B55DF29D38AAF00B14F40 /* MotiQ */,
-				01A56E362A55F5A50096EE63 /* MotiqWidgets */,
+				01A56E662A56046D0096EE63 /* MotiqWidget */,
 				014B55DE29D38AAF00B14F40 /* Products */,
 				A3FD9F3AE1FAE7E82EF5E40C /* Frameworks */,
 			);
@@ -166,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				014B55DD29D38AAF00B14F40 /* MotiQ.app */,
-				01A56E322A55F5A50096EE63 /* MotiqWidgetsExtension.appex */,
+				01A56E632A56046D0096EE63 /* MotiqWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,16 +266,19 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		01A56E362A55F5A50096EE63 /* MotiqWidgets */ = {
+		01A56E662A56046D0096EE63 /* MotiqWidget */ = {
 			isa = PBXGroup;
 			children = (
-				01A56E372A55F5A50096EE63 /* MotiqWidgetsBundle.swift */,
-				01A56E3B2A55F5A50096EE63 /* MotiqWidgets.swift */,
-				01A56E3D2A55F5A50096EE63 /* MotiqWidgets.intentdefinition */,
-				01A56E3E2A55F5A60096EE63 /* Assets.xcassets */,
-				01A56E402A55F5A60096EE63 /* Info.plist */,
+				01A56E672A56046D0096EE63 /* MotiqWidgetBundle.swift */,
+				01A56E7D2A5609FD0096EE63 /* QuotesWidgetView.swift */,
+				01A56E692A56046D0096EE63 /* MotiqWidget.swift */,
+				01A56E7B2A56098C0096EE63 /* TimelineEntry.swift */,
+				01A56E6B2A56046D0096EE63 /* MotiqWidget.intentdefinition */,
+				01A56E6C2A56046D0096EE63 /* Assets.xcassets */,
+				01A56E6E2A56046D0096EE63 /* Info.plist */,
+				01A56E792A5609610096EE63 /* TimelineProvider.swift */,
 			);
-			path = MotiqWidgets;
+			path = MotiqWidget;
 			sourceTree = "<group>";
 		};
 		A3FD9F3AE1FAE7E82EF5E40C /* Frameworks */ = {
@@ -277,7 +286,7 @@
 			children = (
 				014AABED29E9FB3900F39B18 /* StoreKit.framework */,
 				01A4240629E2D30C00053D1A /* SwiftUI.framework */,
-				01A56E332A55F5A50096EE63 /* WidgetKit.framework */,
+				01A56E4E2A5603E50096EE63 /* WidgetKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -297,7 +306,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				01A56E442A55F5A60096EE63 /* PBXTargetDependency */,
+				01A56E722A56046D0096EE63 /* PBXTargetDependency */,
 			);
 			name = MotiQ;
 			packageProductDependencies = (
@@ -310,21 +319,23 @@
 			productReference = 014B55DD29D38AAF00B14F40 /* MotiQ.app */;
 			productType = "com.apple.product-type.application";
 		};
-		01A56E312A55F5A50096EE63 /* MotiqWidgetsExtension */ = {
+		01A56E622A56046D0096EE63 /* MotiqWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01A56E482A55F5A60096EE63 /* Build configuration list for PBXNativeTarget "MotiqWidgetsExtension" */;
+			buildConfigurationList = 01A56E742A56046D0096EE63 /* Build configuration list for PBXNativeTarget "MotiqWidgetExtension" */;
 			buildPhases = (
-				01A56E2E2A55F5A50096EE63 /* Sources */,
-				01A56E2F2A55F5A50096EE63 /* Frameworks */,
-				01A56E302A55F5A50096EE63 /* Resources */,
+				01A56E5F2A56046D0096EE63 /* Sources */,
+				01A56E602A56046D0096EE63 /* Frameworks */,
+				01A56E612A56046D0096EE63 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MotiqWidgetsExtension;
-			productName = MotiqWidgetsExtension;
-			productReference = 01A56E322A55F5A50096EE63 /* MotiqWidgetsExtension.appex */;
+			name = MotiqWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = MotiqWidgetExtension;
+			productReference = 01A56E632A56046D0096EE63 /* MotiqWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -340,7 +351,7 @@
 					014B55DC29D38AAF00B14F40 = {
 						CreatedOnToolsVersion = 14.3;
 					};
-					01A56E312A55F5A50096EE63 = {
+					01A56E622A56046D0096EE63 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
@@ -364,7 +375,7 @@
 			projectRoot = "";
 			targets = (
 				014B55DC29D38AAF00B14F40 /* MotiQ */,
-				01A56E312A55F5A50096EE63 /* MotiqWidgetsExtension */,
+				01A56E622A56046D0096EE63 /* MotiqWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -381,11 +392,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		01A56E302A55F5A50096EE63 /* Resources */ = {
+		01A56E612A56046D0096EE63 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A56E3F2A55F5A60096EE63 /* Assets.xcassets in Resources */,
+				01A56E6D2A56046D0096EE63 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +423,7 @@
 				01ED1AC72A2256CE00E57701 /* UserAddedQuotesListView.swift in Sources */,
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
 				01777F832A544FC70002367C /* EditGoalView.swift in Sources */,
+				01A56E702A56046D0096EE63 /* MotiqWidget.intentdefinition in Sources */,
 				010800782A530139005250F5 /* GoalContainer.xcdatamodeld in Sources */,
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
@@ -422,7 +434,6 @@
 				01B8942129DACD480052EF7E /* SavedQuotesListView.swift in Sources */,
 				010800752A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift in Sources */,
 				01A1512729EC17E700A609AD /* Extensions.swift in Sources */,
-				01A56E422A55F5A60096EE63 /* MotiqWidgets.intentdefinition in Sources */,
 				014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */,
 				014B55FE29D38BAA00B14F40 /* QuotesModel.swift in Sources */,
 				014B55E129D38AAF00B14F40 /* MotiQApp.swift in Sources */,
@@ -430,23 +441,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		01A56E2E2A55F5A50096EE63 /* Sources */ = {
+		01A56E5F2A56046D0096EE63 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A56E382A55F5A50096EE63 /* MotiqWidgetsBundle.swift in Sources */,
-				01A56E3C2A55F5A50096EE63 /* MotiqWidgets.swift in Sources */,
-				01A56E412A55F5A60096EE63 /* MotiqWidgets.intentdefinition in Sources */,
+				01A56E6F2A56046D0096EE63 /* MotiqWidget.intentdefinition in Sources */,
+				01A56E6A2A56046D0096EE63 /* MotiqWidget.swift in Sources */,
+				01A56E7C2A56098C0096EE63 /* TimelineEntry.swift in Sources */,
+				01A56E682A56046D0096EE63 /* MotiqWidgetBundle.swift in Sources */,
+				01A56E7A2A5609610096EE63 /* TimelineProvider.swift in Sources */,
+				01A56E7E2A5609FD0096EE63 /* QuotesWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		01A56E442A55F5A60096EE63 /* PBXTargetDependency */ = {
+		01A56E722A56046D0096EE63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 01A56E312A55F5A50096EE63 /* MotiqWidgetsExtension */;
-			targetProxy = 01A56E432A55F5A60096EE63 /* PBXContainerItemProxy */;
+			target = 01A56E622A56046D0096EE63 /* MotiqWidgetExtension */;
+			targetProxy = 01A56E712A56046D0096EE63 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -647,7 +661,7 @@
 			};
 			name = Release;
 		};
-		01A56E462A55F5A60096EE63 /* Debug */ = {
+		01A56E752A56046D0096EE63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -656,8 +670,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V975Z3G3HV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MotiqWidgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MotiqWidgets;
+				INFOPLIST_FILE = MotiqWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MotiqWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -666,7 +680,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq.MotiqWidgets;
+				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq.MotiqWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -675,7 +689,7 @@
 			};
 			name = Debug;
 		};
-		01A56E472A55F5A60096EE63 /* Release */ = {
+		01A56E762A56046D0096EE63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -684,8 +698,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V975Z3G3HV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MotiqWidgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MotiqWidgets;
+				INFOPLIST_FILE = MotiqWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MotiqWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -694,7 +708,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.5.2;
-				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq.MotiqWidgets;
+				PRODUCT_BUNDLE_IDENTIFIER = dnn.Motiq.MotiqWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -724,11 +738,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		01A56E482A55F5A60096EE63 /* Build configuration list for PBXNativeTarget "MotiqWidgetsExtension" */ = {
+		01A56E742A56046D0096EE63 /* Build configuration list for PBXNativeTarget "MotiqWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				01A56E462A55F5A60096EE63 /* Debug */,
-				01A56E472A55F5A60096EE63 /* Release */,
+				01A56E752A56046D0096EE63 /* Debug */,
+				01A56E762A56046D0096EE63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
