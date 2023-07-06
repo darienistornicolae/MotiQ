@@ -82,10 +82,7 @@ struct SettingsView: View {
         
     }
     
-    private func updateColorScheme() {
-        UIApplication.shared.windows.first?.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
-        UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
-    }
+    
     
 }
 
@@ -98,11 +95,10 @@ struct SettingsSheet_Previews: PreviewProvider {
 
 fileprivate extension SettingsView {
     
-    var goalSetting: some View {
-        Section(header: Text("Goal Setting")) {
-            NavigationLink("Goal Setting", destination: GoalsListView(viewModel: UserGoalCoreDataViewModel()))
-        }
-    }
+    func updateColorScheme() {
+    UIApplication.shared.windows.first?.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+    UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
+}
     
     var premiumContent: some View {
         Section(header: Text("Premium access")) {
@@ -204,13 +200,12 @@ fileprivate extension SettingsView {
         }
     }
 
-    private func redirectToNotificationSettings() {
-        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
-        if UIApplication.shared.canOpenURL(settingsUrl) {
-            UIApplication.shared.open(settingsUrl)
-        }
+    func redirectToNotificationSettings() {
+    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+    if UIApplication.shared.canOpenURL(settingsUrl) {
+        UIApplication.shared.open(settingsUrl)
     }
-
+}
     
     var newsLetter: some View {
         Section(header: Text("Newsletter Form"), footer: Text("Here is the newsletter form to complete to recive the Weekly Newsletter!☺️")) {
