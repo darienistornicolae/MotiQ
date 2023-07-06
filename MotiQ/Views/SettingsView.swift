@@ -95,10 +95,16 @@ struct SettingsSheet_Previews: PreviewProvider {
 
 fileprivate extension SettingsView {
     
-    func updateColorScheme() {
-    UIApplication.shared.windows.first?.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
-    UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
-}
+    private func updateColorScheme() {
+        UIApplication.shared.windows.first?.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+        UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
+    }
+    
+    var goalSetting: some View {
+        Section(header: Text("Goal Setting")) {
+            NavigationLink("Goal Setting", destination: GoalsListView(viewModel: UserGoalCoreDataViewModel()))
+        }
+    }
     
     var premiumContent: some View {
         Section(header: Text("Premium access")) {
@@ -170,42 +176,43 @@ fileprivate extension SettingsView {
     }
      
     var notifications: some View {
-        Section(header: Text("Push Notifications")) {
-            Toggle(isOn: $viewModel.notificationsEnabled) {
-                Text("Enable Notifications")
-            }
-            .onChange(of: viewModel.notificationsEnabled) { enabled in
-                UserDefaults.standard.set(enabled, forKey: "notificationsEnabled")
-                if enabled {
-                    viewModel.requestAuthorization()
-                    if enabled {
-                        viewModel.scheduleUserNotification(at: selectedDate)
-                    }
-                } else {
-                    viewModel.cancelUserNotification()
-                    redirectToNotificationSettings()
+            Section(header: Text("Push Notifications")) {
+                Toggle(isOn: $viewModel.notificationsEnabled) {
+                    Text("Enable Notifications")
                 }
-            }
-            if viewModel.notificationsEnabled {
-                        DatePicker("Remind Me", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
-                            .datePickerStyle(CompactDatePickerStyle())
-                            .onChange(of: selectedDate) { date in
-                                viewModel.scheduleUserNotification(at: date)
-                            }
+                .onChange(of: viewModel.notificationsEnabled) { enabled in
+                    UserDefaults.standard.set(enabled, forKey: "notificationsEnabled")
+                    if enabled {
+                        viewModel.requestAuthorization()
+                        if enabled {
+                            viewModel.scheduleUserNotification(at: selectedDate)
+                        }
+                    } else {
+                        viewModel.cancelUserNotification()
+                        redirectToNotificationSettings()
                     }
+                }
+                if viewModel.notificationsEnabled {
+                            DatePicker("Remind Me", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
+                                .datePickerStyle(CompactDatePickerStyle())
+                                .onChange(of: selectedDate) { date in
+                                    viewModel.scheduleUserNotification(at: date)
+                                }
+                        }
+            }
+            .onAppear {
+                viewModel.notificationsEnabled = UserDefaults.standard.bool(forKey: "notificationsEnabled")
+                
+            }
         }
-        .onAppear {
-            viewModel.notificationsEnabled = UserDefaults.standard.bool(forKey: "notificationsEnabled")
-            
+
+        func redirectToNotificationSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl)
         }
     }
 
-    func redirectToNotificationSettings() {
-    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
-    if UIApplication.shared.canOpenURL(settingsUrl) {
-        UIApplication.shared.open(settingsUrl)
-    }
-}
     
     var newsLetter: some View {
         Section(header: Text("Newsletter Form"), footer: Text("Here is the newsletter form to complete to recive the Weekly Newsletter!☺️")) {
