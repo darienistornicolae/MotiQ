@@ -34,7 +34,7 @@ struct HomeScreenView: View {
                 }
                 .environmentObject(UserViewModel())
             
-            SettingsView()
+            SettingsView(userViewModel: UserViewModel())
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Settings")
@@ -46,7 +46,7 @@ struct HomeScreenView: View {
                     Text("Goals")
                 }
             
-            AddUserQuoteView(viewModel: UserCoreDataViewModel())
+            AddUserQuoteView(viewModel: UserCoreDataViewModel(), userViewModel: UserViewModel())
                 .tabItem {
                     Image(systemName: "pencil.line")
                     Text("Add Quote")
@@ -82,7 +82,7 @@ fileprivate extension HomeScreenView {
                     .font(.title)
             })
             .sheet(isPresented: $settingsSheet, content: {
-                SettingsView()
+                SettingsView(userViewModel: UserViewModel())
             })
             
         }
@@ -101,7 +101,7 @@ fileprivate extension HomeScreenView {
                     .font(.title)
             })
             .sheet(isPresented: $addUserQuoteSheet, content: {
-                AddUserQuoteView(viewModel: UserCoreDataViewModel())
+                AddUserQuoteView(viewModel: UserCoreDataViewModel(), userViewModel: UserViewModel())
             })
             
             .onTapGesture {

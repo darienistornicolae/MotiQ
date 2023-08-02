@@ -13,6 +13,10 @@ struct UserAddedQuotesListView: View {
     @StateObject var viewModel = UserCoreDataViewModel()
     @State private var searchText = ""
    
+    init(viewModel: UserCoreDataViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        
+    }
     
     var body: some View {
         searchBar
@@ -23,7 +27,7 @@ struct UserAddedQuotesListView: View {
 
 struct UserAddedQuotes_Previews: PreviewProvider {
     static var previews: some View {
-        UserAddedQuotesListView()
+        UserAddedQuotesListView(viewModel: UserCoreDataViewModel())
     }
 }
 

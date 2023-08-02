@@ -34,6 +34,9 @@ struct SettingsView: View {
     @ObservedObject var viewModel = NotificationCenter()
     @StateObject var userViewModel = UserViewModel()
     
+    init(userViewModel: UserViewModel) {
+        self._userViewModel = StateObject(wrappedValue: userViewModel)
+    }
     var startingDate: Date = Date()
     var endingDate: Date = Calendar.current.date(from: DateComponents (year: 2026)) ?? Date ()
     
@@ -88,7 +91,7 @@ struct SettingsView: View {
 
 struct SettingsSheet_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(userViewModel: UserViewModel())
     }
 }
 
