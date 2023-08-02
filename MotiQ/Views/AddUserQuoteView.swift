@@ -18,9 +18,9 @@ struct AddUserQuoteView: View {
     @State private var isPressed: Bool = false
     @Environment(\.presentationMode) var presentationMode
     
-    init(viewModel: UserCoreDataViewModel, userViewModel: UserViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
-        self._userViewModel = StateObject(wrappedValue: userViewModel)
+    init(viewModel: @autoclosure @escaping () ->  UserCoreDataViewModel, userViewModel: @autoclosure @escaping () ->  UserViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
+        self._userViewModel = StateObject(wrappedValue: userViewModel())
     }
     
     var body: some View {

@@ -12,7 +12,10 @@ struct SavedQuotesListView: View {
     //MARK: PROPERTIES
     @StateObject var viewModel: CoreDataViewModel
     @State private var searchText = ""
-
+    init(viewModel: @autoclosure @escaping () -> CoreDataViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
+    }
+    
     var body: some View {
             searchBar
             userQuotes

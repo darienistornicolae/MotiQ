@@ -34,8 +34,8 @@ struct SettingsView: View {
     @ObservedObject var viewModel = NotificationCenter()
     @StateObject var userViewModel = UserViewModel()
     
-    init(userViewModel: UserViewModel) {
-        self._userViewModel = StateObject(wrappedValue: userViewModel)
+    init(userViewModel: @autoclosure @escaping () -> UserViewModel) {
+        self._userViewModel = StateObject(wrappedValue: userViewModel())
     }
     var startingDate: Date = Date()
     var endingDate: Date = Calendar.current.date(from: DateComponents (year: 2026)) ?? Date ()

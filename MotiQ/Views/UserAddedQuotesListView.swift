@@ -13,8 +13,8 @@ struct UserAddedQuotesListView: View {
     @StateObject var viewModel = UserCoreDataViewModel()
     @State private var searchText = ""
    
-    init(viewModel: UserCoreDataViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init(viewModel: @autoclosure @escaping () -> UserCoreDataViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
         
     }
     

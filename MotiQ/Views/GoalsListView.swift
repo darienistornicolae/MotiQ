@@ -12,8 +12,8 @@ struct GoalsListView: View {
     @StateObject var viewModel = UserGoalCoreDataViewModel()
     @State var searchText: String = ""
     
-    init(viewModel: UserGoalCoreDataViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init(viewModel: @autoclosure @escaping () -> UserGoalCoreDataViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
     }
     
     var body: some View {

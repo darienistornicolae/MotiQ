@@ -18,7 +18,7 @@ struct HomeScreenView: View {
         
         TabView {
             
-            QuotesContainerView(userViewModel: UserViewModel())
+            QuotesContainerView(viewModel: MotivationalViewModel(), userViewModel: UserViewModel())
                 .tabItem {
                     Image(systemName: "quote.bubble")
                     Text("Quotes")

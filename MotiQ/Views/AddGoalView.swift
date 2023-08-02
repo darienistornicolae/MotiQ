@@ -17,8 +17,8 @@ struct AddGoalView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.colorScheme) private var colorScheme
     
-    init(viewModel: UserGoalCoreDataViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init(viewModel: @autoclosure @escaping () -> UserGoalCoreDataViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
     }
     
     var body: some View {

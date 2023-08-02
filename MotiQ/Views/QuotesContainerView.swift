@@ -24,13 +24,12 @@ struct QuotesContainerView: View {
     private let adSense = InterstitialAd()
     
     
-    init(viewModel: MotivationalViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    init(viewModel: @autoclosure @escaping () ->  MotivationalViewModel, userViewModel: @autoclosure @escaping () -> UserViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel())
+        self._userViewModel = StateObject(wrappedValue: userViewModel())
     }
     
-    init(userViewModel: UserViewModel) {
-        self._userViewModel = StateObject(wrappedValue: userViewModel)
-    }
+    
     
     var body: some View {
         quotesView
@@ -46,7 +45,7 @@ struct QuotesContainerView: View {
 
 struct QuotesContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        QuotesContainerView(userViewModel: UserViewModel())
+        QuotesContainerView(viewModel: MotivationalViewModel(), userViewModel: UserViewModel())
     }
 }
 

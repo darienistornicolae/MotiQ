@@ -16,8 +16,8 @@ struct EditGoalView: View {
     @State private var userGoalDescription: String
     @State private var sliderValue: Double
 
-    init(goal: UserGoalEntity, viewModel: UserGoalCoreDataViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+    init(goal: UserGoalEntity, viewModel: @autoclosure @escaping () -> UserGoalCoreDataViewModel ) {
+        _viewModel = StateObject(wrappedValue: viewModel())
         _goal = ObservedObject(wrappedValue: goal)
         _userGoalTitle = State(wrappedValue: goal.goalTitle ?? "")
         _userGoalDescription = State(wrappedValue: goal.goalDescription ?? "")
