@@ -34,7 +34,7 @@ struct MotiQApp: App {
         FirebaseApp.configure()
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         Purchases.logLevel = .debug
-        Purchases.configure(withAPIKey: "YOUR_KEY")
+        Purchases.configure(withAPIKey: "appl_jWKLVAnpkjXeJobUQlyOrzLRkkn")
         checkInitialLaunch()
     }
     

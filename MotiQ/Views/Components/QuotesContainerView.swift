@@ -86,7 +86,7 @@ fileprivate extension QuotesContainerView {
     }
     
     var frameWidth: CGFloat {
-        if UIScreen.main.bounds.width >= 390 { // Adjust the width based on your requirements
+        if UIScreen.main.bounds.width >= 390 {
             return 350
         } else {
             return 300
@@ -94,7 +94,7 @@ fileprivate extension QuotesContainerView {
     }
     
     var frameHeight: CGFloat {
-        if UIScreen.main.bounds.height >= 840 { // Adjust the height based on your requirements
+        if UIScreen.main.bounds.height >= 840 {
             return 650
         } else {
             return 500
