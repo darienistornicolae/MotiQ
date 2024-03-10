@@ -38,13 +38,15 @@
 		0160932F2B9DF03900FCDF11 /* CustomTextFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160932E2B9DF03900FCDF11 /* CustomTextFieldComponent.swift */; };
 		016093312B9DF1CC00FCDF11 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016093302B9DF1CC00FCDF11 /* GoalCardView.swift */; };
 		016093352B9DF26600FCDF11 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016093342B9DF26600FCDF11 /* WebViewController.swift */; };
-		016093372B9DFAE100FCDF11 /* QuoteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016093362B9DFAE100FCDF11 /* QuoteCardView.swift */; };
+		016093372B9DFAE100FCDF11 /* QuoteCardViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016093362B9DFAE100FCDF11 /* QuoteCardViewComponent.swift */; };
+		016093392B9E04A600FCDF11 /* shareQuote+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016093382B9E04A600FCDF11 /* shareQuote+View.swift */; };
+		0160933B2B9E07B900FCDF11 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160933A2B9E07B900FCDF11 /* Spacing.swift */; };
 		01777F832A544FC70002367C /* EditGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01777F822A544FC70002367C /* EditGoalView.swift */; };
 		017AED2C2B93782B00EC6813 /* QuotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017AED2B2B93782B00EC6813 /* QuotesManager.swift */; };
 		01878C602A28B84100AB7714 /* InterstitialAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01878C5F2A28B84100AB7714 /* InterstitialAd.swift */; };
 		018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018E963829DDE0AB004D5A41 /* NetworkManager.swift */; };
 		019BD33F2A0B7FAA0009F418 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019BD33E2A0B7FAA0009F418 /* AlertManager.swift */; };
-		01A1512729EC17E700A609AD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1512629EC17E700A609AD /* Extensions.swift */; };
+		01A1512729EC17E700A609AD /* SubscriptionPerion+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A1512629EC17E700A609AD /* SubscriptionPerion+Extension.swift */; };
 		01A56E642A56046D0096EE63 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A56E4E2A5603E50096EE63 /* WidgetKit.framework */; };
 		01A56E652A56046D0096EE63 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A4240629E2D30C00053D1A /* SwiftUI.framework */; };
 		01A56E682A56046D0096EE63 /* MotiqWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E672A56046D0096EE63 /* MotiqWidgetBundle.swift */; };
@@ -126,13 +128,15 @@
 		0160932E2B9DF03900FCDF11 /* CustomTextFieldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldComponent.swift; sourceTree = "<group>"; };
 		016093302B9DF1CC00FCDF11 /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
 		016093342B9DF26600FCDF11 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		016093362B9DFAE100FCDF11 /* QuoteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCardView.swift; sourceTree = "<group>"; };
+		016093362B9DFAE100FCDF11 /* QuoteCardViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCardViewComponent.swift; sourceTree = "<group>"; };
+		016093382B9E04A600FCDF11 /* shareQuote+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "shareQuote+View.swift"; sourceTree = "<group>"; };
+		0160933A2B9E07B900FCDF11 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		01777F822A544FC70002367C /* EditGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalView.swift; sourceTree = "<group>"; };
 		017AED2B2B93782B00EC6813 /* QuotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesManager.swift; sourceTree = "<group>"; };
 		01878C5F2A28B84100AB7714 /* InterstitialAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAd.swift; sourceTree = "<group>"; };
 		018E963829DDE0AB004D5A41 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		019BD33E2A0B7FAA0009F418 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		01A1512629EC17E700A609AD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		01A1512629EC17E700A609AD /* SubscriptionPerion+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubscriptionPerion+Extension.swift"; sourceTree = "<group>"; };
 		01A4240629E2D30C00053D1A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		01A56E4E2A5603E50096EE63 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		01A56E632A56046D0096EE63 /* MotiqWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MotiqWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,8 +286,10 @@
 		014B55F129D38ADC00B14F40 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				01A1512629EC17E700A609AD /* Extensions.swift */,
+				01A1512629EC17E700A609AD /* SubscriptionPerion+Extension.swift */,
 				014B560429D38C1000B14F40 /* ColorsExtension.swift */,
+				0160933A2B9E07B900FCDF11 /* Spacing.swift */,
+				016093382B9E04A600FCDF11 /* shareQuote+View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -340,7 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */,
-				016093362B9DFAE100FCDF11 /* QuoteCardView.swift */,
+				016093362B9DFAE100FCDF11 /* QuoteCardViewComponent.swift */,
 				0160932E2B9DF03900FCDF11 /* CustomTextFieldComponent.swift */,
 				016093302B9DF1CC00FCDF11 /* GoalCardView.swift */,
 				016093342B9DF26600FCDF11 /* WebViewController.swift */,
@@ -548,8 +554,9 @@
 				017AED2C2B93782B00EC6813 /* QuotesManager.swift in Sources */,
 				018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */,
 				01878C602A28B84100AB7714 /* InterstitialAd.swift in Sources */,
-				016093372B9DFAE100FCDF11 /* QuoteCardView.swift in Sources */,
+				016093372B9DFAE100FCDF11 /* QuoteCardViewComponent.swift in Sources */,
 				014B55FC29D38B8800B14F40 /* MotivationalAPI.swift in Sources */,
+				0160933B2B9E07B900FCDF11 /* Spacing.swift in Sources */,
 				01ED1AC72A2256CE00E57701 /* UserAddedQuotesListView.swift in Sources */,
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
 				01777F832A544FC70002367C /* EditGoalView.swift in Sources */,
@@ -565,8 +572,9 @@
 				013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */,
 				01B8942129DACD480052EF7E /* SavedQuotesListView.swift in Sources */,
 				010800752A52EDA3005250F5 /* UserGoalCoreDataViewModel.swift in Sources */,
-				01A1512729EC17E700A609AD /* Extensions.swift in Sources */,
+				01A1512729EC17E700A609AD /* SubscriptionPerion+Extension.swift in Sources */,
 				014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */,
+				016093392B9E04A600FCDF11 /* shareQuote+View.swift in Sources */,
 				014B55FE29D38BAA00B14F40 /* QuotesModel.swift in Sources */,
 				014B55E129D38AAF00B14F40 /* MotiQApp.swift in Sources */,
 				016093312B9DF1CC00FCDF11 /* GoalCardView.swift in Sources */,

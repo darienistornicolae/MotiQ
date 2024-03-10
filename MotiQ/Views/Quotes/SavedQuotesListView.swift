@@ -38,7 +38,7 @@ fileprivate extension SavedQuotesListView {
   var userQuotes: some View {
     List {
       ForEach(viewModel.filteredUserQuotes(searchText: searchText), id: \.self) { item in
-        QuoteCardView(quote: item.quotes ?? "No Quote", author: item.author ?? "Your Quote")
+        QuoteCardViewComponent(quote: item.quotes ?? "No Quote", author: item.author ?? "Your Quote")
           .font(.custom("Avenir", size: 20))
       }
       .onDelete(perform: viewModel.deleteQuote)
