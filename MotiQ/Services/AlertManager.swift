@@ -1,10 +1,3 @@
-//
-//  AlertManager.swift
-//  MotiQ
-//
-//  Created by Darie-Nistor Nicolae on 10.05.2023.
-//
-
 import Foundation
 import Combine
 import SwiftUI
@@ -15,12 +8,12 @@ class AlertManager: ObservableObject {
   private var titleText: Text = Text("")
   private var messageText: Text?
   private var dismissButton: Alert.Button?
-  
+
   var alert: Alert {
     return Alert(title: titleText, message: messageText,
                  dismissButton: dismissButton)
   }
-  
+
   func presentAlert(title: String, message: String?, dismissButton: Alert.Button?) {
     self.titleText = Text(title)
     if let message = message {
@@ -29,18 +22,17 @@ class AlertManager: ObservableObject {
       self.messageText = nil
     }
     self.dismissButton = dismissButton
-    
     isPresented = true
   }
 }
 
 struct AlertInfo: Identifiable {
-  
+
   enum AlertType {
     case one
     case two
   }
-  
+
   let id: AlertType
   let title: String
   let message: String

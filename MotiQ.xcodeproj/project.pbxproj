@@ -35,6 +35,10 @@
 		015E522329D5C2910098DBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015E522229D5C2910098DBB6 /* Assets.xcassets */; };
 		015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */; };
 		015E522929D5F9C00098DBB6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E522829D5F9C00098DBB6 /* NotificationCenter.swift */; };
+		0160932F2B9DF03900FCDF11 /* CustomTextFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0160932E2B9DF03900FCDF11 /* CustomTextFieldComponent.swift */; };
+		016093312B9DF1CC00FCDF11 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016093302B9DF1CC00FCDF11 /* GoalCardView.swift */; };
+		016093352B9DF26600FCDF11 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016093342B9DF26600FCDF11 /* WebViewController.swift */; };
+		016093372B9DFAE100FCDF11 /* QuoteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016093362B9DFAE100FCDF11 /* QuoteCardView.swift */; };
 		01777F832A544FC70002367C /* EditGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01777F822A544FC70002367C /* EditGoalView.swift */; };
 		017AED2C2B93782B00EC6813 /* QuotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017AED2B2B93782B00EC6813 /* QuotesManager.swift */; };
 		01878C602A28B84100AB7714 /* InterstitialAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01878C5F2A28B84100AB7714 /* InterstitialAd.swift */; };
@@ -119,6 +123,10 @@
 		015E522229D5C2910098DBB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015E522629D5DBE20098DBB6 /* AddUserQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserQuoteView.swift; sourceTree = "<group>"; };
 		015E522829D5F9C00098DBB6 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		0160932E2B9DF03900FCDF11 /* CustomTextFieldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldComponent.swift; sourceTree = "<group>"; };
+		016093302B9DF1CC00FCDF11 /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
+		016093342B9DF26600FCDF11 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		016093362B9DFAE100FCDF11 /* QuoteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCardView.swift; sourceTree = "<group>"; };
 		01777F822A544FC70002367C /* EditGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalView.swift; sourceTree = "<group>"; };
 		017AED2B2B93782B00EC6813 /* QuotesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesManager.swift; sourceTree = "<group>"; };
 		01878C5F2A28B84100AB7714 /* InterstitialAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialAd.swift; sourceTree = "<group>"; };
@@ -332,6 +340,10 @@
 			isa = PBXGroup;
 			children = (
 				01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */,
+				016093362B9DFAE100FCDF11 /* QuoteCardView.swift */,
+				0160932E2B9DF03900FCDF11 /* CustomTextFieldComponent.swift */,
+				016093302B9DF1CC00FCDF11 /* GoalCardView.swift */,
+				016093342B9DF26600FCDF11 /* WebViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -442,7 +454,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					010BCF112B13707B007C03DF = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -536,15 +548,18 @@
 				017AED2C2B93782B00EC6813 /* QuotesManager.swift in Sources */,
 				018E963929DDE0AB004D5A41 /* NetworkManager.swift in Sources */,
 				01878C602A28B84100AB7714 /* InterstitialAd.swift in Sources */,
+				016093372B9DFAE100FCDF11 /* QuoteCardView.swift in Sources */,
 				014B55FC29D38B8800B14F40 /* MotivationalAPI.swift in Sources */,
 				01ED1AC72A2256CE00E57701 /* UserAddedQuotesListView.swift in Sources */,
 				014B55F829D38B6900B14F40 /* CoreDataViewModel.swift in Sources */,
 				01777F832A544FC70002367C /* EditGoalView.swift in Sources */,
 				01A56E702A56046D0096EE63 /* MotiqWidget.intentdefinition in Sources */,
+				016093352B9DF26600FCDF11 /* WebViewController.swift in Sources */,
 				010800782A530139005250F5 /* GoalContainer.xcdatamodeld in Sources */,
 				014B55F429D38B5700B14F40 /* HomeScreenView.swift in Sources */,
 				014B55F729D38B6900B14F40 /* MotivationalViewModel.swift in Sources */,
 				0119B39D2A409C90001E9CF1 /* AddGoalView.swift in Sources */,
+				0160932F2B9DF03900FCDF11 /* CustomTextFieldComponent.swift in Sources */,
 				019BD33F2A0B7FAA0009F418 /* AlertManager.swift in Sources */,
 				01B22DDE29F70037001810F0 /* UserViewModel.swift in Sources */,
 				013F207B29E06E5E000C8E22 /* BannerAd.swift in Sources */,
@@ -554,6 +569,7 @@
 				014B560529D38C1000B14F40 /* ColorsExtension.swift in Sources */,
 				014B55FE29D38BAA00B14F40 /* QuotesModel.swift in Sources */,
 				014B55E129D38AAF00B14F40 /* MotiQApp.swift in Sources */,
+				016093312B9DF1CC00FCDF11 /* GoalCardView.swift in Sources */,
 				014B560129D38BC700B14F40 /* QuotesContainer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -934,7 +950,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = versionRange;
+				maximumVersion = 13.0.0;
 				minimumVersion = 10.0.0;
 			};
 		};
@@ -942,7 +959,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = versionRange;
+				maximumVersion = 6.0.0;
 				minimumVersion = 4.0.0;
 			};
 		};
@@ -950,7 +968,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = versionRange;
+				maximumVersion = 13.0.0;
 				minimumVersion = 10.0.0;
 			};
 		};
