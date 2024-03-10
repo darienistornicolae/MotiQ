@@ -5,14 +5,6 @@ class NotificationCenter: ObservableObject {
   @Published var notificationsEnabled: Bool = false
   @Published var authorizationStatus: UNAuthorizationStatus = .notDetermined
 
-  func checkNotificationAuthorizationStatus() {
-    UNUserNotificationCenter.current().getNotificationSettings { settings in
-      DispatchQueue.main.async {
-        self.authorizationStatus = settings.authorizationStatus
-      }
-    }
-  }
-
   func cancelUserNotification() {
     UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
   }

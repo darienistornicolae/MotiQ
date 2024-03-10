@@ -2,8 +2,8 @@ import SwiftUI
 
 struct GoalsListView: View {
 
-  @StateObject var viewModel = UserGoalCoreDataViewModel()
-  @State var searchText: String = ""
+  @StateObject private var viewModel = UserGoalCoreDataViewModel()
+  @State private var searchText: String = ""
 
   init(viewModel: @autoclosure @escaping () -> UserGoalCoreDataViewModel) {
     self._viewModel = StateObject(wrappedValue: viewModel())
@@ -51,11 +51,12 @@ fileprivate extension GoalsListView {
     List {
       ForEach(viewModel.filteredUserQuotes(searchText: searchText), id: \.self) { item in
         NavigationLink(
-          destination: EditGoalView(goal: item, viewModel: UserGoalCoreDataViewModel()).environmentObject(viewModel),
+          destination: EditGoalView(goal: item,
+                                    viewModel: UserGoalCoreDataViewModel()).environmentObject(viewModel),
           label: {
-            GoalCardView(userGoalTitle: item.goalTitle ?? "", userGoaldescription: item.goalDescription ?? "", userGoalProgress: item.goalProgress, userGoal: UserGoalEntity()) {
-              
-            }
+            GoalCardView(userGoalTitle: item.goalTitle ?? "",
+                         userGoaldescription: item.goalDescription ?? "",
+                         userGoalProgress: item.goalProgress, userGoal: UserGoalEntity()) {}
           }
         )
         .font(.custom("Avenir", size: 20))

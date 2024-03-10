@@ -2,12 +2,12 @@ import SwiftUI
 
 struct AddGoalView: View {
 
-  @StateObject var viewModel = UserGoalCoreDataViewModel()
-  @State var sliderValue: Double = 0.5
-  @State var userGoalTitle: String = ""
-  @State var userGoalDescription: String = ""
+  @StateObject private var viewModel = UserGoalCoreDataViewModel()
+  @State private var sliderValue: Double = 0.5
+  @State private var userGoalTitle: String = ""
+  @State private var userGoalDescription: String = ""
   @State private var isPressed: Bool = false
-  @Environment(\.presentationMode) var presentationMode
+  @Environment(\.presentationMode) private var presentationMode
   @Environment(\.colorScheme) private var colorScheme
   
   init(viewModel: @autoclosure @escaping () -> UserGoalCoreDataViewModel) {
@@ -88,7 +88,9 @@ fileprivate extension AddGoalView {
         Spacer()
         Button {
           guard !userGoalDescription.isEmpty else { return }
-          viewModel.addUserGoal(goalTitle: userGoalTitle, goalDescription: userGoalDescription, goalProgress: sliderValue)
+          viewModel.addUserGoal(goalTitle: userGoalTitle,
+                                goalDescription: userGoalDescription,
+                                goalProgress: sliderValue)
           presentationMode.wrappedValue.dismiss()
           viewModel.fetchUserGoals()
 
@@ -101,8 +103,9 @@ fileprivate extension AddGoalView {
             .background(Color.buttonColor)
             .cornerRadius(10)
             .alert(isPresented: $isPressed) {
-              Alert(title: Text("Goal Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
-
+              Alert(title: Text("Goal Saved!").font(.custom("Avenir", size: 24)),
+                    message: nil,
+                    dismissButton: .default(Text("OK")))
             }
         }
       }

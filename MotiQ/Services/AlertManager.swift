@@ -9,12 +9,9 @@ class AlertManager: ObservableObject {
   private var messageText: Text?
   private var dismissButton: Alert.Button?
 
-  var alert: Alert {
-    return Alert(title: titleText, message: messageText,
-                 dismissButton: dismissButton)
-  }
-
-  func presentAlert(title: String, message: String?, dismissButton: Alert.Button?) {
+  private func presentAlert(title: String,
+                            message: String?,
+                            dismissButton: Alert.Button?) {
     self.titleText = Text(title)
     if let message = message {
       self.messageText = Text(message)

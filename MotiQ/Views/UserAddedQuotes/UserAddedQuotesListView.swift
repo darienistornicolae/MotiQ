@@ -2,7 +2,7 @@ import SwiftUI
 
 struct UserAddedQuotesListView: View {
   
-  @StateObject var viewModel = UserCoreDataViewModel()
+  @StateObject private var viewModel = UserCoreDataViewModel()
   @State private var searchText = ""
   
   init(viewModel: @autoclosure @escaping () -> UserCoreDataViewModel) {
@@ -38,7 +38,8 @@ fileprivate extension UserAddedQuotesListView {
   var userQuotes: some View {
     List {
       ForEach(viewModel.filteredUserQuotes(searchText: searchText), id: \.self) { item in
-        QuoteCardViewComponent(quote: item.quotes ?? "No Quote", author: item.author ?? "Your Quote")
+        QuoteCardViewComponent(quote: item.quotes ?? "No Quote",
+                               author: item.author ?? "Your Quote")
           .font(.custom("Avenir", size: 20))
       }
       .onDelete(perform: viewModel.deleteUserQuote)

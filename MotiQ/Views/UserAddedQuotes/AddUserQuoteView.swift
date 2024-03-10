@@ -3,14 +3,15 @@ import RevenueCat
 
 struct AddUserQuoteView: View {
 
-  @StateObject var viewModel = UserCoreDataViewModel()
-  @StateObject var userViewModel = UserViewModel()
-  @State var userQuote: String = "Patience, persistence and perspiration make an unbeatable combination for success"
-  @State var userAuthor: String = "Napoleon Hill"
+  @StateObject private var viewModel = UserCoreDataViewModel()
+  @StateObject private var userViewModel = UserViewModel()
+  @State private var userQuote: String = "Patience, persistence and perspiration make an unbeatable combination for success"
+  @State private var userAuthor: String = "Napoleon Hill"
   @State private var isPressed: Bool = false
-  @Environment(\.presentationMode) var presentationMode
+  @Environment(\.presentationMode) private var presentationMode
 
-  init(viewModel: @autoclosure @escaping () ->  UserCoreDataViewModel, userViewModel: @autoclosure @escaping () ->  UserViewModel) {
+  init(viewModel: @autoclosure @escaping () ->  UserCoreDataViewModel,
+       userViewModel: @autoclosure @escaping () ->  UserViewModel) {
     self._viewModel = StateObject(wrappedValue: viewModel())
     self._userViewModel = StateObject(wrappedValue: userViewModel())
   }
@@ -54,7 +55,9 @@ fileprivate extension AddUserQuoteView {
                 .background(Color.buttonColor)
                 .cornerRadius(10)
                 .alert(isPresented: $isPressed) {
-                  Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)), message: nil, dismissButton: .default(Text("OK")))
+                  Alert(title: Text("Quote Saved!").font(.custom("Avenir", size: 24)),
+                        message: nil,
+                        dismissButton: .default(Text("OK")))
                 }
             }
           }

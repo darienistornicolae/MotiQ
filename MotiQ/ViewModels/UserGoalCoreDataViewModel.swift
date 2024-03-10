@@ -8,7 +8,7 @@ class UserGoalCoreDataViewModel: ObservableObject {
   @Published var description: String = ""
   @Published var selectedUserGoal: UserGoalEntity?
   @Published var isEditingGoal: Bool = false
-  let userGoalContainer: NSPersistentContainer
+  private let userGoalContainer: NSPersistentContainer
 
   init() {
     userGoalContainer = NSPersistentContainer(name: "GoalContainer")
@@ -42,7 +42,7 @@ class UserGoalCoreDataViewModel: ObservableObject {
     saveUserData()
   }
 
-  func saveUserData() {
+  private func saveUserData() {
     do {
       try userGoalContainer.viewContext.save()
       fetchUserGoals()
@@ -53,7 +53,6 @@ class UserGoalCoreDataViewModel: ObservableObject {
 
   func fetchUserGoals() {
     let request = NSFetchRequest<UserGoalEntity>(entityName: "UserGoalEntity")
-    
     do {
       userGoalEntity = try userGoalContainer.viewContext.fetch(request)
     } catch let error {

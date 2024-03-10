@@ -22,10 +22,10 @@ struct SettingsView: View {
   
   @State private var showAlert: Bool = false
   @State private var info: AlertInfo?
-  @State var selectedDate: Date = Date()
+  @State private var selectedDate: Date = Date()
   @State private var isSubscribed = false
-  @ObservedObject var viewModel = NotificationCenter()
-  @StateObject var userViewModel = UserViewModel()
+  @ObservedObject private var notificationsCenter = NotificationCenter()
+  @StateObject private var userViewModel = UserViewModel()
   
   init(userViewModel: @autoclosure @escaping () -> UserViewModel) {
     self._userViewModel = StateObject(wrappedValue: userViewModel())
@@ -75,11 +75,7 @@ struct SettingsView: View {
     .onChange(of: isDarkMode) { newValue in
       updateColorScheme()
     }
-    
   }
-  
-  
-  
 }
 
 struct SettingsSheet_Previews: PreviewProvider {
@@ -87,7 +83,6 @@ struct SettingsSheet_Previews: PreviewProvider {
     SettingsView(userViewModel: UserViewModel())
   }
 }
-
 
 fileprivate extension SettingsView {
   
@@ -132,7 +127,10 @@ fileprivate extension SettingsView {
              customerInfo.entitlements["Premium MotiQ"]?.isActive == true {
             userViewModel.isSubscribeActive = true
             if !showAlert {
-              info = AlertInfo(id: .two, title: "Subscription Restored", message: "Your subscription has been successfully restored.", dismissButton: .default(Text("Great!")))
+              info = AlertInfo(id: .two,
+                               title: "Subscription Restored",
+                               message: "Your subscription has been successfully restored.",
+                               dismissButton: .default(Text("Great!")))
               showAlert = true
             }
           }
@@ -142,13 +140,16 @@ fileprivate extension SettingsView {
           .font(.headline)
       }
       .alert(item: $info) { info in
-        Alert(title: Text(info.title), message: Text(info.message), dismissButton: info.dismissButton)
+        Alert(title: Text(info.title),
+              message: Text(info.message),
+              dismissButton: info.dismissButton)
       }
     }
   }
   
   var darkMode: some View {
-    Section(header: Text("Display"), footer: Text("By default is based on the system settings. You can modify it after as you wish!")) {
+    Section(header: Text("Display"),
+            footer: Text("By default is based on the system settings. You can modify it after as you wish!")) {
       Toggle(isOn: $isDarkMode) {
         Text("Dark mode")
       }
@@ -156,7 +157,8 @@ fileprivate extension SettingsView {
   }
   
   var favoriteQuotes: some View {
-    Section(header: Text("Favorites Quotes"), footer: Text("See your favorite quotes")) {
+    Section(header: Text("Favorites Quotes"),
+            footer: Text("See your favorite quotes")) {
       NavigationLink("Favorite Quotes") {
         SavedQuotesListView(viewModel: CoreDataViewModel())
       }
@@ -164,7 +166,8 @@ fileprivate extension SettingsView {
   }
   
   var userAddedQuotes: some View {
-    Section(header: Text("Your Quotes"), footer: Text("See your added quotes")) {
+    Section(header: Text("Your Quotes"),
+            footer: Text("See your added quotes")) {
       NavigationLink("Your Quotes") {
         UserAddedQuotesListView(viewModel: UserCoreDataViewModel())
       }
@@ -173,31 +176,34 @@ fileprivate extension SettingsView {
   
   var notifications: some View {
     Section(header: Text("Push Notifications")) {
-      Toggle(isOn: $viewModel.notificationsEnabled) {
+      Toggle(isOn: $notificationsCenter.notificationsEnabled) {
         Text("Enable Notifications")
       }
-      .onChange(of: viewModel.notificationsEnabled) { enabled in
+      .onChange(of: notificationsCenter.notificationsEnabled) { enabled in
         UserDefaults.standard.set(enabled, forKey: "notificationsEnabled")
         if enabled {
-          viewModel.requestAuthorization()
+          notificationsCenter.requestAuthorization()
           if enabled {
-            viewModel.scheduleUserNotification(at: selectedDate)
+            notificationsCenter.scheduleUserNotification(at: selectedDate)
           }
         } else {
-          viewModel.cancelUserNotification()
+          notificationsCenter.cancelUserNotification()
           redirectToNotificationSettings()
         }
       }
-      if viewModel.notificationsEnabled {
-        DatePicker("Remind Me", selection: $selectedDate, in: startingDate...endingDate, displayedComponents: [.date, .hourAndMinute])
+      if notificationsCenter.notificationsEnabled {
+        DatePicker("Remind Me",
+                   selection: $selectedDate,
+                   in: startingDate...endingDate,
+                   displayedComponents: [.date, .hourAndMinute])
           .datePickerStyle(CompactDatePickerStyle())
           .onChange(of: selectedDate) { date in
-            viewModel.scheduleUserNotification(at: date)
+            notificationsCenter.scheduleUserNotification(at: date)
           }
       }
     }
     .onAppear {
-      viewModel.notificationsEnabled = UserDefaults.standard.bool(forKey: "notificationsEnabled")
+      notificationsCenter.notificationsEnabled = UserDefaults.standard.bool(forKey: "notificationsEnabled")
       
     }
   }
@@ -211,7 +217,8 @@ fileprivate extension SettingsView {
   
   
   var newsLetter: some View {
-    Section(header: Text("Newsletter Form"), footer: Text("Here is the newsletter form to complete to recive the Weekly Newsletter!☺️")) {
+    Section(header: Text("Newsletter Form"),
+            footer: Text("Here is the newsletter form to complete to recive the Weekly Newsletter!☺️")) {
       NavigationLink("MotiQ Newsletter") {
         WebView()
       }

@@ -9,14 +9,17 @@ struct HomeScreenView: View {
 
   var body: some View {
     TabView {
-      QuotesContainerView(viewModel: MotivationalViewModel(), userViewModel: UserViewModel())
+      QuotesContainerViewComponent(viewModel: MotivationalViewModel(), userViewModel: UserViewModel())
         .tabItem {
           Image(systemName: "quote.bubble")
           Text("Quotes")
         }
         .onAppear {
           if !isAlertShown {
-            info = AlertInfo(id: .one, title: "Useful Tip", message: "Swipe left to go to the next quote!", dismissButton: .default(Text("Great!")))
+            info = AlertInfo(id: .one,
+                             title: "Useful Tip",
+                             message: "Swipe left to go to the next quote!",
+                             dismissButton: .default(Text("Great!")))
             isAlertShown = true
           }
         }

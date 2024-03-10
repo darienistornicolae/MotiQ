@@ -4,7 +4,7 @@ import Combine
 class MotivationalAPI {
 
   @Published var quotes: [QuotesModel]
-  var cancellables = Set<AnyCancellable>()
+  private var cancellables = Set<AnyCancellable>()
   private let url: String = "https://zenquotes.io/api/quotes/"
   
   init(cancellables: Set<AnyCancellable> = Set<AnyCancellable>(), quotes: QuotesModel) {
@@ -13,7 +13,6 @@ class MotivationalAPI {
   }
 
   func getQuotes() {
-
     guard let url = URL(string: url) else { return }
     URLSession.shared.dataTaskPublisher(for: url)
       .receive(on: DispatchQueue.main)
@@ -34,7 +33,7 @@ class MotivationalAPI {
       .store(in: &cancellables)
   }
 
-  func handleOutput(output: URLSession.DataTaskPublisher.Output) throws -> Data {
+  private func handleOutput(output: URLSession.DataTaskPublisher.Output) throws -> Data {
     guard
       let response = output.response as? HTTPURLResponse,
       response.statusCode >= 200 && response.statusCode < 300 else {

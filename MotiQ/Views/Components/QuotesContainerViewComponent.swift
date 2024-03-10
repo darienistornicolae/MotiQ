@@ -1,20 +1,21 @@
 import SwiftUI
 
-struct QuotesContainerView: View {
+struct QuotesContainerViewComponent: View {
 
   @Environment(\.colorScheme) var colorScheme
   @GestureState private var dragState = DragState.inactive
-  @ObservedObject var networkManager = NetworkManager()
+  @ObservedObject private var networkManager = NetworkManager()
   @StateObject private var viewModel = MotivationalViewModel()
   @StateObject private var userViewModel = UserViewModel()
   @StateObject private var textToSpeech = TextToSpeech()
-  @State var clickCount: Int = 0
+  @State private var clickCount: Int = 0
   @State private var offset: CGFloat = 0.0
   @State private var swipeCount = 0
   private var hasFetchedQuotes: Bool = false
   private let adSense = InterstitialAd()
 
-  init(viewModel: @autoclosure @escaping () ->  MotivationalViewModel, userViewModel: @autoclosure @escaping () -> UserViewModel) {
+  init(viewModel: @autoclosure @escaping () ->  MotivationalViewModel,
+       userViewModel: @autoclosure @escaping () -> UserViewModel) {
     self._viewModel = StateObject(wrappedValue: viewModel())
     self._userViewModel = StateObject(wrappedValue: userViewModel())
   }
@@ -31,11 +32,12 @@ struct QuotesContainerView: View {
 
 struct QuotesContainerView_Previews: PreviewProvider {
   static var previews: some View {
-    QuotesContainerView(viewModel: MotivationalViewModel(), userViewModel: UserViewModel())
+    QuotesContainerViewComponent(viewModel: MotivationalViewModel(),
+                                 userViewModel: UserViewModel())
   }
 }
 
-fileprivate extension QuotesContainerView {
+fileprivate extension QuotesContainerViewComponent {
   enum DragState {
     case inactive
     case dragging(translation: CGFloat)

@@ -53,7 +53,7 @@
 		01E89D252A3B567B00E12443 /* GoalsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E89D242A3B567B00E12443 /* GoalsListView.swift */; };
 		01ED1AC72A2256CE00E57701 /* UserAddedQuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */; };
 		01ED1AC92A227D9900E57701 /* UserCoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1AC82A227D9900E57701 /* UserCoreDataViewModel.swift */; };
-		01FFF6F52A1909510017EC46 /* QuotesContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */; };
+		01FFF6F52A1909510017EC46 /* QuotesContainerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FFF6F42A1909510017EC46 /* QuotesContainerViewComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,7 +126,7 @@
 		01E89D242A3B567B00E12443 /* GoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsListView.swift; sourceTree = "<group>"; };
 		01ED1AC62A2256CE00E57701 /* UserAddedQuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAddedQuotesListView.swift; sourceTree = "<group>"; };
 		01ED1AC82A227D9900E57701 /* UserCoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataViewModel.swift; sourceTree = "<group>"; };
-		01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesContainerView.swift; sourceTree = "<group>"; };
+		01FFF6F42A1909510017EC46 /* QuotesContainerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesContainerViewComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +306,7 @@
 		017AED282B9376AB00EC6813 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				01FFF6F42A1909510017EC46 /* QuotesContainerView.swift */,
+				01FFF6F42A1909510017EC46 /* QuotesContainerViewComponent.swift */,
 				016093362B9DFAE100FCDF11 /* QuoteCardViewComponent.swift */,
 				0160932E2B9DF03900FCDF11 /* CustomTextFieldComponent.swift */,
 				016093302B9DF1CC00FCDF11 /* GoalCardView.swift */,
@@ -456,7 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01016CEF2A1DE2CF00D31F6C /* PayWallOpeningView.swift in Sources */,
-				01FFF6F52A1909510017EC46 /* QuotesContainerView.swift in Sources */,
+				01FFF6F52A1909510017EC46 /* QuotesContainerViewComponent.swift in Sources */,
 				015E522729D5DBE20098DBB6 /* AddUserQuoteView.swift in Sources */,
 				0108007A2A532A27005250F5 /* TrackingCenter.swift in Sources */,
 				014B55FA29D38B7A00B14F40 /* SettingsView.swift in Sources */,

@@ -2,8 +2,8 @@ import Foundation
 import Network
 
 class NetworkManager: ObservableObject {
-  let monitor = NWPathMonitor()
-  let queue = DispatchQueue(label: "NetworkManager")
+  private let monitor = NWPathMonitor()
+  private let queue = DispatchQueue(label: "NetworkManager")
   @Published var isConnected: Bool = true
 
   init() {

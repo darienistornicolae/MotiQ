@@ -7,9 +7,9 @@ class MotivationalViewModel: ObservableObject {
   @Published var isSaved: Bool = false
   @Published var q: String = ""
   @Published var a: String = ""
-  let apiService = MotivationalAPI(quotes: QuotesModel(q: "", a: ""))
-  let coreData = CoreDataViewModel()
-  var cancellables = Set<AnyCancellable>()
+  private let apiService = MotivationalAPI(quotes: QuotesModel(q: "", a: ""))
+  private let coreData = CoreDataViewModel()
+  private var cancellables = Set<AnyCancellable>()
   private let adSense = InterstitialAd()
 
   var index: Int = 0
@@ -19,8 +19,7 @@ class MotivationalViewModel: ObservableObject {
     getData()
   }
 
-  func getData() {
-    
+  private func getData() {
     if !hasFetchedQuotes {
       apiService.getQuotes()
       hasFetchedQuotes = true
@@ -47,7 +46,7 @@ class MotivationalViewModel: ObservableObject {
       .store(in: &cancellables)
   }
 
-  func startTimer() {
+  private func startTimer() {
     Timer.publish(every: 15, on: .main, in: .common)
       .autoconnect()
       .sink { [weak self] _ in

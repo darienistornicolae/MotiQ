@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SavedQuotesListView: View {
 
-  @StateObject var viewModel: CoreDataViewModel
+  @StateObject private var viewModel: CoreDataViewModel
   @State private var searchText = ""
 
   init(viewModel: @autoclosure @escaping () -> CoreDataViewModel) {

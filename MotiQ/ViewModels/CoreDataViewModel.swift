@@ -4,7 +4,7 @@ import CoreData
 class CoreDataViewModel: ObservableObject {
 
   @Published var savedEntities: [QuotesEntity] = []
-  let container: NSPersistentContainer
+  private let container: NSPersistentContainer
 
   init() {
     container = NSPersistentContainer(name: "QuotesContainer")
@@ -33,7 +33,7 @@ class CoreDataViewModel: ObservableObject {
     saveData()
   }
 
-  func saveData() {
+  private func saveData() {
     do {
       try container.viewContext.save()
       fetchQuotes()

@@ -4,11 +4,11 @@ import RevenueCat
 struct PayWallOpeningView: View {
 
   @AppStorage("isDarkMode") private var isDarkMode: Bool = false
-  @State var animate: Bool = false
-  @State var currentOffering: Offering?
+  @State private var animate: Bool = false
+  @State private var currentOffering: Offering?
   @State private var selectedPackageIdentifier: String?
-  @EnvironmentObject var userViewModel: UserViewModel
-  @Environment(\.presentationMode) var presentationMode
+  @EnvironmentObject private var userViewModel: UserViewModel
+  @Environment(\.presentationMode) private var presentationMode
 
   var body: some View {
     NavigationView {
